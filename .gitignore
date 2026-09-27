@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+TestResults/
+generated/
+examples/web/public/assets/
+examples/web/public/data/*.replay.json
+*.user
+*.suo
+.vs/
+examples/web/headless-*.json
+examples/web/public/licenses/

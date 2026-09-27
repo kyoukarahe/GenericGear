@@ -1,0 +1,29 @@
+name: Source candidate verification
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+        with:
+          dotnet-version: |
+            10.0.401
+            8.0.x
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24.15.0
+      - run: dotnet test tests/GearInvest.Tests/GearInvest.Tests.csproj -c Release -p:RestoreLockedMode=true
+      - run: dotnet build src/GearInvest/GearInvest.csproj -c Release -p:RestoreLockedMode=true
+      - run: dotnet run --project examples/console/Consumer.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms
+      - run: dotnet run --project examples/exact-producer/Guidance.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms/coaxial.artifact.json generated/exact
+      - run: node scripts/prepare-web.mjs
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm run build --workspace @gearinvest/public-example
+      - run: npm test

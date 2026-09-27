@@ -1,0 +1,1 @@
+{ "extends": "./tsconfig.json", "compilerOptions": { "lib": ["ES2022", "DOM"] }, "include": ["src/canvas2d.ts", "src/orientedCanvas2d.ts", "src/orientedTwoOutputCanvas2d.ts"] }

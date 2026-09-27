@@ -1,0 +1,2 @@
+# Preserve the reviewed snapshot bytes and canonical JSON across checkouts.
+* -text

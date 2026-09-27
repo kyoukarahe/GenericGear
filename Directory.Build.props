@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <Deterministic>true</Deterministic><ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Version>0.1.0-rc.public01.1</Version><Authors>Karahe</Authors>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression><PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/kyoukarahe/GenericGear</RepositoryUrl><RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/kyoukarahe/GenericGear</PackageProjectUrl>
+    <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries><EnableSourceLink>false</EnableSourceLink>
+    <PathMap>$(MSBuildThisFileDirectory)=/_/GenericGear/</PathMap><DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE_SCOPE.md" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)THIRD_PARTY_NOTICES.md" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)DEPENDENCIES.json" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

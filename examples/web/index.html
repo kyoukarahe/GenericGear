@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>GenericGear · Independent Rotors</title></head>
+<body><header><strong>GenericGear / Independent Rotors</strong><span>하나의 입력 · 별도의 회전자 · 실제 복합축</span></header>
+<main><aside>
+<label>배포된 기계 결과<select id="model"><option value="coaxial">20:60 / 16:64</option><option value="variant">20:60 / 20:60</option><option value="renamed">이름이 다른 일반 입력</option><option value="exact-phases">추가 작성: 1 · 1/12 · 1/960 + 1/7</option></select></label>
+<label>자체 제작 외부 GLB<select id="asset"><option value="arrow">Y150° 장착</option><option value="alternate">X90° · Y150° 장착</option></select></label>
+<label><input id="delay" type="checkbox">이번 로드만 10초 지연 (완료 역전 확인)</label><button id="load">기구 불러오기</button><button id="cancel">로드 취소</button>
+<label>내 replay 파일<input id="file" type="file" accept=".json"></label>
+<label>활성 인스턴스<select id="instance"></select></label><button id="clone">같은 기구 인스턴스 추가</button>
+<label>긴 바늘 / GLB를 연결할 body<select id="long-body"></select></label><label>짧은 바늘을 연결할 body<select id="short-body"></select></label><button id="bind">기존 외부 바늘 연결</button><button id="bind-glb">외부 GLB 연결</button>
+<label>GLB 적용 경로<select id="route"><option value="body">A — SDK body pose</option><option value="scalar">B — shaft scalar + 고정 장착</option></select></label>
+<label>절대 입력 회전수 u<input id="root" value="0" autocomplete="off" spellcheck="false"></label><button id="seek">이동</button>
+<div class="presets"><button data-root="0">0</button><button data-root="1/4">1/4</button><button data-root="1">1</button><button data-root="12">12</button><button data-root="-1/4">−1/4</button><button data-root="12000000000000000000000000000000000000000000000000000000000001/4">큰 입력</button></div>
+<button id="save-local">브라우저에 원본·View·정확 입력 저장</button><button id="save">원본 저장</button><button id="save-view">View 저장</button><button id="restore">현재 기구에 저장된 View 열기</button><button id="reopen">저장된 원본·View 다시 열기</button>
+<label>View 파일 열기<input id="view-file" type="file" accept=".json"></label>
+<button id="remove">현재 인스턴스 해제</button><button id="close">모델 닫기</button>
+<p>푸른 긴 바늘과 붉은 짧은 바늘은 소비 앱의 외부 mesh입니다. 기어 소유권·비율·접촉은 저장된 기계가 결정합니다. Parent 이동·축척과 자산 pivot 보정은 표시만 바꿉니다.</p>
+<p>기본 동축 예제의 고정 source frame은 Z=0/5mm입니다. 추가 작성 예제는 별도 source frame을 사용합니다. 고리는 개략 표시이며 정밀 치형이 아닙니다. 유한 치폭·베어링·제조 가능성은 미검증. 브라우저는 기계 validator가 아닙니다.</p>
+</aside><section><div id="viewport" aria-label="동축 회전자 3D 화면"></div><div id="status" role="status"></div><pre id="readback" aria-label="정확한 입력 및 회전자 상태"></pre></section></main>
+<details><summary>Source·binding·표시 좌표</summary><pre id="inventory"></pre></details><script type="module" src="./main.js"></script></body></html>

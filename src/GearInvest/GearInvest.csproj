@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+    <RootNamespace>GearInvest</RootNamespace>
+    <AssemblyName>GearInvest</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GearInvest.Core\GearInvest.Core.csproj" />
+    <ProjectReference Include="..\GearInvest.Modules.Clock\GearInvest.Modules.Clock.csproj" />
+    <ProjectReference Include="..\GearInvest.Layout\GearInvest.Layout.csproj" />
+    <ProjectReference Include="..\GearInvest.Engine\GearInvest.Engine.csproj" />
+    <ProjectReference Include="..\GearInvest.Serialization.Json\GearInvest.Serialization.Json.csproj" />
+  </ItemGroup>
+</Project>

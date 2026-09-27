@@ -1,0 +1,2543 @@
+{
+  "schemaVersion": 1,
+  "candidate": "0.1.0-rc.public01.1",
+  "kind": "source-only",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 84,
+      "sha256": "93a3b2adf540211e4db2a3f58a375ee4b491ffdbf2704edec8dbff4f68527f2e"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "bytes": 1316,
+      "sha256": "5675b70824733ca48cb6c5ee03edb65b30c100bd990b4c45be528042cd8d25ad"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 210,
+      "sha256": "3b3ed42469a483960df411c57c808fd8debe13d65481503c7f47daa7a3614117"
+    },
+    {
+      "path": "adapters/unity-source/README.md",
+      "bytes": 1068,
+      "sha256": "f7f53dd4381c20e693bfbd7314a582a8975fb3fa9ad835262c2e7648dac3c9ce"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvest.Unity.Runtime.asmdef",
+      "bytes": 362,
+      "sha256": "e2b71532a80ed9142976a1313e95720ca7311e81066de4e4172e011261ba0992"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestArtifactSession.cs",
+      "bytes": 1999,
+      "sha256": "0faee0ffc4aa8398b1c83903832f4eca9939ede3ea8052b8306115da80337069"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestAuthoringWidgets.cs",
+      "bytes": 2406,
+      "sha256": "9ceeeecee780285c21d123955f27182f4de3b70396a40236086da631b48dd9ea"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestBodyView.cs",
+      "bytes": 1141,
+      "sha256": "db884c7bad4eac8f2f0bf8587de5aa5b234fceb6d719cc80df11b0493a37bbc2"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestCamFollowerInspector.cs",
+      "bytes": 43773,
+      "sha256": "7b1003ea4c6d8f050996a6dbe50c3877947633a8ffda5cf012036105af2cfb69"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestCamFollowerView.cs",
+      "bytes": 14762,
+      "sha256": "ca6bba1da8b8524664c0017878217fdf4ef0d981f8dd4dd73deb89a1ad7d11e3"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestCrankSliderInspector.cs",
+      "bytes": 41165,
+      "sha256": "a6dcda4ae839f85a3a3436a7d8c41cf8c37628eeb8fe06bc0beda7bc24ccf168"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestCrankSliderView.cs",
+      "bytes": 12302,
+      "sha256": "5be47a5a9e6e1572bb076980bad9df11aea790ae332f970ca7c29c7b1ca4dac6"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestGenevaInspector.cs",
+      "bytes": 43759,
+      "sha256": "472ce7c8257d2a6fae3c85b5d59f590756fcfec71c64d69f79675f3365a11d8b"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestGenevaView.cs",
+      "bytes": 12555,
+      "sha256": "01b66bc3d8614a2231e41b3f0399be3d09e95a8588f3cf30156be5cf6609d75d"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestLinearLeadScrewInspector.cs",
+      "bytes": 35908,
+      "sha256": "e97c080929f6a9af55b31c54a975b03e40d13dd60bab0dc4180c461bc635f08c"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestLinearLeadScrewView.cs",
+      "bytes": 7977,
+      "sha256": "d8f1d07f99d86fdd4e9d6cd251aa25fde0ab585f37aaaefa2866a6da86149726"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestMechanicalAssemblyInspector.cs",
+      "bytes": 69410,
+      "sha256": "f609ef7c81ed767941b12012017cacfe619d6186b8d572a34307bcb384f62375"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestMechanicalAssemblyView.cs",
+      "bytes": 39584,
+      "sha256": "6d1d1797193411ea0ee2cb55c66fd830757eeeda2818e9f643e1ac080b1ca3ef"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestMechanicalAuthoringInspector.cs",
+      "bytes": 27361,
+      "sha256": "f8dcc3a7c3f8e807d9182051ee13b81ae1da5c684a672f2c0929e6202532d51c"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestMechanismView.cs",
+      "bytes": 5161,
+      "sha256": "8dfa2da8357bf8ef6d36ec8a2b7b0657e8ead92f55561ba5aa6f12d2e6da0a61"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOpenBeltInspector.cs",
+      "bytes": 40946,
+      "sha256": "34132c6ddbbb06435bdf7b514658f9fea58bca7b2b23552a23a0af8ff589972e"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOpenBeltView.cs",
+      "bytes": 11616,
+      "sha256": "46d5cdad1cf3f3d3b46224f63fd30f879bbd9ba1648fc16ff6b166ded22807ba"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOrientedGoalInspector.cs",
+      "bytes": 34073,
+      "sha256": "1cae3fb6e2d31a42611a94cf595360eff720c39ce29b725dc599581653ef5d72"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOrientedInspector.cs",
+      "bytes": 15941,
+      "sha256": "79bbe723eced6914d16b8787cd048baa8de80b7b033df0bada579d0db11f2c76"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOrientedMechanismView.cs",
+      "bytes": 15744,
+      "sha256": "1d94772092101f37cc842522bb74446011551739ce8ecd3ad6c86381b640df86"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestOrientedTwoOutputInspector.cs",
+      "bytes": 19362,
+      "sha256": "839ca70aab360dcf008e969fc93def241db1db1f8431642de3802f8fd80994c3"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestPitchChainInspector.cs",
+      "bytes": 45041,
+      "sha256": "c105e0bd2bd88b100c0b446c67deb4659e2fc710e5d14ccc31dc66f6f6d49a53"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestPitchChainView.cs",
+      "bytes": 13086,
+      "sha256": "eed7a80350534aa6f1aa90847fd3fed2791775e65073e8b881388f97ecf41833"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestPitchPairView.cs",
+      "bytes": 6363,
+      "sha256": "2b38ca779a39db9fb17649e367770a8b460a64f07d009e9ca164602993828f10"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestPresentationMaterial.cs",
+      "bytes": 1240,
+      "sha256": "88be4ef8c087444a9a2ff9545daa7edb104d39940a2d01dee56de341c82990c0"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestRackPinionInspector.cs",
+      "bytes": 38319,
+      "sha256": "1bfa28830c66104fd571064f83a41b2fc0a8c84804a9f01a5a2f2e3a75abeba2"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestRackPinionView.cs",
+      "bytes": 10900,
+      "sha256": "3b7f404c3e328662dbf16bb5acc2fc40816e4cd33782e1deb5a20cb79debda28"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestResolvedPlaybackController.cs",
+      "bytes": 3525,
+      "sha256": "1ffaf88571fa25ae75840245143038c550db3dc2f57fb308cedda74ba0780d83"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestWormDriveInspector.cs",
+      "bytes": 46163,
+      "sha256": "04268d90bce9318f74aeebcfb76b2b8cd7d0eed72759dfb2b0a209a996eadbe5"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/GearInvestWormDriveView.cs",
+      "bytes": 12455,
+      "sha256": "928d5f371847067c73f71be9618c94cec02ae9f480f0b5e1bfcc3337af874d5b"
+    },
+    {
+      "path": "adapters/unity-source/Runtime/Resources/GearInvestPresentationUnlit.shader",
+      "bytes": 637,
+      "sha256": "b5c31632d1002a684ba3e435becd92b2754f94960dd8721f05c2a232cc8008e0"
+    },
+    {
+      "path": "COMMERCIAL_LICENSE.md",
+      "bytes": 1347,
+      "sha256": "e63817c6b2efbed85ea9cca2f3b2016a86cdc8307ce14d2bb06f475edad6f66f"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1516,
+      "sha256": "17bfff51edc65d0115b249d8f7994b0c3347d3d0dbf61f2285c100b32e14f072"
+    },
+    {
+      "path": "DEPENDENCIES.json",
+      "bytes": 47676,
+      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
+    },
+    {
+      "path": "Directory.Build.props",
+      "bytes": 1483,
+      "sha256": "f37de832100eb28ff87de1c4735cd2b67f18b37b5449e66e9fbbbb2f12c2787b"
+    },
+    {
+      "path": "docs/CI_POLICY.md",
+      "bytes": 1450,
+      "sha256": "684b29e2f0645fc14e9eee9911f00dc1092e5394beed30994f7c071e094204e2"
+    },
+    {
+      "path": "docs/CONSUMER.md",
+      "bytes": 2224,
+      "sha256": "7c63b146af61722f5ddab8f27301b14da54183cf82fb32b3450751a120bd3c2c"
+    },
+    {
+      "path": "docs/DISTRIBUTION.md",
+      "bytes": 1922,
+      "sha256": "7a43733749d60a2a35c389b461546b67856e5f0e7ea43b65a1fe947cc48c2a1e"
+    },
+    {
+      "path": "docs/SUPPORTED_SCOPE.md",
+      "bytes": 2319,
+      "sha256": "7c4eb0d0914682848042700c5a94a6de99aadfd43b92e424b4ed84e1dd6931a5"
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "bytes": 2107,
+      "sha256": "687d6f0f30889914016a370acf59058ede03f43ced89011fd334155091e3dbfa"
+    },
+    {
+      "path": "examples/console/Consumer.csproj",
+      "bytes": 360,
+      "sha256": "42002a32e856f07ba0c9851a7336edeb3b266c3b918a95c3bc0bcbbaef7030f2"
+    },
+    {
+      "path": "examples/console/packages.lock.json",
+      "bytes": 1648,
+      "sha256": "323907d06a95c8742d3d97ea6d6416ec182433477c6a82f0ea36fc8dd4e9b317"
+    },
+    {
+      "path": "examples/console/Program.cs",
+      "bytes": 2758,
+      "sha256": "da32030c709fbc2ef0982933c8e7a5478e9947f3854cb15126589f215f1f4dbb"
+    },
+    {
+      "path": "examples/exact-producer/Guidance.csproj",
+      "bytes": 273,
+      "sha256": "c15d96d2a7053550aa0fb6d796edf108804cf66d5b6fe40b13582e4cacbbd88f"
+    },
+    {
+      "path": "examples/exact-producer/packages.lock.json",
+      "bytes": 1648,
+      "sha256": "323907d06a95c8742d3d97ea6d6416ec182433477c6a82f0ea36fc8dd4e9b317"
+    },
+    {
+      "path": "examples/exact-producer/Program.cs",
+      "bytes": 4555,
+      "sha256": "333253b00f019d5c98ca0f4af0af55d41acf9694857aee040050e33bddbda147"
+    },
+    {
+      "path": "examples/shared/MechanicalAuthoringExample.cs",
+      "bytes": 5335,
+      "sha256": "2861467cc3493dcd1a5c21ae32ea890e0ccdeb0778ef6bac084e2c980bb7a003"
+    },
+    {
+      "path": "examples/shared/OrientedExample.cs",
+      "bytes": 3997,
+      "sha256": "99d0b5e7ae032f5b469d893e7ff3cb3e97122117fd622814073374f7f02c06bb"
+    },
+    {
+      "path": "examples/shared/OrientedTwoOutputExample.cs",
+      "bytes": 2897,
+      "sha256": "374efdd0665adb130a40eca8a7cacfad0a2d1d7503b022e3a33daf6008fa4190"
+    },
+    {
+      "path": "examples/web/checks.mjs",
+      "bytes": 19536,
+      "sha256": "6bc75ae288190ac5f52cac4e7f678ebb43ba611f529ab61a49fe733afdd5cd82"
+    },
+    {
+      "path": "examples/web/exact-display.mjs",
+      "bytes": 6082,
+      "sha256": "9eb7b0918e638330e0e36f76bf8f999ad8cf39b31782b74da215415d4a3ead0c"
+    },
+    {
+      "path": "examples/web/external-assets.mjs",
+      "bytes": 4287,
+      "sha256": "4648acd40ffc574edcd431069b00ade20f9ebb87d4db591fe1d4da269683edbf"
+    },
+    {
+      "path": "examples/web/index.html",
+      "bytes": 3505,
+      "sha256": "172bb2fcf56d00c257e4f0fe5e813040128abd784da67f9680d044500e8fb405"
+    },
+    {
+      "path": "examples/web/load-lifecycle.mjs",
+      "bytes": 895,
+      "sha256": "aa8f4ed256a99e23221821d33ec464b0a34ec60ee1eb0ad85c479b02c6eb8f74"
+    },
+    {
+      "path": "examples/web/main.js",
+      "bytes": 17126,
+      "sha256": "0917b9ba6be58fdca9a5b683923071b1c4a686fd065dff0b666a10914d07d93c"
+    },
+    {
+      "path": "examples/web/package.json",
+      "bytes": 418,
+      "sha256": "176a4df68bda6d593328233916b14ff8c9a67e8667ca32c9f1f6fb4e0f911550"
+    },
+    {
+      "path": "examples/web/public/data/mixed.oriented.json",
+      "bytes": 39318,
+      "sha256": "f749b4205a7f42bd0f1dd2481b511fe01007251a3242f4fc830befad06ee951f"
+    },
+    {
+      "path": "examples/web/style.css",
+      "bytes": 1637,
+      "sha256": "2e68771c46d859e421ec6900e18cf75f61dbba76c5500512a58011da06e32830"
+    },
+    {
+      "path": "global.json",
+      "bytes": 55,
+      "sha256": "e0c0882461e712f6c2c66241bf2f175c60832e3ff077dc26091ff8c661d4193e"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 34020,
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
+    },
+    {
+      "path": "LICENSE_SCOPE.md",
+      "bytes": 2318,
+      "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
+    },
+    {
+      "path": "NuGet.Config",
+      "bytes": 179,
+      "sha256": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 40120,
+      "sha256": "dab23ca6ba60db7cba14566ba681e3613f9f7c0da794f08f0a5bf074d5fe262c"
+    },
+    {
+      "path": "package.json",
+      "bytes": 476,
+      "sha256": "1045cea3bef7b2df2e683f31abfb7a8e43587090401a9ac2ffcdaa1fdcb2d8dc"
+    },
+    {
+      "path": "packages/presentation/DEPENDENCIES.json",
+      "bytes": 47676,
+      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
+    },
+    {
+      "path": "packages/presentation/LICENSE",
+      "bytes": 34020,
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
+    },
+    {
+      "path": "packages/presentation/LICENSE_SCOPE.md",
+      "bytes": 2318,
+      "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
+    },
+    {
+      "path": "packages/presentation/package.json",
+      "bytes": 1548,
+      "sha256": "0940ca24c3e9571bd4254b0be775e58767cbd5727df3f3e21229d5a761e273a3"
+    },
+    {
+      "path": "packages/presentation/README.md",
+      "bytes": 878,
+      "sha256": "22238c442ad4e174913e64a2c56aad54f313227d9d8455416b339861aeb386db"
+    },
+    {
+      "path": "packages/presentation/src/assembly.ts",
+      "bytes": 11428,
+      "sha256": "a706288b58ab3afba1a111132d4a505a28ceb3c6e87ca3db0ed6caf87781a988"
+    },
+    {
+      "path": "packages/presentation/src/canvas2d.ts",
+      "bytes": 3615,
+      "sha256": "771c8e4a92abedec3eb867c2ccff38dfc1924534df4b7aa2589f453098ff776c"
+    },
+    {
+      "path": "packages/presentation/src/index.ts",
+      "bytes": 16014,
+      "sha256": "d7a55af8cd4bc19ad5aa89eaa2dbaf010237c16fc9af27540a3c687bf63c6c2e"
+    },
+    {
+      "path": "packages/presentation/src/oriented.ts",
+      "bytes": 1637,
+      "sha256": "0538425e9b62c8ba676d8cad832562d2f23d3244603f32133b41895420b8d01e"
+    },
+    {
+      "path": "packages/presentation/src/orientedCanvas2d.ts",
+      "bytes": 653,
+      "sha256": "a5aac7730b2615c02ab50eb596dd56718ccc0e23dd6c878ed1ccf9bcb7b44c12"
+    },
+    {
+      "path": "packages/presentation/src/orientedCanvasKernel.ts",
+      "bytes": 2505,
+      "sha256": "170417968f71685080a68107cd135739322d6f1f14608f54f2ad0e3912c93606"
+    },
+    {
+      "path": "packages/presentation/src/orientedGeometry.ts",
+      "bytes": 17062,
+      "sha256": "70459e18ba7503895e4bb384f49d02c4ba9e131c2c93dcc1492f04e810fa2276"
+    },
+    {
+      "path": "packages/presentation/src/orientedTwoOutput.ts",
+      "bytes": 8107,
+      "sha256": "dca2c68d8f5d28563df7137d2d805a60b0c20f3a23b71896a181cdc784a4733f"
+    },
+    {
+      "path": "packages/presentation/src/orientedTwoOutputCanvas2d.ts",
+      "bytes": 1083,
+      "sha256": "b4d89aa628992069e7fca7a6d177176b509606bc3e09a8a4156f715ec968d14f"
+    },
+    {
+      "path": "packages/presentation/THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+    },
+    {
+      "path": "packages/presentation/tsconfig.canvas.json",
+      "bytes": 177,
+      "sha256": "e73f2979ba5abe48294ca7c7ace7b6806b01fe9a0e58fcca141540c1cf8e6b65"
+    },
+    {
+      "path": "packages/presentation/tsconfig.json",
+      "bytes": 193,
+      "sha256": "cfcbda897e2f829604d3b3b1326a1a5c47a932c94411b0cda3f09b8918d702de"
+    },
+    {
+      "path": "packages/replay/DEPENDENCIES.json",
+      "bytes": 47676,
+      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
+    },
+    {
+      "path": "packages/replay/LICENSE",
+      "bytes": 34020,
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
+    },
+    {
+      "path": "packages/replay/LICENSE_SCOPE.md",
+      "bytes": 2318,
+      "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
+    },
+    {
+      "path": "packages/replay/package.json",
+      "bytes": 1051,
+      "sha256": "641ce8c86e6eccdcc5099f9e38defcb0bada936e50775c3ef347e9ff83d94268"
+    },
+    {
+      "path": "packages/replay/README.md",
+      "bytes": 944,
+      "sha256": "09db9afd3033ca2bb349c8b76e6701d7f7164f5d210adb248097d7f71f7a4d4b"
+    },
+    {
+      "path": "packages/replay/src/artifact.ts",
+      "bytes": 26342,
+      "sha256": "d8d431327eba5540befc151313b3c03637d8ede91df7d4fed4f0fc59fb46f1f3"
+    },
+    {
+      "path": "packages/replay/src/assembly.ts",
+      "bytes": 8820,
+      "sha256": "67e398bd9c84e57bc6c515a4067fdc3095be6d7acea5af2d21552d873fca4171"
+    },
+    {
+      "path": "packages/replay/src/assemblyBytes.ts",
+      "bytes": 2881,
+      "sha256": "829f19a5212dadded991ec3faf5493389e9cc95524c7de56ca4db93917aa85d6"
+    },
+    {
+      "path": "packages/replay/src/assemblyExact.ts",
+      "bytes": 2947,
+      "sha256": "a1a979801a6cb6509aa69d38423e915b9542e7221e5a21c1f39c5a3b6d05ad35"
+    },
+    {
+      "path": "packages/replay/src/assemblyInput.ts",
+      "bytes": 20779,
+      "sha256": "ad6d21f5343b5d7a48c5e505fd7a8a4596534392fcf38d4bada95dde9b98a3c2"
+    },
+    {
+      "path": "packages/replay/src/assemblyTypes.ts",
+      "bytes": 4782,
+      "sha256": "e1594440e7fe9e74db18556d6e324ecbb754ec1e96e134b74d2d4ad10b6f1b07"
+    },
+    {
+      "path": "packages/replay/src/bounded.ts",
+      "bytes": 3112,
+      "sha256": "8c51e7dc0e59dddaaa54be0abe768950496554a0cf59f471cb08a28b7d749d4c"
+    },
+    {
+      "path": "packages/replay/src/errors.ts",
+      "bytes": 646,
+      "sha256": "12d84b61b3f8798e611440ef39e0dda927c912633c3f6480bbb04d7b7de59520"
+    },
+    {
+      "path": "packages/replay/src/immutable.ts",
+      "bytes": 1107,
+      "sha256": "18ccb1458bdafd61c77ef44961d68c8063cc09ef1a81ea21a7d067af7a9318bf"
+    },
+    {
+      "path": "packages/replay/src/index.ts",
+      "bytes": 867,
+      "sha256": "071c76ae48ac16ad8a5d54d2ad3dd0a7e6217b0cf72ccde8620aab844bcf9a9a"
+    },
+    {
+      "path": "packages/replay/src/instances.ts",
+      "bytes": 10805,
+      "sha256": "4ccd041fe2adf59ca16a544d9b1988c46fd0c875aa0b768936ac9aecc049707d"
+    },
+    {
+      "path": "packages/replay/src/oriented.ts",
+      "bytes": 6456,
+      "sha256": "6ac3ebc2c066b9b3cc47cc7e04f8fe60d0039fdfb29c7102dd8b88d32588e5a1"
+    },
+    {
+      "path": "packages/replay/src/orientedBinding.ts",
+      "bytes": 1492,
+      "sha256": "13073f1f18dff36ad700fe94e552f7bcf3781e335fd755414d77903b7b323944"
+    },
+    {
+      "path": "packages/replay/src/orientedInput.ts",
+      "bytes": 5321,
+      "sha256": "ba48e0d45233c300e33f29b01b73dad19260ffff88ce8d16fd8885752997fe14"
+    },
+    {
+      "path": "packages/replay/src/orientedJson.ts",
+      "bytes": 4620,
+      "sha256": "8a4758d31a237ae660d27313e88a406078590d5bad8b0febacfb4b68c4277288"
+    },
+    {
+      "path": "packages/replay/src/orientedKernel.ts",
+      "bytes": 6628,
+      "sha256": "dbd4695ea64d1efb4f2c6d5e21d40d61360c84c3d5dbd71b45246dcbc9daeda7"
+    },
+    {
+      "path": "packages/replay/src/orientedPrimitives.ts",
+      "bytes": 12022,
+      "sha256": "3254ba5c41f3819be2ce1b43827fe1c325daf9c74b59dcb20018047476761cad"
+    },
+    {
+      "path": "packages/replay/src/orientedTwoOutput.ts",
+      "bytes": 9837,
+      "sha256": "1b5dec1c04bdd1dce84f262304bb8d3dd36dc4fe6e2124d7aee3ccfc98030ff5"
+    },
+    {
+      "path": "packages/replay/src/orientedTwoOutputInput.ts",
+      "bytes": 6987,
+      "sha256": "82645125af42797cd04b4fd0836df8cca0d9bab77df19cf5a0a481a13133f84a"
+    },
+    {
+      "path": "packages/replay/src/orientedTwoOutputTypes.ts",
+      "bytes": 1961,
+      "sha256": "eaa300efcbb8bb784834def0b190e321f0ab7875766bf6a0fd7b33d81b7d3845"
+    },
+    {
+      "path": "packages/replay/src/orientedTypes.ts",
+      "bytes": 4923,
+      "sha256": "0d2f2386e5b979e8cd3cdff6550a81e4bc258f367786c6372f3dc2a20a3a2441"
+    },
+    {
+      "path": "packages/replay/src/playback.ts",
+      "bytes": 6137,
+      "sha256": "e27835b39472d5262ff3f2120111a0e7dd07bfc8b4197c7d1506164be118c13f"
+    },
+    {
+      "path": "packages/replay/src/types.ts",
+      "bytes": 4273,
+      "sha256": "a9d9871c061c858564d7eddcb65c0391459333c575b3e11a6d1c1e306c8216a9"
+    },
+    {
+      "path": "packages/replay/THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+    },
+    {
+      "path": "packages/replay/tsconfig.json",
+      "bytes": 118,
+      "sha256": "1531d8690f5552295ace65757d415e5c2c8f2c7e59232ce19cd8be82e8e2bd82"
+    },
+    {
+      "path": "packages/tsconfig.base.json",
+      "bytes": 361,
+      "sha256": "e187b7042c09628eaa41f35036d5fdda62f7c9aa010a41a722c3564d4283f113"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3466,
+      "sha256": "7dad1ae5050bbe60db6b6d23af9803c13c63541665a3e8479e652692e4e942d5"
+    },
+    {
+      "path": "scripts/arrow-asset.mjs",
+      "bytes": 2679,
+      "sha256": "d201f28ba8172bd8d00c34d808f2e3145c0f040e0d42c64beefca77e8b7eb9da"
+    },
+    {
+      "path": "scripts/copy-web-notices.mjs",
+      "bytes": 496,
+      "sha256": "76db84ae0d8f7aa786ea074d28723a342a7becf9f9f8cc40c8f3ab5089ec3a63"
+    },
+    {
+      "path": "scripts/prepare-web.mjs",
+      "bytes": 931,
+      "sha256": "627eb672524f4484c7bf8850cbe67a0aaabc835cf522356f566503f5b713cea9"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1326,
+      "sha256": "e4a4bfed24af23602ba651322e170e1576356702fcabb05931181a029f980fa1"
+    },
+    {
+      "path": "src/GearInvest.Core/AffineComponentAnalysis.cs",
+      "bytes": 12640,
+      "sha256": "06adeeb09e55aa3ff23e33b0f76d01d946eb077145aee57537f1f073042c47d1"
+    },
+    {
+      "path": "src/GearInvest.Core/AnchoredCompoundGearRouting.cs",
+      "bytes": 9808,
+      "sha256": "6ffbd2ccac21e47df78b7fd791cc5014698b16c112aa4290942aa8c023fbd7f5"
+    },
+    {
+      "path": "src/GearInvest.Core/AnchoredGearRouting.cs",
+      "bytes": 9856,
+      "sha256": "a82061b51afb328cc6a7aaea60bfaaf0032066f6e78161e7e0457758d3524ac6"
+    },
+    {
+      "path": "src/GearInvest.Core/AnchoredTwoCompoundGearRouting.cs",
+      "bytes": 8337,
+      "sha256": "7e1cc27e290126e487bc433c13c71df38f85acc07644a9ec90d61a1cc275aa26"
+    },
+    {
+      "path": "src/GearInvest.Core/CompositeGuardedIndexedStates.cs",
+      "bytes": 24026,
+      "sha256": "81e663af4f9d1b3e20403cc1a5a4b1ab6b7f7115a3d2221ec93f201270b8c012"
+    },
+    {
+      "path": "src/GearInvest.Core/CompoundRoutingProject.cs",
+      "bytes": 1981,
+      "sha256": "21a58370834219c3b970d8ab00b16e3a7912fafc678d9eb44e96a376c7c7184f"
+    },
+    {
+      "path": "src/GearInvest.Core/ComputedGuardedIndexedStates.cs",
+      "bytes": 29171,
+      "sha256": "e2542e0fcbf73da8c826c811669a821e04407f351efbf4ef4b152fe91b500da1"
+    },
+    {
+      "path": "src/GearInvest.Core/Diagnostics.cs",
+      "bytes": 19955,
+      "sha256": "d4eee70cac94e0ba0929f4b5e130d78c9e520cc41ff3ee6420babfbc2dbac398"
+    },
+    {
+      "path": "src/GearInvest.Core/DiscreteEmbodiment.cs",
+      "bytes": 16962,
+      "sha256": "a10ea0cbabb718324e5db7ee2ddfe9a267124b3ac09948dd6798dd1484206eb2"
+    },
+    {
+      "path": "src/GearInvest.Core/DiscreteGeometry.cs",
+      "bytes": 23129,
+      "sha256": "56817b727bc839551e3db86673db2bc234f068938f2aa4155f8db3610b111ca9"
+    },
+    {
+      "path": "src/GearInvest.Core/DiscreteLayout.cs",
+      "bytes": 16258,
+      "sha256": "4533a15e735aa5c8b0aa098f7f8bebf0bc92e1c76ca0878323ada3e32ddf37da"
+    },
+    {
+      "path": "src/GearInvest.Core/ExactPiGeometry.cs",
+      "bytes": 7854,
+      "sha256": "6e4cb360a5482c3a701689e27460a505fde2d67781f5b46a41c3d905360f7c9a"
+    },
+    {
+      "path": "src/GearInvest.Core/ExactQuantities.cs",
+      "bytes": 11750,
+      "sha256": "e6eff3fb7c5191cc4d5584d2ada3625c65066c1b97551782af31e0bad571948e"
+    },
+    {
+      "path": "src/GearInvest.Core/GearInvest.Core.csproj",
+      "bytes": 281,
+      "sha256": "019e9d53cd79bd61e350f64c1a2e64b4c627a166b74861a268a44ab94dea11d6"
+    },
+    {
+      "path": "src/GearInvest.Core/GearRoutingProject.cs",
+      "bytes": 2553,
+      "sha256": "5415e2d99998ab32a952ec32c2a3cb067ebb8b03b58729b4746e0e787c7b6962"
+    },
+    {
+      "path": "src/GearInvest.Core/GuardedIndexedStates.cs",
+      "bytes": 22476,
+      "sha256": "f5f957d9e29271d2dd95a5a38dd4399c2febf37581385a199a840632b8d914b4"
+    },
+    {
+      "path": "src/GearInvest.Core/HybridStateSnapshotPersistence.cs",
+      "bytes": 5146,
+      "sha256": "2bc75284a3edc9e7f8d45a39eba323ffefd9a3554bc0c30c78f3b55beed12be8"
+    },
+    {
+      "path": "src/GearInvest.Core/IndexedStates.cs",
+      "bytes": 11639,
+      "sha256": "f11db548973cce80943504314344c3653e7311997a27087271c66a5524c27028"
+    },
+    {
+      "path": "src/GearInvest.Core/Kinematics.cs",
+      "bytes": 16962,
+      "sha256": "7e7c8952753d239763a09f7bf60b6cf16512fd077aca672312f87a4ef777bf5d"
+    },
+    {
+      "path": "src/GearInvest.Core/MechanicalDiagnostics.cs",
+      "bytes": 3507,
+      "sha256": "6461853728db9389c825324a360d91017def341d5392c8b491ea88834287d6fa"
+    },
+    {
+      "path": "src/GearInvest.Core/OrientedShafts.cs",
+      "bytes": 4828,
+      "sha256": "7791fc41e8bdb1353c3984623e617b441b009a83d0c39f483ef77eb1c0e17aa3"
+    },
+    {
+      "path": "src/GearInvest.Core/packages.lock.json",
+      "bytes": 84,
+      "sha256": "b9f33d012953931d32d61ece89214551e9ac965f411c3cfda3210de94ab75917"
+    },
+    {
+      "path": "src/GearInvest.Core/PeriodicEvents.cs",
+      "bytes": 2605,
+      "sha256": "f143813ead8d14240ad578c9b6ce2978227fcc7dc820fd7ee5c8446fcb1ca82c"
+    },
+    {
+      "path": "src/GearInvest.Core/PeriodicSemantics.cs",
+      "bytes": 37864,
+      "sha256": "0d4b8b2d6c1a474b85ac687277b1a3369d0e4143e4bd57d999c46eb77d58caca"
+    },
+    {
+      "path": "src/GearInvest.Core/Rational.cs",
+      "bytes": 6284,
+      "sha256": "4c39533a3f72450e4139d0cf39c65fe6dd54c67be602b3433f9d69ce3e22c37c"
+    },
+    {
+      "path": "src/GearInvest.Core/ScalarAffineCoupling.cs",
+      "bytes": 681,
+      "sha256": "f2337d76ba85194f4d82184e8335646445ce654dfa9116eecee7f1962b1aa967"
+    },
+    {
+      "path": "src/GearInvest.Core/SharedDriverTransmissionGoal.cs",
+      "bytes": 11639,
+      "sha256": "5b29b808591259fb9da845c843bb07aed6a20ee8f1380029809314f809f4649c"
+    },
+    {
+      "path": "src/GearInvest.Core/SharedDriverTransmissionProject.cs",
+      "bytes": 3074,
+      "sha256": "19cbb24994c00078f6ef325380c67afd73c6950506e61d618386a14681419ba1"
+    },
+    {
+      "path": "src/GearInvest.Core/SharedPrefixTransmissionGoal.cs",
+      "bytes": 11988,
+      "sha256": "2a8013a9a73174fb73786de686a4c301a1232da0a0e3aa760e6b3384f48971c7"
+    },
+    {
+      "path": "src/GearInvest.Core/SharedPrefixTransmissionProject.cs",
+      "bytes": 3074,
+      "sha256": "41f572f3244c93c3f54d2c6090a53f66b593fcac38da8eacda266e095077e369"
+    },
+    {
+      "path": "src/GearInvest.Core/TransmissionGoal.cs",
+      "bytes": 12679,
+      "sha256": "9f562d39b21045a563912c23ba4a610fbf4b768fe9e52a100d63d0b42a32d0ff"
+    },
+    {
+      "path": "src/GearInvest.Core/TransmissionGoalProject.cs",
+      "bytes": 2811,
+      "sha256": "50ee9889b326667662b998c30b7274d2c9f08c871d63dd5b8a9b2a1a81fa1f4e"
+    },
+    {
+      "path": "src/GearInvest.Core/TwoCompoundRoutingProject.cs",
+      "bytes": 2097,
+      "sha256": "2f061e0ca8033e8453dcffc0f98e6bf728c0155c8752eb71c1c3624f9292c091"
+    },
+    {
+      "path": "src/GearInvest.Core/TwoOutputTransmissionGoal.cs",
+      "bytes": 13668,
+      "sha256": "23dd25e236c70e0054f400b14682b24ef375f60d60011ca94f6f58d3e65b3843"
+    },
+    {
+      "path": "src/GearInvest.Core/TwoOutputTransmissionProject.cs",
+      "bytes": 3032,
+      "sha256": "21a3981fb315071fdaf35265736bd6ff1fd4033374396d22acd3c80c79d68993"
+    },
+    {
+      "path": "src/GearInvest.Engine/AnchoredCompoundGearRouter.cs",
+      "bytes": 9898,
+      "sha256": "4b42ece06b7abb6e0cd224e1442db528845dfc31ece1f3c32b3afd139272beb3"
+    },
+    {
+      "path": "src/GearInvest.Engine/AnchoredGearRouter.cs",
+      "bytes": 9396,
+      "sha256": "e5def0fe633ef3ce32e564547dc30ce74ff18cb7b70b885777e5aa04bf91f7c1"
+    },
+    {
+      "path": "src/GearInvest.Engine/AnchoredTwoCompoundGearRouter.cs",
+      "bytes": 11490,
+      "sha256": "754b88b6d1b3e4770ebca26febe16ddcf2ab6e7140ac5805d184b6390c9f1a0c"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyCamDisplaySamples.cs",
+      "bytes": 3883,
+      "sha256": "d69deff722e9a94a4d3b2ad691238e4b292863f57ae3b36d3b472e04ba63dbd9"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyDeferredDisplay.cs",
+      "bytes": 4154,
+      "sha256": "6639d6949b7d4b06ebd3b72101b3605eb3d00014bd8357e15798be37959ed3c7"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyGenevaAffineMotion.cs",
+      "bytes": 4597,
+      "sha256": "755482a3ea62b4fbde2dfb86c7426655d4b0aac70b7c795c7eb5adda2e6a0605"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyGenevaComparison.cs",
+      "bytes": 4033,
+      "sha256": "186295ed87dafb9eae778e0e7d36eadfc2c00a47848dc1ecad97b1758661cf99"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyGenevaNumeric.cs",
+      "bytes": 3162,
+      "sha256": "f9ae77754adb29ded333797e47f0ea8c9d1baf7256292bb50572cb451122351f"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyGenevaSuffixEvaluation.cs",
+      "bytes": 11680,
+      "sha256": "2a8740093e8b53e9546c82acbca0bbe38698d2dda6552c6751e17a60058033bf"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyNumericRequest.cs",
+      "bytes": 3994,
+      "sha256": "fa81690a3c8dea29fb1e20c7a4b0482d84d50b8c5bbfd9560a6186e607e8a12a"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyOutputAssessment.cs",
+      "bytes": 9677,
+      "sha256": "6e90a3228a9e8af5eaa26034450c06d84d45e0fb7b4623302f14e0ef6b5abe12"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyReplayExportRequest.cs",
+      "bytes": 3149,
+      "sha256": "6d644cb85c1dcd67f305b57eb29fdc04b7d8b41af2e92395796d6cdd2c9dcdad"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyTerminalComparisonView.cs",
+      "bytes": 3363,
+      "sha256": "8497b0672e6d6323e263bde417b70a9af00ad8116899535af3f60ea66c663a8d"
+    },
+    {
+      "path": "src/GearInvest.Engine/AssemblyTopologyAnalysis.cs",
+      "bytes": 12642,
+      "sha256": "53d4b0708067a109c5deb8c23d2e306e63b08b71d91745d420ab72e667e806cc"
+    },
+    {
+      "path": "src/GearInvest.Engine/BoundMechanicalInputContext.cs",
+      "bytes": 6372,
+      "sha256": "3afa2cf84be15eb490a7316dde3e910b0181559d419a6db3f554a281bb2724fb"
+    },
+    {
+      "path": "src/GearInvest.Engine/BranchedContinuousPlanComposer.cs",
+      "bytes": 62138,
+      "sha256": "4fc0cfc82d4ed5c2662e5868725bd53d4e5b0ab3c16edc7f8a3ce64aaae3fc52"
+    },
+    {
+      "path": "src/GearInvest.Engine/BranchedContinuousPlanCompositionModels.cs",
+      "bytes": 28196,
+      "sha256": "dbc6fef76a56b72b44130a688f2831312fc4f6d34a66288d1e353c421258f8ed"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerAnalysis.cs",
+      "bytes": 29567,
+      "sha256": "b9fbb9a45b690609e018aa3499f92f1fbde1e431e5ad82a92ffd5ca1cc2c1f2b"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerAnalysisModels.cs",
+      "bytes": 17809,
+      "sha256": "75c5575039ffae4e9febcc63f9eb154e27b914d9e5397f9e2ee03d010f2d37fe"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerComparison.cs",
+      "bytes": 20018,
+      "sha256": "9aa6217ed3b4b82dd7d64020b40ab2a3e42b59ebc53a2a9e5d610b07e5331701"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerEdits.cs",
+      "bytes": 19764,
+      "sha256": "74946de896e05ecb5eb0306165cb5997454fc3dba3be87ef071ac7d65b1f8962"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerModels.cs",
+      "bytes": 9055,
+      "sha256": "f42bc38fc0d845cb8cecb79aab767267176bab60c430891fce132b6e78452a51"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamFollowerNumeric.cs",
+      "bytes": 16781,
+      "sha256": "bb3d2d56d00019eae7e156bc5ddf3daa0716ec1d036fa770bb102ccae5dee0f3"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamSupportGeometry.cs",
+      "bytes": 11593,
+      "sha256": "80445f69aa83a33f5dbf9dcaacfb15f99ff6f1f6ee3e6d3df6c7a1517c605a89"
+    },
+    {
+      "path": "src/GearInvest.Engine/CamSupportProof.cs",
+      "bytes": 11303,
+      "sha256": "b232d20d487ac9dc38e9fde6f506b5d648ebbaa7b92d1efaa857c1d029b52952"
+    },
+    {
+      "path": "src/GearInvest.Engine/CardinalSpatialLayoutEngine.cs",
+      "bytes": 29723,
+      "sha256": "7e7d6bf347d1faa3d97cb127b3c9788f90a06033241d9634db499d8fc363700b"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompiledPlanGeneration.cs",
+      "bytes": 13165,
+      "sha256": "f3ba6866347e42a28b7db98935d2dc2312238e5d3abe6dfa05791a196491b2b9"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompositeGuardedHybridStateTransitionModels.cs",
+      "bytes": 6662,
+      "sha256": "3a76e93135788f22486953315bfecdd41a392c05e27eeed7ec91e220e8d7b69e"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompositeGuardedIndexedStateTransitionEngine.cs",
+      "bytes": 60110,
+      "sha256": "365fe43fcd182072780176dde55a52fe72cea2f57eebdd781e2915cb4ecd04f0"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompoundGearRouteValidator.cs",
+      "bytes": 11104,
+      "sha256": "a07f565f0884ef07bfb2f2abcd6f093f0c93d0f2562d03b58690bac5363bce52"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompoundRoutingModels.cs",
+      "bytes": 7506,
+      "sha256": "382c07a881d3c337652892c9be69d6db6ef5b44b749c9aab4caa45a3b38809de"
+    },
+    {
+      "path": "src/GearInvest.Engine/CompoundRoutingNormalization.cs",
+      "bytes": 8505,
+      "sha256": "a81a618c70b77d02bc25883b29beae16ca4999e5f8d72c81d93d589bbe3efe8e"
+    },
+    {
+      "path": "src/GearInvest.Engine/ComputedGuardedHybridStateTransitionModels.cs",
+      "bytes": 7258,
+      "sha256": "388bbaefda838b8c04d696ca8d44c71f01f030d6f74cfff421448e0004e95634"
+    },
+    {
+      "path": "src/GearInvest.Engine/ComputedGuardedIndexedStateTransitionEngine.cs",
+      "bytes": 73012,
+      "sha256": "6bef0dc929a694ade3d1be27f99c0505f44bb4bc06511be8c250e5e33a9c6cc3"
+    },
+    {
+      "path": "src/GearInvest.Engine/ContinuousEventBridgeModels.cs",
+      "bytes": 13014,
+      "sha256": "2d7fe39e0a6b69d2533ec306c5d52dfa7cff83f7572f476ea6c0338d5ee58065"
+    },
+    {
+      "path": "src/GearInvest.Engine/ContinuousPlanComposer.cs",
+      "bytes": 48675,
+      "sha256": "96d03bf9da34169ce118ab2ce16efdad2effa8c6578e1ead0c4c655d7496b9ef"
+    },
+    {
+      "path": "src/GearInvest.Engine/ContinuousPlanCompositionModels.cs",
+      "bytes": 22902,
+      "sha256": "a50cdef2f19d8072559757a57de4637293a198c3f5ea1610c45802e281f9566d"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderAnalysis.cs",
+      "bytes": 26445,
+      "sha256": "33f99401f7860cf048458b907601973c47e32e34eedd1b3b02bbf49a446ee94f"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderAnalysisModels.cs",
+      "bytes": 9028,
+      "sha256": "22f47639bc09b1c47b3c644954c27d068ff47fdabc20b217747412bddd41ec64"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderComparison.cs",
+      "bytes": 12228,
+      "sha256": "931dce9984a1cdecbdb126e92e5dc204abf5f8d98f18214e1e461127bfd32a63"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderEdits.cs",
+      "bytes": 20057,
+      "sha256": "82655bc646bff5eddb959bc90cb8dee66e68ae638bd095b7d1f4e4a3f63af784"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderEquivalence.cs",
+      "bytes": 8183,
+      "sha256": "c21978c5b6db546af919038670e19170b8da9949a1c560705c9ab952bf19e2c0"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderGeometry.cs",
+      "bytes": 11294,
+      "sha256": "51e2001269461e969a5b727233dbe6c8925bf2e3e4456c86a3dfb224928ecad2"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderModels.cs",
+      "bytes": 8800,
+      "sha256": "7d947a1812d8108fb259dbba9ebe0bec5a9427a6e32456e7f08dea55b7a4e55d"
+    },
+    {
+      "path": "src/GearInvest.Engine/CrankSliderNumeric.cs",
+      "bytes": 22921,
+      "sha256": "b23f6a61fddfd9bfb2040bd756eaec9a75fff09047ef0cd6631aa402c42ba83f"
+    },
+    {
+      "path": "src/GearInvest.Engine/CyclicIndexedStateTransitionEngine.cs",
+      "bytes": 25666,
+      "sha256": "35476a82f16642b3cff5eb3a75966e49eddd68507bae52e0ddef8c1bbfda7a18"
+    },
+    {
+      "path": "src/GearInvest.Engine/DiscreteEmbodimentCompiler.cs",
+      "bytes": 16106,
+      "sha256": "111ca82e532d5ebefae4441dec10b9eb97881ee9591816f82cc4fcfaeda2bdad"
+    },
+    {
+      "path": "src/GearInvest.Engine/DiscreteEmbodimentEvaluator.cs",
+      "bytes": 18010,
+      "sha256": "3a17bf7fbe278d83d71f789dd4920aa015c9ed7a07e1faf651c563ddbb9ca060"
+    },
+    {
+      "path": "src/GearInvest.Engine/DiscreteGeometryGenerator.cs",
+      "bytes": 9364,
+      "sha256": "4b32fcacfec646febe53d4f241cbcd8b4c57c3f1e70fc64bc7898bd94135ffd4"
+    },
+    {
+      "path": "src/GearInvest.Engine/ExactForwardPeriodicEventBridge.cs",
+      "bytes": 21232,
+      "sha256": "7d09f88a8b3434e51a98ff37c3e5f0dbffc1239877f107eb66a5473b8d4d8f43"
+    },
+    {
+      "path": "src/GearInvest.Engine/ExactRatioMechanismGenerationModels.cs",
+      "bytes": 15842,
+      "sha256": "90a6571444001fa97e2bea766e71267cab918ce7029d1a599e38fd4de7658429"
+    },
+    {
+      "path": "src/GearInvest.Engine/ExactRatioMechanismGenerator.cs",
+      "bytes": 23250,
+      "sha256": "f9db5180ab8ad1499027a87d977d5fcb3b733ef4a515096a0cc752f1a7f935ac"
+    },
+    {
+      "path": "src/GearInvest.Engine/ExactRatioSynthesisModels.cs",
+      "bytes": 10783,
+      "sha256": "50827299cdf1fa1bdc355927f53b28d9aef7b0fbe78a8a417ec95e9842bbd5bc"
+    },
+    {
+      "path": "src/GearInvest.Engine/ExactRatioSynthesizer.cs",
+      "bytes": 28467,
+      "sha256": "a3e717702328320082a2f93f59f7ffcc54fff2c01efe4eeb241e2d85bac603c9"
+    },
+    {
+      "path": "src/GearInvest.Engine/FiniteGearContactGraph.cs",
+      "bytes": 4524,
+      "sha256": "95eb124244544d5a8e6f1d400b2236f87b1ba0a390f68d5b8a623cf69e39e7f8"
+    },
+    {
+      "path": "src/GearInvest.Engine/GearInvest.Engine.csproj",
+      "bytes": 472,
+      "sha256": "0c7fe0933dc020b779c492f820ebd4f7d0a25277c9dfe7ed6f8b69d1873d5c39"
+    },
+    {
+      "path": "src/GearInvest.Engine/GearRouteValidator.cs",
+      "bytes": 8530,
+      "sha256": "cc0fad059f8f208b86cbf4f29d744da1cc50911fb34e2b5331c8aa33c9190171"
+    },
+    {
+      "path": "src/GearInvest.Engine/GearRoutingModels.cs",
+      "bytes": 5157,
+      "sha256": "b4d38aa75727b6c4c29682e5fcd8046c28e927649ec9ad2b2a6134fdc9565c08"
+    },
+    {
+      "path": "src/GearInvest.Engine/GearRoutingNormalization.cs",
+      "bytes": 8259,
+      "sha256": "a179e0fae337d28dfbbbfa5831feca310979bf5ff0a621b44c5eb65f7992c42c"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenerationEngine.cs",
+      "bytes": 17017,
+      "sha256": "614a7eef61be76ab6a545826344bc6682a48e560db5c7f68e3bcc4a66f5f8db9"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenerationModels.cs",
+      "bytes": 3198,
+      "sha256": "c071cacf0dc03b0106b398695b518872a2bcd3c6e017ce5db80376e6487246f1"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaAnalysis.cs",
+      "bytes": 16619,
+      "sha256": "7a3de099d230720523c227c348e089fb451fa4ca25ba88f321ec8e157f680127"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaAnalysisModels.cs",
+      "bytes": 19109,
+      "sha256": "69027ada646ac64502079b3a50eb9c2a6acb8d278b9e9b0155f1c87491209bdd"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaComparison.cs",
+      "bytes": 15617,
+      "sha256": "74bd9dc27dfe863d0528c4da175db0f278ddf048b635bfbcbf5003aa48137c2e"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaEdits.cs",
+      "bytes": 25358,
+      "sha256": "3db1a5d7859b13494b7c5a4f45e74784fcc4533a1ea8f3495d7294b647276018"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaGeometry.cs",
+      "bytes": 20579,
+      "sha256": "28ef8bd1f971e5ae0f4c2a27fbac067a2836a775540c14f638892144563e9e86"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaLength.cs",
+      "bytes": 3701,
+      "sha256": "ec7a2224e6a36ba86fb93d63750828d37ef16147cac913f57b85f6119cc07c28"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaModels.cs",
+      "bytes": 14854,
+      "sha256": "958b13aa1d394df5a1e1ad23c109d29b11eaf420eb6dd63150739ae0bb5f1c60"
+    },
+    {
+      "path": "src/GearInvest.Engine/GenevaNumeric.cs",
+      "bytes": 31288,
+      "sha256": "e1e916cd99826dbf4945f38557fe024807acb48399e867c1d35322719a8bb5e3"
+    },
+    {
+      "path": "src/GearInvest.Engine/GeometricDiscreteEvaluator.cs",
+      "bytes": 9390,
+      "sha256": "de9f5aaddabc3b0cbc3572ab5faec603ea25969f6120b6f78b7dbe38c4bf5c30"
+    },
+    {
+      "path": "src/GearInvest.Engine/GuardedHybridStateTransitionModels.cs",
+      "bytes": 9714,
+      "sha256": "c32a5ec5744417ff876ab118fe08ae0c32061992ee773676bc8d21cdb9925761"
+    },
+    {
+      "path": "src/GearInvest.Engine/GuardedIndexedStateTransitionEngine.cs",
+      "bytes": 48373,
+      "sha256": "04b3ec19029c38acc50aa9f83589accbcb7fe72c705d530fd598e23f8cd864e0"
+    },
+    {
+      "path": "src/GearInvest.Engine/HybridStateSnapshotValidator.cs",
+      "bytes": 31628,
+      "sha256": "371b0988bb087602ac9ea1c191289f1cd8b72ef37575cf0becdd0dfe48aaefe4"
+    },
+    {
+      "path": "src/GearInvest.Engine/HybridStateTransitionModels.cs",
+      "bytes": 7505,
+      "sha256": "5bd0a9361469f8c2bd42620e8f3562f6b60eb9f55b9f117b8c4b8605188f4223"
+    },
+    {
+      "path": "src/GearInvest.Engine/InternalsVisibleTo.cs",
+      "bytes": 148,
+      "sha256": "894d46df9131361436c3a5fbf40384761eed170dfa6ff35885fe7145fb439df0"
+    },
+    {
+      "path": "src/GearInvest.Engine/LocalTransmissionRelations.cs",
+      "bytes": 1162,
+      "sha256": "8696cee2502530ec76889887edaf48b285b75bb5fa10a6cfefee0946546c4e60"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAnalysis.cs",
+      "bytes": 25376,
+      "sha256": "211589981bc3ae97771bd730150e92eb44d174b9cb1aa21efc3af200b06b2803"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAnalysisModels.cs",
+      "bytes": 11556,
+      "sha256": "782bb7a176284c2f2cff45d87e931359ab06bedaa8f86379e2c1750be5a95146"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyAnalysis.cs",
+      "bytes": 20130,
+      "sha256": "b402e6ee5d8a994b0a2200d4d1aa6df4773955e30a9f3eef294d0faca1fbb943"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyAnalysisModels.cs",
+      "bytes": 11282,
+      "sha256": "e0c49150c0fb1b8f35d93209599ace2aa9ea6ded695d306ea0b2cb3c47339d65"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyComparison.cs",
+      "bytes": 20553,
+      "sha256": "4a35378699b12e73bde3af24233129fe0b59f5fddb530fc86731cb509586eac5"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyComponents.cs",
+      "bytes": 9855,
+      "sha256": "ad760433245195ca28e479e7ca54412e2bdd19053e8c58bfac9f5b8529c1d114"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyEdits.cs",
+      "bytes": 12822,
+      "sha256": "6b6b57abc1bf1c708ed5283247f190ec9c2845b8412206005be40b5268421fcd"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyEvaluation.cs",
+      "bytes": 10612,
+      "sha256": "2a869a64748ed415521359abf4b7ace7c756379b429568aa109b648a2bf88d02"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyEvaluationModels.cs",
+      "bytes": 4666,
+      "sha256": "dee51fb6bf3d36b1ccecb4eed4ad3dcab423fc6e2337a8d740a6d6715cc61fe6"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyModels.cs",
+      "bytes": 24887,
+      "sha256": "1c91575d009a5da3c7a8376f641b7cb2f27bc9edc9a06caf69a267d66fd99702"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAssemblyTerminalMechanics.cs",
+      "bytes": 26840,
+      "sha256": "059c60a51ae3f83bd1d6cae7fff4c0aa2a3976cce762c75ffb16d4ef9f1592ba"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalAuthoringModels.cs",
+      "bytes": 15729,
+      "sha256": "3aef34b08be02158364673c7dacc915694527ca2e807a4af4aceca36adbeacd7"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalCompatibility.cs",
+      "bytes": 8593,
+      "sha256": "60272a7a4eca99b784426e3b6bbcdbe02f0aa3e6f21a566ea44dbbb9c82f22b1"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalEdits.cs",
+      "bytes": 32321,
+      "sha256": "8cba5f5949cf8cdf444aa0cda137acfbdc712636ec2fe86339053332b452dcce"
+    },
+    {
+      "path": "src/GearInvest.Engine/MechanicalEquivalence.cs",
+      "bytes": 13807,
+      "sha256": "53b05c4f51bf7e210e900cc49708d07878ad672fe1a5d0382f32f3f88921d8e6"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltAnalysis.cs",
+      "bytes": 26235,
+      "sha256": "b860745470c2311fa263e0cfaef036d51b0c0a48f747e8db3ecd360e246dff6b"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltAnalysisModels.cs",
+      "bytes": 10595,
+      "sha256": "3305e7f7ed804afb42b32f39989cb8762087c0a9c13de9b0d8a37f73ab6141c9"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltDisplay.cs",
+      "bytes": 6366,
+      "sha256": "041b829680408fe5a59ba5f14794022e97c259a8e5b0ceeb0ef413c738d5bfe7"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltEdits.cs",
+      "bytes": 23112,
+      "sha256": "70f0f44787a67e4f7ece4d54bff70dab80036d8536832625fa8a73e8a5dd6537"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltEquivalence.cs",
+      "bytes": 2738,
+      "sha256": "0373f52b34b7e362726cee702bba2d063ccc0f2d19c6698e79413eedcf020ddd"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltGeometry.cs",
+      "bytes": 21679,
+      "sha256": "c9bd2487fb61e20245cd40c960ba3083de1b4b6e6dc6aeb692adcc9693bf22b7"
+    },
+    {
+      "path": "src/GearInvest.Engine/OpenBeltModels.cs",
+      "bytes": 10265,
+      "sha256": "74dd41d5347aab8537acd6c3fb49dd1b079f254f943f1af7928b386ea682e74a"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedGoalCompiler.cs",
+      "bytes": 17213,
+      "sha256": "caebd66e32f1fa9feff275fbd467c9a8d6788c355c4a8fcf9afe1256cbed776e"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedGoalModels.cs",
+      "bytes": 19962,
+      "sha256": "9ca912b687a7134fa9f3cb68ae8838859b9ee51f9237a156067f937b63c7022a"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedGoalSearch.cs",
+      "bytes": 16994,
+      "sha256": "06a6e265c5601a4607e37896a05b61421979c898a9e9466d76c0e6f0907687ab"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedGraph.cs",
+      "bytes": 911,
+      "sha256": "91e7a8cdba625ce7d9676484ceaff129cb8225e3b077ca42611f37830a5ce9c7"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedMechanismValidator.cs",
+      "bytes": 12763,
+      "sha256": "a74d230edd2fbf6f8b2b4ecd6d4e3b15143fde95bb307096cd3c9b48057efe1d"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedPitchShapes.cs",
+      "bytes": 2145,
+      "sha256": "48c0d3b77d9e06d26c7164ae9c072a952f638801e7f06193f6b37cbd1c8c4a8b"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedTransmissionComposer.cs",
+      "bytes": 22626,
+      "sha256": "86a8640d730ba9b574d9df2f6e2cb90d9d5d4716ac093ad25aeadcb0f878bae9"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedTransmissionModels.cs",
+      "bytes": 8567,
+      "sha256": "a6f4779b3d3818207f055258dc465531ff982d5ea9ff9e9a55f632868ab2c422"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedTwoOutputComposer.cs",
+      "bytes": 9189,
+      "sha256": "92f823828d0932c603c895bc51902b8829c15dd73b8c3c8e8c12e22540a8c903"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedTwoOutputModels.cs",
+      "bytes": 7749,
+      "sha256": "1a8d6e0763a8c3b9e9e82fb3ed769ca59b9e98e10b02d90b28fd204f763f19e7"
+    },
+    {
+      "path": "src/GearInvest.Engine/OrientedTwoOutputValidator.cs",
+      "bytes": 13763,
+      "sha256": "eb1079eb7c299cb53701f5514942762f2d7cc186eb4ee6f67d5d5c89eae88336"
+    },
+    {
+      "path": "src/GearInvest.Engine/packages.lock.json",
+      "bytes": 316,
+      "sha256": "5e0208f75d5e5d46c0e15ee6cf99bfa72a005dc3ca61012abcc1522ac6ecdf90"
+    },
+    {
+      "path": "src/GearInvest.Engine/ParallelCoaxialValidation.cs",
+      "bytes": 6407,
+      "sha256": "604fd84670151a7db394ba70be3e14d9a2b54542ce5ab55b45fdf602743376b4"
+    },
+    {
+      "path": "src/GearInvest.Engine/ParametricDiscreteLayoutGenerator.cs",
+      "bytes": 14930,
+      "sha256": "88a08392a5581b03ebcdddddf8e01695c3ff8837062e09343e9980045a1d8cb6"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainAnalysis.cs",
+      "bytes": 30888,
+      "sha256": "71b26054c44a474e76d48c33271c1197605749063f32e2b5d7dc856ee7ab665a"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainAnalysisModels.cs",
+      "bytes": 11013,
+      "sha256": "53feb7ba5af4facfdb5f06344dc9f685400cdd1e2d4b7ac1dcea39c2d23f969d"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainDisplay.cs",
+      "bytes": 7436,
+      "sha256": "eeef1ed8747867127dcf5c9ef725211297d1880c9542487a2fe8d2f98932bb07"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainEdits.cs",
+      "bytes": 26790,
+      "sha256": "cf0817d49ab822c1a85d543c4a884b1f134e514a78f5ea4b5fab2e3038564e91"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainEquivalence.cs",
+      "bytes": 4623,
+      "sha256": "bafbc2c4373788a26b3dca8be1df5bf9ba8b78b078c9da2f81637abb14a004b7"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainGeometry.cs",
+      "bytes": 27213,
+      "sha256": "66af5c01116bc0043ebb0f478c4da6faf2a6bba2bb0f4659dafc57372bd9c850"
+    },
+    {
+      "path": "src/GearInvest.Engine/PitchChainModels.cs",
+      "bytes": 12601,
+      "sha256": "7ebf266c70d45ea9263dfde9c2382e51cbc669ac633e66b1eca5fc3a14c1d171"
+    },
+    {
+      "path": "src/GearInvest.Engine/Playback.cs",
+      "bytes": 7207,
+      "sha256": "4f87aba8b5c9ddf96db557c3d9608d6bafbf9ddb42621594249ce9e3bd162b2d"
+    },
+    {
+      "path": "src/GearInvest.Engine/PrismaticAnalysisKernel.cs",
+      "bytes": 9742,
+      "sha256": "5b4e2ee9c3d970b11219baeaed3ed79f6f886f55caefcef027df3d4df9215640"
+    },
+    {
+      "path": "src/GearInvest.Engine/PrismaticComparisonKernel.cs",
+      "bytes": 9676,
+      "sha256": "93e871b8351c0850d5c35892e80f7d366f35f04636dc4d6ea0eeab4e0de6275b"
+    },
+    {
+      "path": "src/GearInvest.Engine/RackPinionAnalysis.cs",
+      "bytes": 24943,
+      "sha256": "dd9fdb4974f438ff2f804ef42836d8e01f4e91850f4b69b4741bd9a6d95b7253"
+    },
+    {
+      "path": "src/GearInvest.Engine/RackPinionAnalysisModels.cs",
+      "bytes": 11194,
+      "sha256": "81d1b2fa050adecd96d5ffbaac088cf093e1ee2934158271f613748a43c23c9b"
+    },
+    {
+      "path": "src/GearInvest.Engine/RackPinionEdits.cs",
+      "bytes": 20460,
+      "sha256": "8442f41691b759dfe7286a9a6c40ac54af96e344c77e562061f8ee4418d0d649"
+    },
+    {
+      "path": "src/GearInvest.Engine/RackPinionEquivalence.cs",
+      "bytes": 3735,
+      "sha256": "726aeca59ba01b1e47d164a0a83e7427ac003085400a3a6b23fe5e98a2fd4cd0"
+    },
+    {
+      "path": "src/GearInvest.Engine/RackPinionModels.cs",
+      "bytes": 11791,
+      "sha256": "13a9bb63a0ba9ef392221dd0f0b7a33be3d13c7233aac159619ff1c9ad7b121e"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotaryLinearAnalysis.cs",
+      "bytes": 16652,
+      "sha256": "4282e5921d2e89c5057ef3636f29fcc171077f40726b588669e409cb5fca2f34"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotaryLinearAnalysisModels.cs",
+      "bytes": 10244,
+      "sha256": "71e5349c5c4bd6183c32bb8ceb5e2d65caa9c2ae0c03527b1806c0192715b08b"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotaryLinearEdits.cs",
+      "bytes": 16594,
+      "sha256": "db612564ef6ba5224c2f5a27548b6b797e27855bbfb7dbbdfa84d9e5f7f0aab0"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotaryLinearEquivalence.cs",
+      "bytes": 6770,
+      "sha256": "acdd4316d93f2ebf5906ce3ce67a09ea714ff4e1ed3d5a0d9e5428d2be90e9bb"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotaryLinearModels.cs",
+      "bytes": 11225,
+      "sha256": "ac03dfeb5ca0e7360b2c439c8871ce01ec758d93eca19a810009761022a1b898"
+    },
+    {
+      "path": "src/GearInvest.Engine/RotationalComparisonKernel.cs",
+      "bytes": 2438,
+      "sha256": "485f4b9d4451f77d5028e38581f9644e2488950ba6848a16eaf7a8b954862f34"
+    },
+    {
+      "path": "src/GearInvest.Engine/SerialRouteBinding.cs",
+      "bytes": 2237,
+      "sha256": "fbb3dd888d9d68b38afa540f4113ee9375dfa47f54c88804fb61fd349cb11fd2"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedDriverTransmissionCompiler.cs",
+      "bytes": 9951,
+      "sha256": "734f96432e6c6e88411af393d38a05fcfe115a3c6a89ea8039d24cfc55c2b0cf"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedDriverTransmissionComposer.cs",
+      "bytes": 17848,
+      "sha256": "8da6fc205fc7226671343bc89e7bac4bf1f2e91fa4d9926462f0b80eacf44537"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedDriverTransmissionModels.cs",
+      "bytes": 8386,
+      "sha256": "19c6884ed07574ce45416bc44ac992325ad180e767bd6b87e4a0ca2e8671dc76"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedDriverTransmissionResultValidator.cs",
+      "bytes": 6807,
+      "sha256": "a940164ae8760a22cebc8487e518deca5c878b6e26d4167ad9666fa36eee69dc"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedDriverTransmissionSearch.cs",
+      "bytes": 11801,
+      "sha256": "28a4b38bd167512897aaa7dfb97c391052121b6ec78fc7e3c3e5853eaad9fad4"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedPrefixTransmissionCompiler.cs",
+      "bytes": 13528,
+      "sha256": "7fc56cc60b065e2b3c9e2316070d0917f86d1c0468be87f5488cefd2df9267a9"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedPrefixTransmissionComposer.cs",
+      "bytes": 16558,
+      "sha256": "fdc1c1096e24f8bc4eb2b990dcff344414753b5f1227e14773e334ec8c791aea"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedPrefixTransmissionModels.cs",
+      "bytes": 8390,
+      "sha256": "c03391ffa546ab58ebcd18c3a6ceb5344db669e8e857fe2d81d791af6293f4af"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedPrefixTransmissionResultValidator.cs",
+      "bytes": 9250,
+      "sha256": "0e4967aab21bd0fe9ed6bd23c0a5ee85e8d70e7137c4d005d96eb5b63239845e"
+    },
+    {
+      "path": "src/GearInvest.Engine/SharedPrefixTransmissionSearch.cs",
+      "bytes": 10826,
+      "sha256": "699fd88e80a33b60e8bcc8fab688fdd777d8c24e0a45e989f365ab3cbb1f7f86"
+    },
+    {
+      "path": "src/GearInvest.Engine/SpatialLayoutModels.cs",
+      "bytes": 9871,
+      "sha256": "9c38472f607dc2c1e924c124ceabcf58360c0374d6acdcfb8c9e51cf1713f79b"
+    },
+    {
+      "path": "src/GearInvest.Engine/TransmissionGoalCompiler.cs",
+      "bytes": 16491,
+      "sha256": "b5a64d28f8566d2ae74cc5092fb13dfd3fb4d3b2fe4580b35383de15929a2775"
+    },
+    {
+      "path": "src/GearInvest.Engine/TransmissionGoalValidation.cs",
+      "bytes": 10141,
+      "sha256": "35757e03eb1268fcd13559c13ee069c65cf0f53467e59f4fe7ef8bc0bff95680"
+    },
+    {
+      "path": "src/GearInvest.Engine/TransmissionResultValidator.cs",
+      "bytes": 6160,
+      "sha256": "ebc929f6899603c6e458ab01bf57c656fb3031726258edcc628f0877f6902fb8"
+    },
+    {
+      "path": "src/GearInvest.Engine/TransmissionSearchModels.cs",
+      "bytes": 7824,
+      "sha256": "70772e63265c3dec1bb72b0f29ef0081fb49a3eaa1f381f9cfb1cad5dac96758"
+    },
+    {
+      "path": "src/GearInvest.Engine/TransmissionSearchOrchestrator.cs",
+      "bytes": 8459,
+      "sha256": "c78aaaea2b4353968504c0eb38dfcc4ee7bfcdf54b04c0a1bef9a0dc93ae86a8"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoCompoundGearRouteValidator.cs",
+      "bytes": 11396,
+      "sha256": "bc0f21db65e381e605b0eb8509e6229a8c1dd38ddd0e93594ee26de9c6880917"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoCompoundRoutingModels.cs",
+      "bytes": 8052,
+      "sha256": "f2cce0931488f87ed20a74c7ec12a2b645142c295151719f2106391c4ee4a026"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoCompoundRoutingNormalization.cs",
+      "bytes": 7134,
+      "sha256": "3a8a5f916ccc9e155db5937a3dfa19a1fca3438d731e625fab7290027c687aa7"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoOutputTransmissionCompiler.cs",
+      "bytes": 11579,
+      "sha256": "1da89c5a57882577ef2e3717aa20331d905f20402c1aea56a8dbca28b16179e2"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoOutputTransmissionModels.cs",
+      "bytes": 9521,
+      "sha256": "44fdbc6a3d5e0770f70013db2ac3dcec5477cc3e058358ed69e59cfe495ed359"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoOutputTransmissionResultValidator.cs",
+      "bytes": 11344,
+      "sha256": "b8c83c85593c4df32b5118c28e2e55a5c32e8cf846fe4593b65bc517b11d6381"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoOutputTransmissionSearch.cs",
+      "bytes": 10265,
+      "sha256": "f0b773d88db1312f82cba68f030a9ece93b2ce39c120b2ea8b1dda0dd82a0989"
+    },
+    {
+      "path": "src/GearInvest.Engine/TwoOutputTransmissionValidator.cs",
+      "bytes": 9004,
+      "sha256": "db00fcdd7eefabfdbeee7efe98b91f5171368f3e2cd58573a339c587bd718af6"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveAnalysis.cs",
+      "bytes": 29119,
+      "sha256": "4c9457ffcba51b36663947dd42c02325aef2066196e2cf72e21c0d3406f22d0e"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveAnalysisModels.cs",
+      "bytes": 8586,
+      "sha256": "846122340206788c4fdc0103bffeeb4ee14fa61818252c196f9d53c6f79c7293"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveDisplay.cs",
+      "bytes": 12192,
+      "sha256": "988d2a786db952e272149abd0634ae44bb197d463c35caf4602fc4f7c10b20da"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveEdits.cs",
+      "bytes": 29906,
+      "sha256": "0b30db76f39a6b9442a5bc573de1f410979894e12e816dd6ee6d23bce4fe4848"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveEquivalence.cs",
+      "bytes": 3291,
+      "sha256": "878842c5fd35c3d241d31df2e9f1fef89703f72552e173d9c27c0690691b7327"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveGeometry.cs",
+      "bytes": 11016,
+      "sha256": "66583feb740faf959cbfbbf4e9df75bb9af5c9b82fe4f99f1587df97761e39de"
+    },
+    {
+      "path": "src/GearInvest.Engine/WormDriveModels.cs",
+      "bytes": 13170,
+      "sha256": "eb3791704df7c4131b1416708a90aea321c3034fe5608788d4c6f1bde343ea78"
+    },
+    {
+      "path": "src/GearInvest.Layout/AxialTrackGeometry.cs",
+      "bytes": 23191,
+      "sha256": "8b87e96fbf101de2f9c25b56ecf47bcf32b9e3a1969f3ace3eba80d4bd2a5628"
+    },
+    {
+      "path": "src/GearInvest.Layout/GearInvest.Layout.csproj",
+      "bytes": 391,
+      "sha256": "8614e22ecc32e292f9fff22bb6b7a51a99b0f74bae07951b8c89ced8ef86ce77"
+    },
+    {
+      "path": "src/GearInvest.Layout/GearRoutingGeometry.cs",
+      "bytes": 1710,
+      "sha256": "3948e8ddab513f0b97f995a558c32f778c47f5a6717c2937f14cf693c35b1f84"
+    },
+    {
+      "path": "src/GearInvest.Layout/MechanicalConnectionPredicates.cs",
+      "bytes": 7744,
+      "sha256": "96d6b28857d96b601ade90d39d75098d48d446290882188ecebdce486c832c29"
+    },
+    {
+      "path": "src/GearInvest.Layout/OrientedGeometry.cs",
+      "bytes": 5887,
+      "sha256": "1b4e4275c3cf2f3e01135108b2d1a60e625b9259487264dce69ad8c106b5e047"
+    },
+    {
+      "path": "src/GearInvest.Layout/packages.lock.json",
+      "bytes": 154,
+      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
+    },
+    {
+      "path": "src/GearInvest.Layout/ParallelCoaxialLayout.cs",
+      "bytes": 4041,
+      "sha256": "1bf5be70a111606aac79ec577bc8b675acc5e212bcd05ce549e14a643b792676"
+    },
+    {
+      "path": "src/GearInvest.Layout/PitchClearance.cs",
+      "bytes": 16390,
+      "sha256": "9108b5285eea301e5f6277a4995a69786e7dd2ca99a718066b76c4f5a6bda8b3"
+    },
+    {
+      "path": "src/GearInvest.Layout/SpatialModels.cs",
+      "bytes": 3804,
+      "sha256": "4c01e44990f043189cc4bbdb2d9cdcbd2152680b20436f2a3cb771d9df3b2724"
+    },
+    {
+      "path": "src/GearInvest.Layout/SpatialValidationModels.cs",
+      "bytes": 2362,
+      "sha256": "1d3c4b6687ca2917f2daad08d7bd8ded41e880d942ee9d35e4a6763f1e8261a5"
+    },
+    {
+      "path": "src/GearInvest.Layout/SpatialValidator.cs",
+      "bytes": 21179,
+      "sha256": "80f4ddc66ecbc909809208543d862c420ffe22956661649df1571bc65680a4f3"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/ClockRecipes.cs",
+      "bytes": 10087,
+      "sha256": "9a6cefe2e582fd3007f1fdc6bfd07be00c26d5b5e2b35df04721f0a3d92cfbce"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/CommonYearDiscreteProjection.cs",
+      "bytes": 907,
+      "sha256": "cb93d8da9df3aa8858d956eb2899547a1aebd60450c7e6524db264f7e51a0d6f"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/CommonYearMonthLengthRecipe.cs",
+      "bytes": 9512,
+      "sha256": "86287b5f1d374071f4fa1fa6df04cc3b3806d920188734c123ce01ba4af28a4a"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/FourYearLeapCycleRecipe.cs",
+      "bytes": 14203,
+      "sha256": "528921c9e2239bc5c914f20c1ffff3e6230858f8a3d789b11bb3d2c67ac4bddb"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/GearInvest.Modules.Clock.csproj",
+      "bytes": 405,
+      "sha256": "39407bcf397798fe8f195042ce4affed1e6629c6b3925a89f52366aac8212eb0"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/Gregorian400CalendarRecipe.cs",
+      "bytes": 18351,
+      "sha256": "19924c9f79820ce1ea5ff4dd6003863f61eb397ff4b9077cf2cfc00e490b9440"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/packages.lock.json",
+      "bytes": 154,
+      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/SimpleDate31Recipe.cs",
+      "bytes": 4391,
+      "sha256": "63689aca4138d50e6750bd43fb576c98cd4bf2301a92b132609ae32e41a03f75"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/Weekday7Recipe.cs",
+      "bytes": 2798,
+      "sha256": "709179b837867b2fd3ded8440ca9c1dce328f50dcbe065e1dfa59ea72ca551b0"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyGenevaSuffixJson.cs",
+      "bytes": 4032,
+      "sha256": "92a2f8785b1d2c46a3e25150d1b139c82af30835a8a1ffee0c5b8721ef577c8f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyReplayDocument.cs",
+      "bytes": 19786,
+      "sha256": "db3e19ae6410b166d9239c09f0a3529c96552a9f458f3f7bc6273db956410df7"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyReplayFeatures.cs",
+      "bytes": 5403,
+      "sha256": "6e4465743aa5d6564da309c11485043306417d78bdd65b154b8d58026d2009f3"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyReplayProjection.cs",
+      "bytes": 14282,
+      "sha256": "2b6e91e7b46308f58f1a6e97e0841cada11074bf6e8dc2b4bf64c07206a3642d"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyReplayValidation.cs",
+      "bytes": 11663,
+      "sha256": "a02ea00c88418e9695fb5de509c5072ce97e6e066e78715407deb274791562e5"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/AssemblyReplayWriter.cs",
+      "bytes": 10578,
+      "sha256": "6df12cd1849413b0679f9be3d9c74f2557bdbcd5859d281bb07c3883fe099f0e"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CamFollowerArtifact.cs",
+      "bytes": 7293,
+      "sha256": "f6f7cdd32c28077d481028b1dd27099a8cdd578785b10c7eba107c38dfb5a70d"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CamFollowerEditsJson.cs",
+      "bytes": 13087,
+      "sha256": "1e6216f83b95cec2c6b9d7fc45a190227b75c8dae7da8eed65b90f31b700b314"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CamFollowerJson.cs",
+      "bytes": 12836,
+      "sha256": "9865f295a82254306f461782838850449844be27280b78d7e2025bcff0a220cf"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CamFollowerProofJson.cs",
+      "bytes": 6218,
+      "sha256": "15680d9232a38b2b18ff550b02424ed1c208a537f9b03335d3a517875ccc5193"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CamFollowerResultsJson.cs",
+      "bytes": 23266,
+      "sha256": "987bae7aa55b5d797397e64b17ba107576ffb367b5d1ee2555d5a1c144f3767b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalBranchedContinuousCompositionJson.cs",
+      "bytes": 17908,
+      "sha256": "f275bdc1d898bf5f0a4b522ea17b2f81f20a940495f95f77035289daa9ea914b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalCompiledPlanGenerationJson.cs",
+      "bytes": 9589,
+      "sha256": "53e4f70d0f4644e5c325a676829e6b82e8d6954f4bdb2ec73b261d6a57c6a5b2"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalContinuousEventBridgeJson.cs",
+      "bytes": 7807,
+      "sha256": "5495e998d8dc08a306c91319f6c73e2b2f5ce779c3cb440b23c94212b3fdedd5"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalContinuousPlanCompositionJson.cs",
+      "bytes": 13479,
+      "sha256": "2795dca79fd8558f9e695c18f1b18d513ba2ada5affb2c7b25c620d0c6fd4837"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalExactRatioMechanismGenerationJson.cs",
+      "bytes": 15566,
+      "sha256": "68112bc700018de2a14d093f93e112452991c5b783fc6660804d3c5226ff13d2"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalGuardedHybridStateTransitionJson.cs",
+      "bytes": 56315,
+      "sha256": "5d9278618c90d5a9313b9a2e2962ef11b96aec434a81f6913ccb42f16650aa63"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalHybridStateSnapshotJson.cs",
+      "bytes": 15285,
+      "sha256": "301bfe86c68741252cb80515387a7c7df3b4605da97e2c02ce32b22c09e1ae23"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalHybridStateTransitionJson.cs",
+      "bytes": 10708,
+      "sha256": "8df4e43918bf5aff9e408d49ecec28e62b22c99eae3c43c59758e7d5b157299f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalKinematicSynthesisJson.cs",
+      "bytes": 10404,
+      "sha256": "1105aa2211c0ce3e0f0cb1a5c87fde9a8085bd48220afc612f05837edc16e39e"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalMechanismJson.cs",
+      "bytes": 92343,
+      "sha256": "500bb5fde33c978674589ba5536e9303ee2a98087882a1935fa9521d9c2f009f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalOrientedJson.cs",
+      "bytes": 22708,
+      "sha256": "12820b76a92acecc7ef6ec1507523bec3870755bf089a68c21a97fa529dc7288"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalOrientedTwoOutputJson.cs",
+      "bytes": 14258,
+      "sha256": "4d11d5b9964f8afd398c7493c424da4efc3b43cf77a97177b533133fb8f33b81"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalSemanticCompilationJson.cs",
+      "bytes": 5984,
+      "sha256": "c018437fe6fc57bc03b98e37e678ce2a7bc8cbb281e81549ccb62f8c66860edd"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CanonicalSpatialLayoutJson.cs",
+      "bytes": 11914,
+      "sha256": "dd8976f55138af854855cc66d9688d0914f0aab85590953621830e11b3b6e1df"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CompoundRoutingJson.cs",
+      "bytes": 20242,
+      "sha256": "c0ffc829f867faefdbc7240adbcf2173aebfa5a0405418b2074d80d1cc8a5c4e"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CompoundRoutingProjectJson.cs",
+      "bytes": 4648,
+      "sha256": "b88fb92bddfb4e0f4a1a8144ea52bb979e8d0bada8442daeda56e72ade1275e4"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CrankSliderArtifact.cs",
+      "bytes": 7255,
+      "sha256": "311da0fe57fab5251ed76d7cb7e25d94f4b12a3c7e23738fee98a6c1b5c0fad7"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CrankSliderEditsJson.cs",
+      "bytes": 13465,
+      "sha256": "7e3bc3f41cb910ce59fdb6bc3a691df4884bd25b7034e037428c4941e20d97f5"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CrankSliderJson.cs",
+      "bytes": 10961,
+      "sha256": "0e0914e988227532748b53571523e73cbadabca1e0fca0f87bf5bf6d3af2b94b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/CrankSliderResultsJson.cs",
+      "bytes": 19812,
+      "sha256": "103e035bace2710c0c5233fe4585fb08fef95ab7a8878bae8d2b1006e348a2e8"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/DiscreteEmbodimentJson.cs",
+      "bytes": 15165,
+      "sha256": "17dc7874e8293cfca55fa11dd826d0554a908c988cf62f0d0946f8379f96e69f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/DiscreteGeometryJson.cs",
+      "bytes": 11757,
+      "sha256": "12ebae416e564f142558890b406e7dd7b01711461d768c89bf63881075a5a570"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/DiscreteLayoutJson.cs",
+      "bytes": 13872,
+      "sha256": "61464e23ecf63154cdcdccdd2f65242e3a7c0fc7b438f8be708a3127d9b38e69"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/DiscreteLayoutProjectJson.cs",
+      "bytes": 5589,
+      "sha256": "904380a489d53d56657ef67d5be05530646cd629c6e9b32fdf47a5e589517cef"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GearInvest.Serialization.Json.csproj",
+      "bytes": 683,
+      "sha256": "f2395e3e9b4b1ee1fd8e5df75a7c025a156079970e3caf17c64a43e42a014ea0"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GearRoutingJson.cs",
+      "bytes": 15501,
+      "sha256": "1e30e5b5e1490d0ec56a2f493cbf1311340dc910fe0eeac3c7e812f5a3ebef8f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GearRoutingProjectJson.cs",
+      "bytes": 4600,
+      "sha256": "5c5e682b8db2ce9afc1d2dd21c3257faa172f21c02918cd730ab2f1f4699e882"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GenevaArtifact.cs",
+      "bytes": 7430,
+      "sha256": "dea149c07f8c15cad101be4be16d22c3cf6bd27b405125a429a3f4b35d391afd"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GenevaComparisonJson.cs",
+      "bytes": 4291,
+      "sha256": "919e44bbfd572842466b4696eab475795546742bf190f49f236de9c77bf2b9db"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GenevaEditsJson.cs",
+      "bytes": 14665,
+      "sha256": "d32388347b613b2ae7f73baf2400be9b2b2981492c0f8033e563f506a06abe6a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GenevaJson.cs",
+      "bytes": 13823,
+      "sha256": "e266b383b160f2900d291d10f213603f63cbea92faa16dd23c765a6c05620495"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/GenevaResultsJson.cs",
+      "bytes": 16461,
+      "sha256": "198e7390662623f4600d9c01e95495219bb9dd48029e4b5c5a4020df09080c7a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAssemblyArtifact.cs",
+      "bytes": 7839,
+      "sha256": "6b66523d96e4ca403165e0203989e9c848b046a7aae6f926a0072984eaf9bd57"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAssemblyComparisonJson.cs",
+      "bytes": 6791,
+      "sha256": "ad034b87931c9332d84d5d646d4c3f7658a9619da605bd2c41d370acba23fc2a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAssemblyEditsJson.cs",
+      "bytes": 11968,
+      "sha256": "e7cfdbea9aa577a81d3e5f3014402816204b3029a35e100c1cf61d87b1cd82a1"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAssemblyJson.cs",
+      "bytes": 15918,
+      "sha256": "17c4494cc31755dcb43a1b666fae8754b2a8f57179f3dedce199ffbd2b636038"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAssemblyResultsJson.cs",
+      "bytes": 18229,
+      "sha256": "6736c8f5a5ffbfca07070886a7eaf60373198ed635b946687c00e1b794f6d676"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAuthoringEditsJson.cs",
+      "bytes": 13523,
+      "sha256": "d5693e02eed3c331e923d1666db903b7e900405460f7986cc2155389908bd4bb"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAuthoringJson.cs",
+      "bytes": 14372,
+      "sha256": "5a91f6685f8e27b7cf14c64bc9c534630295dc6646edc4bde78b7c7b35286458"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanicalAuthoringResultsJson.cs",
+      "bytes": 12790,
+      "sha256": "d94873c3a21282c539e2b4d3df6f6b9909fbdb3b9660564a3dbb9e35efa4999a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/MechanismArtifact.cs",
+      "bytes": 11984,
+      "sha256": "163994df2c3024163b283773bd85d36fcef5acf43686aae0d7436dfb22f88bd6"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OpenBeltArtifact.cs",
+      "bytes": 6728,
+      "sha256": "810280f79100b94c186766202c1c2ed901bf8c1f65855158ae41b2c665403e10"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OpenBeltEditsJson.cs",
+      "bytes": 13029,
+      "sha256": "f153ddada719843d2898e3f7187cbbb541bcd38651ddb63f03f7a8e9a6e72c09"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OpenBeltJson.cs",
+      "bytes": 10893,
+      "sha256": "e254b9674d8b02e12d81e503ae2d5c7b94e0f79e545da5e8e8a2e5b3313391b7"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OpenBeltResultsJson.cs",
+      "bytes": 16637,
+      "sha256": "b3d150cecab317ed195f88df60e2e11cb39c503000dadfbc55915cfffd980841"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OrientedArtifact.cs",
+      "bytes": 4211,
+      "sha256": "028b640dedfe29a039a36da141f932de0511c554daa773819c50dd9abd33c352"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OrientedGoalJson.cs",
+      "bytes": 19273,
+      "sha256": "07f9fb0a908c325714cfb8acf1f9b4fe9c8f5487517bf3ce35389cc4a9b7586a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OrientedGoalProjectJson.cs",
+      "bytes": 3566,
+      "sha256": "067290e4a50d8d8b5d295664005c42e7d869e4e3a954d4e20b296cfbbda2ba71"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/OrientedTwoOutputArtifact.cs",
+      "bytes": 2912,
+      "sha256": "7acfecf6306671b59896286e397672db258ddf19f6f8a51961f9a4db2d41931e"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/packages.lock.json",
+      "bytes": 3863,
+      "sha256": "d2ab216d39ffa448753d17e05e9664cef6a7df4448d1b87308393f75a2f17b2d"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/ParallelCoaxialArtifactJson.cs",
+      "bytes": 3261,
+      "sha256": "1a85a0d21efde0ea1ccac09c15ff3b1f5ba9bc4a61f6bc5d68fed1474f6f85a4"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/PitchChainArtifact.cs",
+      "bytes": 7783,
+      "sha256": "714cd7ca5d6c1df8e77f7d102e4464957d7a3225e175724a3b7e80ab1e43d4eb"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/PitchChainEditsJson.cs",
+      "bytes": 14457,
+      "sha256": "6e4db7abedcd10ee48dba1c0a8193e2f79a4e2c39019ccb584529630c7bfd631"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/PitchChainJson.cs",
+      "bytes": 14448,
+      "sha256": "6081cafff02129c19c8967887017542b0cfec01918bec42a51720252a3aefb1b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/PitchChainResultsJson.cs",
+      "bytes": 20079,
+      "sha256": "064ef2d8bf536376f2262aec2b55da19ebb05296737e532f2b6e7e365cb3cb1f"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/PitchClearanceJson.cs",
+      "bytes": 9645,
+      "sha256": "ee6b3fa3045caf7f528fbf4682d2d88e50547ce2afb14452ff47e7e3aefc9bfc"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RackPinionArtifact.cs",
+      "bytes": 6472,
+      "sha256": "fcf33469a5f0487b40b09f9f6223c78d89abf93490389c2a41f1b5a435a113e8"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RackPinionEditsJson.cs",
+      "bytes": 13005,
+      "sha256": "6c69b31a181af23a0307b4933249ace508fcd30a39bf4c9471a2d62b9e860711"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RackPinionJson.cs",
+      "bytes": 11351,
+      "sha256": "66cb1c9de2db44de15444ff8c209f7a224babdf98d5c29386834b69777e1aab2"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RackPinionResultsJson.cs",
+      "bytes": 11066,
+      "sha256": "05dae5b30b127c40ec92c4971eec250759a13579ec402458e2370ce2744b8b39"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RotaryLinearArtifact.cs",
+      "bytes": 5792,
+      "sha256": "3b6113053c09a7b40062aca6bf82835e33d652d6e77322825a5b07f092e71497"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RotaryLinearEditsJson.cs",
+      "bytes": 10885,
+      "sha256": "6b18eec3cf8a85bc5ee803420ffa67ec0256b35d448aeea6cb3227c08eed81e3"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RotaryLinearJson.cs",
+      "bytes": 12171,
+      "sha256": "f5af4648bf2e37185023b48d7a34f1d4d0fc069625691efd701e67124a8c0e74"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/RotaryLinearResultsJson.cs",
+      "bytes": 13064,
+      "sha256": "c22ff1ac88e57e3a4fbfebc4a95cab8864bb4a3498ad827a1d7658cc2b05267a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/SharedDriverTransmissionJson.cs",
+      "bytes": 16442,
+      "sha256": "dd1919206e52e207e60953c7205af230e994a432abccf8945947752811f0f63b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/SharedDriverTransmissionProjectJson.cs",
+      "bytes": 5951,
+      "sha256": "c3bf0d65c717003e03f13dff1b717abdc1e51085c2357019f0da80c8e9bc36bf"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/SharedPrefixTransmissionJson.cs",
+      "bytes": 9803,
+      "sha256": "877a0cda727dacf2340355296904e923f964ea0df9eb372bf8a57b9fe8bc708a"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/SharedPrefixTransmissionProjectJson.cs",
+      "bytes": 6028,
+      "sha256": "3c95e78d85558636c4c641643adc70c7e6f45f711cac4646a103b71ecb81662b"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/SharedPrefixTransmissionResultJson.cs",
+      "bytes": 11236,
+      "sha256": "eac983ebf49995ebc8160a67478676a420554ef78e35e4b502fdf0d72da8307d"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TransmissionGoalJson.cs",
+      "bytes": 17193,
+      "sha256": "2e62f2130d29ffcc309ceb07a9dce3c7dee82bf7512c616be8c5450f5ba26fb8"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TransmissionGoalProjectJson.cs",
+      "bytes": 5426,
+      "sha256": "cec7aa02047d4682e312621c851dd0af84253ced399344d39f6e0d7c4628ace9"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoCompoundRoutingJson.cs",
+      "bytes": 17860,
+      "sha256": "8600fcb95f3c21dfd96e5b36f2a2618a0ce25d456a6586a00c648ff9bfcb19e5"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoCompoundRoutingProjectJson.cs",
+      "bytes": 4415,
+      "sha256": "0efac2abea9e5fa6dfb39319af7fe022e8d15e80d605d30f123a1a45ccd7939c"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoOutputTransmissionJson.cs",
+      "bytes": 11002,
+      "sha256": "30a36ffb2f7481c5fb4c92517032405fb54d86ca29b4dc6e2573b7ae1dbbe556"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoOutputTransmissionOriginJson.cs",
+      "bytes": 5541,
+      "sha256": "8e9717ed71bc084ef44ba635edc450f35ed9dc5db4f0f6aed2a9abcda5733040"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoOutputTransmissionProjectJson.cs",
+      "bytes": 6044,
+      "sha256": "6f0968430f5f21b581a5f995ec2e2c21879cfa8e61781b09c7392ec4f4a26318"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/TwoOutputTransmissionResultJson.cs",
+      "bytes": 7200,
+      "sha256": "5581513c468620e3c405bb2ab617a7c94c0bb7fde633bf9d68a4775a35b61500"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/WormDriveArtifact.cs",
+      "bytes": 8225,
+      "sha256": "95be19f491959ad5d080ce4fbeb851f41ea3ac8e89f3eaa8ea9db0d55e9020c4"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/WormDriveEditsJson.cs",
+      "bytes": 15861,
+      "sha256": "1f6f0868589bb3e4fb4fb2b32fc4b6bda57a983d1aa8c7e6953f91b380307366"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/WormDriveJson.cs",
+      "bytes": 14501,
+      "sha256": "4d09904b16d62f065b3320671247526ad40d8d2d3a6e3a71246ebc5b95658087"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/WormDriveResultsJson.cs",
+      "bytes": 14086,
+      "sha256": "f11de86bd6d7a7b9139b3e8ce00bda1c11bba61670fcda8b2d041ac4586153c7"
+    },
+    {
+      "path": "src/GearInvest/AssemblyReplaySdk.cs",
+      "bytes": 6038,
+      "sha256": "e0e1e26f077f41a6343a241e28f20a24eb1f5496c100b182f03fded20694cf8f"
+    },
+    {
+      "path": "src/GearInvest/AuthoringWork.cs",
+      "bytes": 622,
+      "sha256": "d8bfd12df5778591b06652060ae9d62c22cc77fd1071475042936f1576956fb9"
+    },
+    {
+      "path": "src/GearInvest/CamFollowerSdk.cs",
+      "bytes": 22576,
+      "sha256": "97ad8498a766386779d030d29f8730c2b05570ee74eecd0a5d7cb3b47eb4cb47"
+    },
+    {
+      "path": "src/GearInvest/CompoundRoutingAuthoringController.cs",
+      "bytes": 3463,
+      "sha256": "b592d025628ef25cf988ffdf024fc0d0f59b64b9225062162fefafee3696eced"
+    },
+    {
+      "path": "src/GearInvest/CompoundRoutingDraft.cs",
+      "bytes": 7871,
+      "sha256": "ee0532625c7573ffd02a6adc9efd1299dcd7d40b14fd748c3a6b40ba9aa555d0"
+    },
+    {
+      "path": "src/GearInvest/CompoundRoutingProjects.cs",
+      "bytes": 6496,
+      "sha256": "6e0d2d9c7fa649a5e8dca3bb9bb7d9d9320560e9e6791dafdeb6ec15d6ef4cbb"
+    },
+    {
+      "path": "src/GearInvest/CompoundRoutingSdk.cs",
+      "bytes": 3124,
+      "sha256": "3cf8431930d84d85064af74ee5361d164ee8d0da0c0341070c1d8f18cb902b34"
+    },
+    {
+      "path": "src/GearInvest/CrankSliderSdk.cs",
+      "bytes": 18411,
+      "sha256": "2b067d7e368f3b9b4a63a63c893d6f7892f7b5ae18e96144c3474d36fe91ae15"
+    },
+    {
+      "path": "src/GearInvest/DiscreteLayoutAuthoringController.cs",
+      "bytes": 13098,
+      "sha256": "fc24f1334debdbd7782749f3f5821093f594964f64f978c287f3e1cd4117e4f3"
+    },
+    {
+      "path": "src/GearInvest/DiscreteLayoutDraft.cs",
+      "bytes": 5602,
+      "sha256": "c0622e71ea3c5f8c3c55797051e4e90839e97fab9cff793053f513e3e891a712"
+    },
+    {
+      "path": "src/GearInvest/DiscreteLayoutProjects.cs",
+      "bytes": 14263,
+      "sha256": "419fbddde01a13061783465f1e2a8731e7f182273dba6bb4a3aa18b0e317f7e5"
+    },
+    {
+      "path": "src/GearInvest/GearInvest.csproj",
+      "bytes": 748,
+      "sha256": "6363c626d70b4e3508ee4fae2bf68196b6ee6f4893d4efab3d02153394ee4343"
+    },
+    {
+      "path": "src/GearInvest/GearInvestSdk.cs",
+      "bytes": 48156,
+      "sha256": "dbc61df3146c8ace59d4916e43534c660ed178f790169a322e4114700080465c"
+    },
+    {
+      "path": "src/GearInvest/GearRoutingAuthoringController.cs",
+      "bytes": 7556,
+      "sha256": "928715a5b6671c08a623b13f388acfabcf28e1383b0bf08e172320c84bae4844"
+    },
+    {
+      "path": "src/GearInvest/GearRoutingDraft.cs",
+      "bytes": 6188,
+      "sha256": "b0239e3e2004de4ea821fd5daa316a2fa0baa93f1e2716cd1a40e8758a7c02a3"
+    },
+    {
+      "path": "src/GearInvest/GearRoutingProjects.cs",
+      "bytes": 6228,
+      "sha256": "1f3ce4d83cb80d85f84f4a0b7899c7227b09ae5a6d45f354e62c9124746cd3e9"
+    },
+    {
+      "path": "src/GearInvest/GearRoutingSdk.cs",
+      "bytes": 2610,
+      "sha256": "e5cda7ee8979f6497f9cb5cc33ad908e839528342b6d87567257c369a2b0bc0f"
+    },
+    {
+      "path": "src/GearInvest/GenevaSdk.cs",
+      "bytes": 18560,
+      "sha256": "1c936cf39993d87691bdc46d4685865c74a78b569820f0b8602f0e9afce11487"
+    },
+    {
+      "path": "src/GearInvest/MechanicalAssemblySdk.cs",
+      "bytes": 27862,
+      "sha256": "a50b9df89204054d240d32f8991b17e757f0c0267822d3f155832a7d449cb32b"
+    },
+    {
+      "path": "src/GearInvest/MechanicalAuthoringSdk.cs",
+      "bytes": 42126,
+      "sha256": "adcbde6c26390e27743157b3c615a52ed631a4b09929ae9af3411c5d1c77357a"
+    },
+    {
+      "path": "src/GearInvest/OpenBeltSdk.cs",
+      "bytes": 16167,
+      "sha256": "574d445b4c5a268ace1a70a28d4c4c24018ec771df3b4a346e7416d226092973"
+    },
+    {
+      "path": "src/GearInvest/OrientedGoalAuthoringController.cs",
+      "bytes": 4680,
+      "sha256": "646312d1c6d5a81b86381b3e2fa69a55209d9a54c8b2b1429214fae66d3761e5"
+    },
+    {
+      "path": "src/GearInvest/OrientedGoalPersistenceSdk.cs",
+      "bytes": 12421,
+      "sha256": "67e0fac58ec7cf24eca84b866adfe668fd0435b10d71626eddae012c77139c37"
+    },
+    {
+      "path": "src/GearInvest/OrientedGoalProjects.cs",
+      "bytes": 7150,
+      "sha256": "ffae66f7d962094572b6361e4f4b4e544dfd18c15909cf03756c02ff7ff7e4f1"
+    },
+    {
+      "path": "src/GearInvest/OrientedGoalSdk.cs",
+      "bytes": 5187,
+      "sha256": "4a5495bf1d926d58a937f878512baf2614037963a5e7091cd702e9e72bee1fb8"
+    },
+    {
+      "path": "src/GearInvest/OrientedTransmissionSdk.cs",
+      "bytes": 8142,
+      "sha256": "231061fc42b77b0f18ad4e79818755beade7076336ed9e9c57d319b9b4122c8e"
+    },
+    {
+      "path": "src/GearInvest/OrientedTwoOutputSdk.cs",
+      "bytes": 6985,
+      "sha256": "f029fcd2d6c7381cc753495199ca53b359619146bfb320537ce50012b3c8dcdd"
+    },
+    {
+      "path": "src/GearInvest/packages.lock.json",
+      "bytes": 4811,
+      "sha256": "81533fc0884793930a0cdf05d74040e447a3f043990aa146b047e5fad9d3a404"
+    },
+    {
+      "path": "src/GearInvest/ParallelCoaxialSdk.cs",
+      "bytes": 2472,
+      "sha256": "25813bab4ca9cd46496863da33e607f9d5e526c5d102d37430e429420b7df5bf"
+    },
+    {
+      "path": "src/GearInvest/PitchChainSdk.cs",
+      "bytes": 17098,
+      "sha256": "da2995202983f8c0463c9a091adb33a7b2af5b98c6155600996cf770abf7fc75"
+    },
+    {
+      "path": "src/GearInvest/PitchClearanceSdk.cs",
+      "bytes": 1013,
+      "sha256": "0bfa9e98a47b1d11f222423ae057e9c4abf5ba228dc57f7d6367a73348bac8cb"
+    },
+    {
+      "path": "src/GearInvest/PortableProjectStorage.cs",
+      "bytes": 3911,
+      "sha256": "0997d6925177e69f1dbb84c49686149e527ec4ea75d299d1919d0db784b0d39a"
+    },
+    {
+      "path": "src/GearInvest/PreparedMechanicalAssemblyEvaluation.cs",
+      "bytes": 3104,
+      "sha256": "db755fcd048612780965b9999ecb558271a2050787a3efd6aed6f9cd99c62f29"
+    },
+    {
+      "path": "src/GearInvest/RackPinionSdk.cs",
+      "bytes": 15592,
+      "sha256": "8d901990f1fff60e0596d465728ed0a996457d30abe2b1a287df81882fc71c3b"
+    },
+    {
+      "path": "src/GearInvest/RotaryLinearSdk.cs",
+      "bytes": 14251,
+      "sha256": "989cfb3d62b9e6611c8d703bdee5c1e8134d874d493109511ee02cfb263feebb"
+    },
+    {
+      "path": "src/GearInvest/RoutingAuthoringSession.cs",
+      "bytes": 6938,
+      "sha256": "86cdeb9c9d0c223bf1ab2e067d3455b1f8c3c99b9216b89fdbd69ca1fb108de3"
+    },
+    {
+      "path": "src/GearInvest/SharedDriverTransmissionAuthoringController.cs",
+      "bytes": 5086,
+      "sha256": "5ac6d1986b536323a520cef14238579293bbff7d33ea5d0cd15d9603f296e966"
+    },
+    {
+      "path": "src/GearInvest/SharedDriverTransmissionDraft.cs",
+      "bytes": 8714,
+      "sha256": "8070349a0fa29f335589d9e93d9ff717ba302c8ec92169f88bb0e1f215ec4527"
+    },
+    {
+      "path": "src/GearInvest/SharedDriverTransmissionProjects.cs",
+      "bytes": 7824,
+      "sha256": "8419019d58bfe36718fab2b7adf05a57187fc0b168e4608405a20ece920451e6"
+    },
+    {
+      "path": "src/GearInvest/SharedDriverTransmissionSdk.cs",
+      "bytes": 3086,
+      "sha256": "01e1e489329bd18a64c1d13a5c8c50117ce2d0eaf5ec4fb750b22ac7ede1a637"
+    },
+    {
+      "path": "src/GearInvest/SharedPrefixTransmissionAuthoringController.cs",
+      "bytes": 5124,
+      "sha256": "2c812c40356ad8d957f0290a03347064ed5f876bd73e66219b8c8f7a31432c21"
+    },
+    {
+      "path": "src/GearInvest/SharedPrefixTransmissionComparison.cs",
+      "bytes": 2374,
+      "sha256": "d3ba8016407f453bdb257e4c1f8626400ad99a0654bc4fd2551557f451d5d218"
+    },
+    {
+      "path": "src/GearInvest/SharedPrefixTransmissionDraft.cs",
+      "bytes": 8316,
+      "sha256": "9d7e810bae2c074c35748bfe9db7b9303e278a7f9c8513d7bce53419150bc345"
+    },
+    {
+      "path": "src/GearInvest/SharedPrefixTransmissionProjects.cs",
+      "bytes": 7858,
+      "sha256": "c58596b629ab22ea7793836879316eba6bfa9e620ee26af76b4114d988485f0c"
+    },
+    {
+      "path": "src/GearInvest/SharedPrefixTransmissionSdk.cs",
+      "bytes": 3103,
+      "sha256": "a98cb63faa5c5a83b382cc53439d472538a5c448634440df3e4e2a09f1a401e8"
+    },
+    {
+      "path": "src/GearInvest/SourceAttachmentFinalization.cs",
+      "bytes": 4739,
+      "sha256": "1a923a8f04f13da0dc481bdaec919a37acfe97d27c25dca68f3be22f352d1da4"
+    },
+    {
+      "path": "src/GearInvest/TransmissionGoalAuthoringController.cs",
+      "bytes": 4336,
+      "sha256": "17a9eaa8a0bc8ef4b0fb2c3d519c61ad21f0d14d91cef0ef4139b7e1d98df41f"
+    },
+    {
+      "path": "src/GearInvest/TransmissionGoalDraft.cs",
+      "bytes": 8122,
+      "sha256": "1ef6de3a6407dd6428e360b61ecd9b4544c80de37fc92ee19ab99240acef7355"
+    },
+    {
+      "path": "src/GearInvest/TransmissionGoalProjects.cs",
+      "bytes": 7646,
+      "sha256": "7e140cf67a06cbc320e55782513f6c9ad29bad5df802f67916c536365331929f"
+    },
+    {
+      "path": "src/GearInvest/TransmissionGoalSdk.cs",
+      "bytes": 2347,
+      "sha256": "62ed278b442d0ebf2cd8916affdb04606a8474f28feada368775e5ee822020a7"
+    },
+    {
+      "path": "src/GearInvest/TwoCompoundRoutingAuthoringController.cs",
+      "bytes": 3532,
+      "sha256": "9a6c70e3aa21507dc15b8ab1d5122f7616800ff99f30644a7bab868e376ec928"
+    },
+    {
+      "path": "src/GearInvest/TwoCompoundRoutingDraft.cs",
+      "bytes": 8200,
+      "sha256": "6454434d288bfb2bac1751aa711c88ad97167c3f4545ad6265ab32e081ef4e6a"
+    },
+    {
+      "path": "src/GearInvest/TwoCompoundRoutingProjects.cs",
+      "bytes": 6431,
+      "sha256": "92f435739a4105afc4acc7a8db956340b5066460ca7f524a604851733174fb3c"
+    },
+    {
+      "path": "src/GearInvest/TwoCompoundRoutingSdk.cs",
+      "bytes": 3217,
+      "sha256": "a4ab2f23a3f449540af1bede984735f7b9381b6862cb5209c73c3f85a53e797b"
+    },
+    {
+      "path": "src/GearInvest/TwoOutputTransmissionAuthoringController.cs",
+      "bytes": 5052,
+      "sha256": "677902e983143a95a40846f41fb1412d4afe567ed0008994bd960d38f18bb8f4"
+    },
+    {
+      "path": "src/GearInvest/TwoOutputTransmissionDraft.cs",
+      "bytes": 8233,
+      "sha256": "d130f285c7b8810d07da83971e03e5b72d57f3ebba262fab4ef77a7c238c27a5"
+    },
+    {
+      "path": "src/GearInvest/TwoOutputTransmissionProjects.cs",
+      "bytes": 7785,
+      "sha256": "2b411bbda46b2620b44bf76aa090846f3b6cb5c59a6ff2d05f6ca2ed4c5b8d31"
+    },
+    {
+      "path": "src/GearInvest/TwoOutputTransmissionSdk.cs",
+      "bytes": 5707,
+      "sha256": "7ce44cce3340e10ac9e0b11cf15ab460773a7bda0d583a8e9f1b666ebb2bf5c9"
+    },
+    {
+      "path": "src/GearInvest/WormDriveSdk.cs",
+      "bytes": 18033,
+      "sha256": "d89959b159a3d827511e4f28e0ee7093e23c4fc2d88b4972de4f52132a313f89"
+    },
+    {
+      "path": "tests/GearInvest.Tests/ArtifactValidationTests.cs",
+      "bytes": 1708,
+      "sha256": "b1f81f0a2067ea75bb03349c7af9527ad0abdcc8c064e90df285eefb45673a73"
+    },
+    {
+      "path": "tests/GearInvest.Tests/AssemblyInfo.cs",
+      "bytes": 80,
+      "sha256": "3f7edd72eac91614fcf49f709dd4e560c74ebef8da68a53a02947e5611cd1869"
+    },
+    {
+      "path": "tests/GearInvest.Tests/CoaxialAuthoringTests.cs",
+      "bytes": 3547,
+      "sha256": "3eadb320b24f12de456fc02ba935c936b5363b1118b530b8ea2f94f75d201252"
+    },
+    {
+      "path": "tests/GearInvest.Tests/CoaxialBoundaryAndPersistenceTests.cs",
+      "bytes": 15410,
+      "sha256": "6558de08d5e28eaaea74c9a3cff52d779f3769abe1c0c146f370b88be8c57f0b"
+    },
+    {
+      "path": "tests/GearInvest.Tests/CoaxialLegacyBoundaryTests.cs",
+      "bytes": 4082,
+      "sha256": "155fe04e605b77cf7f934ef00b513ed149749443b1b204b30dc5e24b6167cb2e"
+    },
+    {
+      "path": "tests/GearInvest.Tests/FixtureFactory.cs",
+      "bytes": 2071,
+      "sha256": "2c0a9852a50838b83c09d910e3a51f2d9c0de829cd74e35007b15807d3d4546d"
+    },
+    {
+      "path": "tests/GearInvest.Tests/GearInvest.Tests.csproj",
+      "bytes": 609,
+      "sha256": "446e34bccafde4bf864a6c2c1867a84eabef4b9c939ef9f5f3bbe2f385e6bb40"
+    },
+    {
+      "path": "tests/GearInvest.Tests/KinematicTests.cs",
+      "bytes": 2992,
+      "sha256": "4a459563a15760c240593d4c0dd8274c70c18f9e1ddc68da39082706039879f2"
+    },
+    {
+      "path": "tests/GearInvest.Tests/packages.lock.json",
+      "bytes": 5974,
+      "sha256": "ea2e3424c5d13d4b3937e7fe09f4301f470f7dec846320e4a0e740c732f30236"
+    },
+    {
+      "path": "tests/GearInvest.Tests/PlaybackTests.cs",
+      "bytes": 3210,
+      "sha256": "dcf59ecac14a28928c319de54ba90d9592859f5a9330663d7e37b44369877c6b"
+    },
+    {
+      "path": "tests/GearInvest.Tests/RationalTests.cs",
+      "bytes": 2570,
+      "sha256": "9bd995e15672479c63fb7d0b88f4ade311de6db902a46ae0622c1db8250aedbd"
+    },
+    {
+      "path": "tests/GearInvest.Tests/SerializationTests.cs",
+      "bytes": 7677,
+      "sha256": "53ed6f29972f1194f417894e3661057207df875ad4610e9bdfc222eb7534d2c9"
+    },
+    {
+      "path": "tests/GearInvest.Tests/TestFixture.cs",
+      "bytes": 956,
+      "sha256": "d235a9a0970d66eac31a88502e4b5524697e38f779d7cf9b79cf48792183f5a0"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+    }
+  ],
+  "selfExcluded": "PUBLIC_FILES.json"
+}

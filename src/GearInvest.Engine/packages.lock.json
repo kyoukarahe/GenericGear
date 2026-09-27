@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETStandard,Version=v2.1": {
+      "gearinvest.core": {
+        "type": "Project"
+      },
+      "gearinvest.layout": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )"
+        }
+      }
+    }
+  }
+}

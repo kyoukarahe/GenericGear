@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0": {
+      "System.Text.Json": {
+        "type": "Transitive",
+        "resolved": "8.0.6",
+        "contentHash": "BvSpVBsVN9b+Y+wONbvJOHd1HjXQf33+XiC28ZMOwRsYb42mz3Q8YHnpTSwpwJLqYCMqM+0UUVC3V+pi25XfkQ=="
+      },
+      "gearinvest": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Engine": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Modules.Clock": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Serialization.Json": "[0.1.0-rc.public01.1, )"
+        }
+      },
+      "gearinvest.core": {
+        "type": "Project"
+      },
+      "gearinvest.engine": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public01.1, )"
+        }
+      },
+      "gearinvest.layout": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )"
+        }
+      },
+      "gearinvest.modules.clock": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )"
+        }
+      },
+      "gearinvest.serialization.json": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Engine": "[0.1.0-rc.public01.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public01.1, )",
+          "System.Text.Json": "[8.0.6, )"
+        }
+      }
+    }
+  }
+}

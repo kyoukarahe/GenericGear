@@ -1,0 +1,57 @@
+{
+  "name": "@gearinvest/presentation",
+  "version": "0.1.0-rc.public01.1",
+  "description": "Optional headless planar or oriented pitch-surface projection with explicit Canvas2D adapters.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./canvas2d": {
+      "types": "./dist/canvas2d.d.ts",
+      "import": "./dist/canvas2d.js"
+    },
+    "./oriented": {
+      "types": "./dist/oriented.d.ts",
+      "import": "./dist/oriented.js"
+    },
+    "./oriented-canvas2d": {
+      "types": "./dist/orientedCanvas2d.d.ts",
+      "import": "./dist/orientedCanvas2d.js"
+    },
+    "./oriented-two-output": {
+      "types": "./dist/orientedTwoOutput.d.ts",
+      "import": "./dist/orientedTwoOutput.js"
+    },
+    "./oriented-two-output-canvas2d": {
+      "types": "./dist/orientedTwoOutputCanvas2d.d.ts",
+      "import": "./dist/orientedTwoOutputCanvas2d.js"
+    },
+    "./assembly": {
+      "types": "./dist/assembly.d.ts",
+      "import": "./dist/assembly.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "LICENSE_SCOPE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "DEPENDENCIES.json"
+  ],
+  "dependencies": {
+    "@gearinvest/replay": "0.1.0-rc.public01.1"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.canvas.json"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "AGPL-3.0-only",
+  "private": true
+}

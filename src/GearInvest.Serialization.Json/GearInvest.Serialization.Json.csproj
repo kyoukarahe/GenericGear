@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+    <RootNamespace>GearInvest.Serialization.Json</RootNamespace>
+    <AssemblyName>GearInvest.Serialization.Json</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GearInvest.Core\GearInvest.Core.csproj" />
+    <ProjectReference Include="..\GearInvest.Layout\GearInvest.Layout.csproj" />
+    <ProjectReference Include="..\GearInvest.Engine\GearInvest.Engine.csproj" />
+  </ItemGroup>
+</Project>

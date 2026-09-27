@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>GearInvest.Layout</RootNamespace>
+    <AssemblyName>GearInvest.Layout</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GearInvest.Core\GearInvest.Core.csproj" />
+  </ItemGroup>
+</Project>

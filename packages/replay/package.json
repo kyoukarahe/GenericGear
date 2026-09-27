@@ -1,0 +1,42 @@
+{
+  "name": "@gearinvest/replay",
+  "version": "0.1.0-rc.public01.1",
+  "description": "Headless bounded consumption and approximate stored playback of GearInvest artifacts; not a mechanical solver.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./oriented": {
+      "types": "./dist/oriented.d.ts",
+      "import": "./dist/oriented.js"
+    },
+    "./oriented-two-output": {
+      "types": "./dist/orientedTwoOutput.d.ts",
+      "import": "./dist/orientedTwoOutput.js"
+    },
+    "./assembly": {
+      "types": "./dist/assembly.d.ts",
+      "import": "./dist/assembly.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "LICENSE_SCOPE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "DEPENDENCIES.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "AGPL-3.0-only",
+  "private": true
+}
