@@ -6,5 +6,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" PrivateAssets="all" />
     <ProjectReference Include="../../src/GearInvest/GearInvest.csproj" />
     <Compile Include="../../examples/shared/*.cs" Link="Shared/%(Filename)%(Extension)" />
+    <Compile Include="../../examples/carrier/CarrierExample.cs" Link="Shared/CarrierExample.cs" />
+    <Compile Include="../../examples/differential/DifferentialExample.cs" Link="Shared/DifferentialExample.cs" />
   </ItemGroup>
 </Project>

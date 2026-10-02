@@ -5,7 +5,7 @@ analyzes, finalizes and reconstructs mechanical artifacts. The TypeScript
 packages consume those artifacts; they do not synthesize or validate a new
 mechanism. Unity and browser display objects never own the mechanical truth.
 
-This is a **source release**, version `0.1.0-rc.public01.1`.
+This is a **source release**, version `0.1.0-rc.public02.1`.
 Build and use it from this source tree. No public NuGet/npm package, binary
 download or Unity package is claimed here.
 
@@ -22,6 +22,7 @@ dotnet test tests/GearInvest.Tests/GearInvest.Tests.csproj -c Release -p:Restore
 dotnet run --project examples/console/Consumer.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms
 dotnet run --project examples/exact-producer/Guidance.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms/coaxial.artifact.json generated/exact
 node scripts/prepare-web.mjs
+node scripts/prepare-moving.mjs
 npm ci --ignore-scripts
 npm run build
 npm run build --workspace @gearinvest/public-example
@@ -45,6 +46,12 @@ published service. Before distributing it, follow [distribution guidance](docs/D
 
 ## Where to start
 
+- [Grounded-sun carrier: one actual input](examples/carrier/README.md)
+- [Free-sun differential: two independent inputs](examples/differential/README.md)
+- For their interactive SVG labs: `npm run labs`, then open
+  `/examples/carrier/web/index.html` or `/examples/differential/web/index.html`
+  on the printed loopback address. These pages consume exact exported laws;
+  browser mechanical/source rebuild remains `notPerformed`.
 - [Consumer contracts and exact replay](docs/CONSUMER.md)
 - [Verification scope](docs/VERIFICATION.md)
 - [Supported scope and limits](docs/SUPPORTED_SCOPE.md)

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework>
+    <GearInvestSdkBin Condition="'$(GearInvestSdkBin)' == ''">$(MSBuildThisFileDirectory)..\..\..\src\GearInvest\bin\Release\net8.0</GearInvestSdkBin>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GearInvest"><HintPath>$(GearInvestSdkBin)\GearInvest.dll</HintPath></Reference>
+    <Reference Include="GearInvest.Core"><HintPath>$(GearInvestSdkBin)\GearInvest.Core.dll</HintPath></Reference>
+    <Reference Include="GearInvest.Layout"><HintPath>$(GearInvestSdkBin)\GearInvest.Layout.dll</HintPath></Reference>
+    <Reference Include="GearInvest.Engine"><HintPath>$(GearInvestSdkBin)\GearInvest.Engine.dll</HintPath></Reference>
+    <Reference Include="GearInvest.Serialization.Json"><HintPath>$(GearInvestSdkBin)\GearInvest.Serialization.Json.dll</HintPath></Reference>
+    <Reference Include="GearInvest.Modules.Clock"><HintPath>$(GearInvestSdkBin)\GearInvest.Modules.Clock.dll</HintPath></Reference>
+    <Compile Include="..\CarrierExample.cs" Link="CarrierExample.cs" />
+  </ItemGroup>
+</Project>

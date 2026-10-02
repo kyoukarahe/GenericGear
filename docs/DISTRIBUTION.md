@@ -1,6 +1,6 @@
 # Source and binary distribution
 
-The first candidate is source-only. The complete selected C#/TypeScript source,
+This release remains source-only. The complete selected C#/TypeScript source,
 build inputs, lockfiles, example generators, tests and instructions are here.
 Local generated DLLs, PDBs, nupkgs, JS bundles and Unity players are not release
 assets. Do not relabel old private archives as this version.

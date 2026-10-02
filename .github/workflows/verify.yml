@@ -23,6 +23,7 @@ jobs:
       - run: dotnet run --project examples/console/Consumer.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms
       - run: dotnet run --project examples/exact-producer/Guidance.csproj -c Release -p:RestoreLockedMode=true -- generated/mechanisms/coaxial.artifact.json generated/exact
       - run: node scripts/prepare-web.mjs
+      - run: node scripts/prepare-moving.mjs
       - run: npm ci --ignore-scripts
       - run: npm run build
       - run: npm run build --workspace @gearinvest/public-example

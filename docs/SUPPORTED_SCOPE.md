@@ -15,6 +15,17 @@ Same geometric axis is not a rigid coupling. Contact, ownership, layer and
 clearance refusals are tested. Source reconstruction is same-version and does
 not promise indefinite forward compatibility with future algorithms.
 
+The moving-frame profiles add one grounded-sun carrier (E2a) and one free-sun
+single-planet differential (E2b), optionally attached to one real external-spur
+prefix. E2b supports at most two independent prepared port inputs, explicit
+static holds, exact rank/partial/inconsistent boundary analysis and canonical
+source reconstruction. Web consumes exported affine vectors; it does not solve
+rank/contact or rebuild current mechanics. See the [carrier contract](BOUNDED_CARRIER_CONTRACT.md)
+and [differential contract](BOUNDED_DIFFERENTIAL_CONTRACT.md).
+No arbitrary differential network, ring gear, nested carrier, finite chain
+winding, conditional mode switch or downstream worm/belt/nonlinear bridge is
+implied. Pitch-plane checks do not certify tooth, arm, shaft or swept solids.
+
 Nonlinear evaluation is bounded and can refuse requests at numeric/resource
 limits. Approximate stored playback is not exact analytic evaluation. Exact
 arithmetic does not make continuous geometry or floating display bit-identical
@@ -32,5 +43,5 @@ packaging does not fix that issue or make a new performance/SLA guarantee.
 
 The public source does not require private conformance catalogs or historical
 reports. The older private CLI and its broad acceptance catalog are not shipped
-in this first source release; the console source is the supported small .NET
+in this source release; the console and carrier/differential consumers are the small .NET
 entry. SDK implementation coverage is not reduced by that packaging choice.

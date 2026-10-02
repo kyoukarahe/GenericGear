@@ -1,6 +1,6 @@
 {
   "name": "@gearinvest/replay",
-  "version": "0.1.0-rc.public01.1",
+  "version": "0.1.0-rc.public02.1",
   "description": "Headless bounded consumption and approximate stored playback of GearInvest artifacts; not a mechanical solver.",
   "type": "module",
   "sideEffects": false,
@@ -20,6 +20,14 @@
     "./assembly": {
       "types": "./dist/assembly.d.ts",
       "import": "./dist/assembly.js"
+    },
+    "./carrier": {
+      "types": "./dist/carrier.d.ts",
+      "import": "./dist/carrier.js"
+    },
+    "./differential": {
+      "types": "./dist/differential.d.ts",
+      "import": "./dist/differential.js"
     }
   },
   "types": "./dist/index.d.ts",

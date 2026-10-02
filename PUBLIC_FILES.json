@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidate": "0.1.0-rc.public01.1",
+  "candidate": "0.1.0-rc.public02.1",
   "kind": "source-only",
   "files": [
     {
@@ -10,13 +10,63 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "bytes": 1316,
-      "sha256": "5675b70824733ca48cb6c5ee03edb65b30c100bd990b4c45be528042cd8d25ad"
+      "bytes": 1361,
+      "sha256": "e3612546e2bd497b120902fc5172030fc92efc5c32f8c78e5b14ad919c997fab"
     },
     {
       "path": ".gitignore",
       "bytes": 210,
       "sha256": "3b3ed42469a483960df411c57c808fd8debe13d65481503c7f47daa7a3614117"
+    },
+    {
+      "path": "COMMERCIAL_LICENSE.md",
+      "bytes": 1347,
+      "sha256": "e63817c6b2efbed85ea9cca2f3b2016a86cdc8307ce14d2bb06f475edad6f66f"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1516,
+      "sha256": "17bfff51edc65d0115b249d8f7994b0c3347d3d0dbf61f2285c100b32e14f072"
+    },
+    {
+      "path": "DEPENDENCIES.json",
+      "bytes": 47676,
+      "sha256": "c1241892ee6613994a0a441b6309da26fb8a698e58ccdb2ec58ea33510760f41"
+    },
+    {
+      "path": "Directory.Build.props",
+      "bytes": 1483,
+      "sha256": "3c226a7d0ab51cf07fd2a33726b6f5d15a784a07f522baa35e43f161fc3767cd"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 34020,
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
+    },
+    {
+      "path": "LICENSE_SCOPE.md",
+      "bytes": 2318,
+      "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
+    },
+    {
+      "path": "NuGet.Config",
+      "bytes": 179,
+      "sha256": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3928,
+      "sha256": "70f4169b831a1e5541cd28727cc7e3568c811602c87321592b7028c0d259efd9"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1326,
+      "sha256": "e4a4bfed24af23602ba651322e170e1576356702fcabb05931181a029f980fa1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
     },
     {
       "path": "adapters/unity-source/README.md",
@@ -184,24 +234,14 @@
       "sha256": "b5c31632d1002a684ba3e435becd92b2754f94960dd8721f05c2a232cc8008e0"
     },
     {
-      "path": "COMMERCIAL_LICENSE.md",
-      "bytes": 1347,
-      "sha256": "e63817c6b2efbed85ea9cca2f3b2016a86cdc8307ce14d2bb06f475edad6f66f"
+      "path": "docs/BOUNDED_CARRIER_CONTRACT.md",
+      "bytes": 5460,
+      "sha256": "c7e88c21484fd483b21acaf34adc18abd57ac8c418dc6ea78017cd9b3d93d71d"
     },
     {
-      "path": "CONTRIBUTING.md",
-      "bytes": 1516,
-      "sha256": "17bfff51edc65d0115b249d8f7994b0c3347d3d0dbf61f2285c100b32e14f072"
-    },
-    {
-      "path": "DEPENDENCIES.json",
-      "bytes": 47676,
-      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
-    },
-    {
-      "path": "Directory.Build.props",
-      "bytes": 1483,
-      "sha256": "f37de832100eb28ff87de1c4735cd2b67f18b37b5449e66e9fbbbb2f12c2787b"
+      "path": "docs/BOUNDED_DIFFERENTIAL_CONTRACT.md",
+      "bytes": 5544,
+      "sha256": "e8d2d63ab373662963c43b37ccd64620cf56d656a102590fa741bb2337f623b1"
     },
     {
       "path": "docs/CI_POLICY.md",
@@ -215,18 +255,93 @@
     },
     {
       "path": "docs/DISTRIBUTION.md",
-      "bytes": 1922,
-      "sha256": "7a43733749d60a2a35c389b461546b67856e5f0e7ea43b65a1fe947cc48c2a1e"
+      "bytes": 1920,
+      "sha256": "87743d96717452aea7331ce4be98ed0c1369ea2dd734b37cac52edbee05e8f3b"
     },
     {
       "path": "docs/SUPPORTED_SCOPE.md",
-      "bytes": 2319,
-      "sha256": "7c4eb0d0914682848042700c5a94a6de99aadfd43b92e424b4ed84e1dd6931a5"
+      "bytes": 3116,
+      "sha256": "e6aac11b25add354746f10d6b1c856b3ae7ead02525c8aef50910afcd2b02ead"
     },
     {
       "path": "docs/VERIFICATION.md",
-      "bytes": 2107,
-      "sha256": "687d6f0f30889914016a370acf59058ede03f43ced89011fd334155091e3dbfa"
+      "bytes": 4401,
+      "sha256": "d7efb8a0a668e6fa765343eb43bdfd6661464e9fab6e7fe77fd5ea59c77e196e"
+    },
+    {
+      "path": "examples/carrier/CarrierExample.cs",
+      "bytes": 3235,
+      "sha256": "73f7fd79c2981b1ad5f634a649f12a914e60ec1bbca34f6964ab2036da181dd5"
+    },
+    {
+      "path": "examples/carrier/README.md",
+      "bytes": 6714,
+      "sha256": "1fe8e0f8cafde90b495ebbdf235016266bec49ff24f8a6445e4d4dc5cf4226f9"
+    },
+    {
+      "path": "examples/carrier/dotnet/Carrier.Consumer.csproj",
+      "bytes": 1136,
+      "sha256": "0592041f3f129bfbdf1f36c72ae0c215ed7123175ba19ae8523c469c6a51c176"
+    },
+    {
+      "path": "examples/carrier/dotnet/Program.cs",
+      "bytes": 3139,
+      "sha256": "0e306832f0e10e33197210c2b3b1ef25866ae585314877831798b4563bb8c1b3"
+    },
+    {
+      "path": "examples/carrier/dotnet/packages.lock.json",
+      "bytes": 65,
+      "sha256": "3cc7952787be7d43489891ec4a98f0d089ab0cedb68a61da0244c43df6a02398"
+    },
+    {
+      "path": "examples/carrier/web/asset-transform.js",
+      "bytes": 815,
+      "sha256": "84df95e081754ce7c0531e818d0dc6f4cf7cc5069662e9306d80a2691d31949d"
+    },
+    {
+      "path": "examples/carrier/web/index.html",
+      "bytes": 2258,
+      "sha256": "fbbd63f66a0f75e99f1db0e7b68e6efabe3cc4f4643c52d6c3917134623d253e"
+    },
+    {
+      "path": "examples/carrier/web/main.js",
+      "bytes": 7051,
+      "sha256": "dec10ba93e82967e862f76ddd2266d13f7139f5362e8d9ac4569ab9d99108e9f"
+    },
+    {
+      "path": "examples/carrier/web/samples/prefix/mechanism.carrier-draft.json",
+      "bytes": 10789,
+      "sha256": "3c20c6306037c23f18f1c47320abd94c5b6783ca5c4232276954e73504fa344e"
+    },
+    {
+      "path": "examples/carrier/web/samples/prefix/mechanism.carrier-replay.json",
+      "bytes": 58460,
+      "sha256": "446ed0b34faae3d177de79d30059fbf21e5f33a0da69a107da054a8b5e030392"
+    },
+    {
+      "path": "examples/carrier/web/samples/prefix/mechanism.carrier.json",
+      "bytes": 24674,
+      "sha256": "91592fd7be331e216654bf282fdc6984b814303e60b3b630061e70ebd96341fe"
+    },
+    {
+      "path": "examples/carrier/web/samples/standalone/mechanism.carrier-draft.json",
+      "bytes": 4960,
+      "sha256": "adc4014054892b27da782ced7fdf3b38022f2beaf65455d029bd54cee6a33f19"
+    },
+    {
+      "path": "examples/carrier/web/samples/standalone/mechanism.carrier-replay.json",
+      "bytes": 35308,
+      "sha256": "85ae2a3f15be3011121e7f3d260cef768c543d3eee9aaadc242f64df1ba4f777"
+    },
+    {
+      "path": "examples/carrier/web/samples/standalone/mechanism.carrier.json",
+      "bytes": 13402,
+      "sha256": "05b37ce0e0bedf87b04746cea00d022a9b9708994d91d2aeead113956dca275a"
+    },
+    {
+      "path": "examples/carrier/web/style.css",
+      "bytes": 1763,
+      "sha256": "82252195b1389f37af868472a1591fbbf8d8fef7716cb8a794ac2a1ebd1033a6"
     },
     {
       "path": "examples/console/Consumer.csproj",
@@ -234,14 +349,239 @@
       "sha256": "42002a32e856f07ba0c9851a7336edeb3b266c3b918a95c3bc0bcbbaef7030f2"
     },
     {
-      "path": "examples/console/packages.lock.json",
-      "bytes": 1648,
-      "sha256": "323907d06a95c8742d3d97ea6d6416ec182433477c6a82f0ea36fc8dd4e9b317"
-    },
-    {
       "path": "examples/console/Program.cs",
       "bytes": 2758,
       "sha256": "da32030c709fbc2ef0982933c8e7a5478e9947f3854cb15126589f215f1f4dbb"
+    },
+    {
+      "path": "examples/console/packages.lock.json",
+      "bytes": 1648,
+      "sha256": "0ed34f1d4c404eea3e1e15592e4d308a008f7166935855c998b1d1b4935e9b5d"
+    },
+    {
+      "path": "examples/differential/DifferentialExample.cs",
+      "bytes": 3301,
+      "sha256": "2c8151a4e311ffe219280151376b02f5332b468cc3cc09fd3ec564dd4490f492"
+    },
+    {
+      "path": "examples/differential/README.md",
+      "bytes": 10320,
+      "sha256": "614afa9ce218f0fc073d92d3623a5aeebee098bd07457e1baf8a0b23ed2b3d62"
+    },
+    {
+      "path": "examples/differential/dotnet/Differential.Consumer.csproj",
+      "bytes": 1146,
+      "sha256": "fed1330d7222d492b555fb280cd10f61e9d3b5be8dfbe20d0d49048c40c0af0f"
+    },
+    {
+      "path": "examples/differential/dotnet/Program.cs",
+      "bytes": 4714,
+      "sha256": "7d5a12e54528c1b6ef968b922f2c9b5b79aecc2651fc8ab8e172f10310a2c969"
+    },
+    {
+      "path": "examples/differential/dotnet/packages.lock.json",
+      "bytes": 65,
+      "sha256": "3cc7952787be7d43489891ec4a98f0d089ab0cedb68a61da0244c43df6a02398"
+    },
+    {
+      "path": "examples/differential/web/index.html",
+      "bytes": 2993,
+      "sha256": "0d8969f24ebf31af7b3168609d839c456063c6561b65e6c9ef0b0a32849656cb"
+    },
+    {
+      "path": "examples/differential/web/main.js",
+      "bytes": 9926,
+      "sha256": "0cbdabf68ce7f26d6c0ae9bea8058778a044cf6fae8ce8eb0d4d5fde0e8335c6"
+    },
+    {
+      "path": "examples/differential/web/marker.json",
+      "bytes": 109,
+      "sha256": "34dca373db2a496af5ebfaf45fe16cd5039c72f31ed3936dc57155270ad9cada"
+    },
+    {
+      "path": "examples/differential/web/samples/alternate/inconsistent.differential-analysis.json",
+      "bytes": 9854,
+      "sha256": "a743be3c4d45081de23f954722f60a08ba45bd982e0747f200bafd6d3a8ec2a7"
+    },
+    {
+      "path": "examples/differential/web/samples/alternate/mechanism.differential-draft.json",
+      "bytes": 5088,
+      "sha256": "845976f4ac384dc337fcf7857d5c20eee5cb4871e2145abb60b38adfda1e206a"
+    },
+    {
+      "path": "examples/differential/web/samples/alternate/mechanism.differential-replay.json",
+      "bytes": 49553,
+      "sha256": "661abdd821412bfb43000483518db7fc55f21b5386857ffa8380db5cd3b1c483"
+    },
+    {
+      "path": "examples/differential/web/samples/alternate/mechanism.differential.json",
+      "bytes": 18035,
+      "sha256": "374ce1833967997dccb7959e68cda8ace7fe52addd8cf09ecce7a5898acc9948"
+    },
+    {
+      "path": "examples/differential/web/samples/alternate/partial.differential-analysis.json",
+      "bytes": 8964,
+      "sha256": "f95fa7a92fb8cb34eb75b823c911917dd2717825161a8c1bf1056e28002bd37d"
+    },
+    {
+      "path": "examples/differential/web/samples/custom/inconsistent.differential-analysis.json",
+      "bytes": 10058,
+      "sha256": "133dcb46cb15bf85656695451a249b62c4692332c9a04db7a0fd402323611791"
+    },
+    {
+      "path": "examples/differential/web/samples/custom/mechanism.differential-draft.json",
+      "bytes": 5202,
+      "sha256": "9bdc6de6fe50eba8e3e83729d301b3b001a203e7b22e47fea1f49dbf9c8a3ca6"
+    },
+    {
+      "path": "examples/differential/web/samples/custom/mechanism.differential-replay.json",
+      "bytes": 51521,
+      "sha256": "99af1481052bdde32ec882ce4300d9dadcad6e3c5c9a27d8ed579ca83924f2ad"
+    },
+    {
+      "path": "examples/differential/web/samples/custom/mechanism.differential.json",
+      "bytes": 18715,
+      "sha256": "4edcefda66fd12409f5c88ef47d59a880a9309768911e2d242206d02f111faa3"
+    },
+    {
+      "path": "examples/differential/web/samples/custom/partial.differential-analysis.json",
+      "bytes": 9195,
+      "sha256": "5781400c3c9cc2a2ff8849627ce72242f05049a12fba46f5d22af3eb3c9663f6"
+    },
+    {
+      "path": "examples/differential/web/samples/display-unavailable/inconsistent.differential-analysis.json",
+      "bytes": 10184,
+      "sha256": "d52d7668cb024b0951ae6651b1d3ac462f4a665707153ebfec190284620e2895"
+    },
+    {
+      "path": "examples/differential/web/samples/display-unavailable/mechanism.differential-draft.json",
+      "bytes": 5419,
+      "sha256": "b20130329b439259af2812e01bdfc73a97d6ea823191f6dc8b81fc1ba3fb245f"
+    },
+    {
+      "path": "examples/differential/web/samples/display-unavailable/mechanism.differential-replay.json",
+      "bytes": 51285,
+      "sha256": "a9e299b71d4c499328c6aab74150ba17b1321f85305372c2d8803683fcdc21be"
+    },
+    {
+      "path": "examples/differential/web/samples/display-unavailable/mechanism.differential.json",
+      "bytes": 18733,
+      "sha256": "c2887190c0c4ab4edce8705b64206f2e03450eb89fb65140ece31eacbbdff58e"
+    },
+    {
+      "path": "examples/differential/web/samples/display-unavailable/partial.differential-analysis.json",
+      "bytes": 9294,
+      "sha256": "b7acd639aac15e1e8e81c0ddcf5d416be526706a1adcfbbd74adbee77e3fcd37"
+    },
+    {
+      "path": "examples/differential/web/samples/held/inconsistent.differential-analysis.json",
+      "bytes": 10382,
+      "sha256": "71465b8909b6b04834467230c0ba89e536efb9d871d04b7539e85a6c2cc796cc"
+    },
+    {
+      "path": "examples/differential/web/samples/held/mechanism.differential-draft.json",
+      "bytes": 5207,
+      "sha256": "aaa5f1cea71b4aef16a91ed35794306823c57c64a78d20a4603896487f31a983"
+    },
+    {
+      "path": "examples/differential/web/samples/held/mechanism.differential-replay.json",
+      "bytes": 46793,
+      "sha256": "068a5a0094b86995d7bb36654fb053f2175976c9a362b97243947acc88fde7eb"
+    },
+    {
+      "path": "examples/differential/web/samples/held/mechanism.differential.json",
+      "bytes": 17199,
+      "sha256": "49f15a35bee8dcd6de5ef220900c1953bc0b7cad82a15f3da7783df0b136bc5c"
+    },
+    {
+      "path": "examples/differential/web/samples/held/partial.differential-analysis.json",
+      "bytes": 9319,
+      "sha256": "142decca2f3b49ec7d2fd1595c0ae057a7a58688aa89cd95f6b70296a76cb1ec"
+    },
+    {
+      "path": "examples/differential/web/samples/prefix/inconsistent.differential-analysis.json",
+      "bytes": 19049,
+      "sha256": "d4ea3a08ef95dfcab3ce7c5f21fa2e2c46076062a935ca2a4a67c9f57e887293"
+    },
+    {
+      "path": "examples/differential/web/samples/prefix/mechanism.differential-draft.json",
+      "bytes": 13286,
+      "sha256": "5adb95b77673bbccdadc3f3fdb925c918f6866fdf07a71e14796f10819601f85"
+    },
+    {
+      "path": "examples/differential/web/samples/prefix/mechanism.differential-replay.json",
+      "bytes": 83221,
+      "sha256": "6dda6dea4868084fe01f3b7ce9d91924e13aca444cb028b9ed7d094f3893dfda"
+    },
+    {
+      "path": "examples/differential/web/samples/prefix/mechanism.differential.json",
+      "bytes": 33709,
+      "sha256": "039ee0fc789175455a732e3e2afa2cae520f945acd2f8806cdf7f3b083767d8c"
+    },
+    {
+      "path": "examples/differential/web/samples/prefix/partial.differential-analysis.json",
+      "bytes": 18164,
+      "sha256": "e1963dc2200a21216f913182230555565eb512aa9b4658e67201c036cbade01c"
+    },
+    {
+      "path": "examples/differential/web/samples/standalone/inconsistent.differential-analysis.json",
+      "bytes": 9854,
+      "sha256": "a743be3c4d45081de23f954722f60a08ba45bd982e0747f200bafd6d3a8ec2a7"
+    },
+    {
+      "path": "examples/differential/web/samples/standalone/mechanism.differential-draft.json",
+      "bytes": 5089,
+      "sha256": "f4e17010e2b8c1d1b1b203613ec9fdf92927279e007a8de29ce5d81fc98a90f0"
+    },
+    {
+      "path": "examples/differential/web/samples/standalone/mechanism.differential-replay.json",
+      "bytes": 49673,
+      "sha256": "50f5d32ef295ebef7c2c60d976889c1175ac9a2814c309f34ecb7c86f2d2dc2b"
+    },
+    {
+      "path": "examples/differential/web/samples/standalone/mechanism.differential.json",
+      "bytes": 18073,
+      "sha256": "b5f947c72ed8ebf5cba9627689e16620f83f2ddd7ad7d5fd94d1d37199426cad"
+    },
+    {
+      "path": "examples/differential/web/samples/standalone/partial.differential-analysis.json",
+      "bytes": 8964,
+      "sha256": "f95fa7a92fb8cb34eb75b823c911917dd2717825161a8c1bf1056e28002bd37d"
+    },
+    {
+      "path": "examples/differential/web/samples/third-basis/inconsistent.differential-analysis.json",
+      "bytes": 9854,
+      "sha256": "a743be3c4d45081de23f954722f60a08ba45bd982e0747f200bafd6d3a8ec2a7"
+    },
+    {
+      "path": "examples/differential/web/samples/third-basis/mechanism.differential-draft.json",
+      "bytes": 5092,
+      "sha256": "7bcaf3f67fa027f8c355ee77db338eb8223e6a330df6b50cd442c56cf5a148a7"
+    },
+    {
+      "path": "examples/differential/web/samples/third-basis/mechanism.differential-replay.json",
+      "bytes": 50009,
+      "sha256": "c8353b1be37fa2cf8682c7f550a5fbd873ffd9a5655c50ac79a4f8561468a914"
+    },
+    {
+      "path": "examples/differential/web/samples/third-basis/mechanism.differential.json",
+      "bytes": 18183,
+      "sha256": "e0f1d082361cbeb5e7f4ba6a023b59f30e11237133ae7727caf56a60939e2ef3"
+    },
+    {
+      "path": "examples/differential/web/samples/third-basis/partial.differential-analysis.json",
+      "bytes": 8964,
+      "sha256": "f95fa7a92fb8cb34eb75b823c911917dd2717825161a8c1bf1056e28002bd37d"
+    },
+    {
+      "path": "examples/differential/web/session.js",
+      "bytes": 1846,
+      "sha256": "8726cbba9ad24bde43b5a0156fde248aafd0f7098b3593bbf53b41f38215c147"
+    },
+    {
+      "path": "examples/differential/web/style.css",
+      "bytes": 2189,
+      "sha256": "f417241a85d94a6c55371b2f8073a8db98358dc4f0ce4bb17337dbe33514dc1e"
     },
     {
       "path": "examples/exact-producer/Guidance.csproj",
@@ -249,14 +589,19 @@
       "sha256": "c15d96d2a7053550aa0fb6d796edf108804cf66d5b6fe40b13582e4cacbbd88f"
     },
     {
-      "path": "examples/exact-producer/packages.lock.json",
-      "bytes": 1648,
-      "sha256": "323907d06a95c8742d3d97ea6d6416ec182433477c6a82f0ea36fc8dd4e9b317"
-    },
-    {
       "path": "examples/exact-producer/Program.cs",
       "bytes": 4555,
       "sha256": "333253b00f019d5c98ca0f4af0af55d41acf9694857aee040050e33bddbda147"
+    },
+    {
+      "path": "examples/exact-producer/packages.lock.json",
+      "bytes": 1648,
+      "sha256": "0ed34f1d4c404eea3e1e15592e4d308a008f7166935855c998b1d1b4935e9b5d"
+    },
+    {
+      "path": "examples/moving-checks.mjs",
+      "bytes": 12353,
+      "sha256": "0e515578e3989dbd7723c2957bbe080eb7698581f7c955d8a2bb4b57c7f3a588"
     },
     {
       "path": "examples/shared/MechanicalAuthoringExample.cs",
@@ -306,7 +651,7 @@
     {
       "path": "examples/web/package.json",
       "bytes": 418,
-      "sha256": "176a4df68bda6d593328233916b14ff8c9a67e8667ca32c9f1f6fb4e0f911550"
+      "sha256": "e67e1fea1de1b41dfe12231e71b8d3800b8ce630faa6b57456f23a2c14c24d36"
     },
     {
       "path": "examples/web/public/data/mixed.oriented.json",
@@ -324,34 +669,19 @@
       "sha256": "e0c0882461e712f6c2c66241bf2f175c60832e3ff077dc26091ff8c661d4193e"
     },
     {
-      "path": "LICENSE",
-      "bytes": 34020,
-      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
-    },
-    {
-      "path": "LICENSE_SCOPE.md",
-      "bytes": 2318,
-      "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
-    },
-    {
-      "path": "NuGet.Config",
-      "bytes": 179,
-      "sha256": "fd6836e883aa6bf334e587a02ff7239f68713f4baac6d749f743a2b489b1769c"
-    },
-    {
       "path": "package-lock.json",
       "bytes": 40120,
-      "sha256": "dab23ca6ba60db7cba14566ba681e3613f9f7c0da794f08f0a5bf074d5fe262c"
+      "sha256": "5f0f355a8dc7875d1c4a705694756db62b5a6d3881f113a87ec02a761d321437"
     },
     {
       "path": "package.json",
-      "bytes": 476,
-      "sha256": "1045cea3bef7b2df2e683f31abfb7a8e43587090401a9ac2ffcdaa1fdcb2d8dc"
+      "bytes": 559,
+      "sha256": "41a678ec5f47fc217e9085dcb625f563b40c6568c132e5276ed6e77aa8698981"
     },
     {
       "path": "packages/presentation/DEPENDENCIES.json",
       "bytes": 47676,
-      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
+      "sha256": "c1241892ee6613994a0a441b6309da26fb8a698e58ccdb2ec58ea33510760f41"
     },
     {
       "path": "packages/presentation/LICENSE",
@@ -364,14 +694,19 @@
       "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
     },
     {
-      "path": "packages/presentation/package.json",
-      "bytes": 1548,
-      "sha256": "0940ca24c3e9571bd4254b0be775e58767cbd5727df3f3e21229d5a761e273a3"
-    },
-    {
       "path": "packages/presentation/README.md",
       "bytes": 878,
-      "sha256": "22238c442ad4e174913e64a2c56aad54f313227d9d8455416b339861aeb386db"
+      "sha256": "805150a922faa00505b0163842230fe7b8f4ca20e07e30de992cc3a2d6238680"
+    },
+    {
+      "path": "packages/presentation/THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+    },
+    {
+      "path": "packages/presentation/package.json",
+      "bytes": 1548,
+      "sha256": "e5c5f23f1f899875c607dc2ca64aad493675f6977ff81fe8f32c7bf8ed40425f"
     },
     {
       "path": "packages/presentation/src/assembly.ts",
@@ -419,11 +754,6 @@
       "sha256": "b4d89aa628992069e7fca7a6d177176b509606bc3e09a8a4156f715ec968d14f"
     },
     {
-      "path": "packages/presentation/THIRD_PARTY_NOTICES.md",
-      "bytes": 3419,
-      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
-    },
-    {
       "path": "packages/presentation/tsconfig.canvas.json",
       "bytes": 177,
       "sha256": "e73f2979ba5abe48294ca7c7ace7b6806b01fe9a0e58fcca141540c1cf8e6b65"
@@ -436,7 +766,7 @@
     {
       "path": "packages/replay/DEPENDENCIES.json",
       "bytes": 47676,
-      "sha256": "07ae7cdff9238b763c0b2a8eea14c0c910f13f906470acdf8118a94d5ffcd635"
+      "sha256": "c1241892ee6613994a0a441b6309da26fb8a698e58ccdb2ec58ea33510760f41"
     },
     {
       "path": "packages/replay/LICENSE",
@@ -449,14 +779,19 @@
       "sha256": "0765f659f18e551a00ac369b7bc7c392977ef13cc64452cdfe1a4df7ff2d422a"
     },
     {
-      "path": "packages/replay/package.json",
-      "bytes": 1051,
-      "sha256": "641ce8c86e6eccdcc5099f9e38defcb0bada936e50775c3ef347e9ff83d94268"
+      "path": "packages/replay/README.md",
+      "bytes": 1170,
+      "sha256": "02125df767b0d6ededf73f646e42617cc42ea0f626554c1ce3d106671cc1e8bd"
     },
     {
-      "path": "packages/replay/README.md",
-      "bytes": 944,
-      "sha256": "09db9afd3033ca2bb349c8b76e6701d7f7164f5d210adb248097d7f71f7a4d4b"
+      "path": "packages/replay/THIRD_PARTY_NOTICES.md",
+      "bytes": 3419,
+      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+    },
+    {
+      "path": "packages/replay/package.json",
+      "bytes": 1274,
+      "sha256": "9f8e0451b414c53350b547b31fd86fceb36690e32c3079034cb7003065a287fc"
     },
     {
       "path": "packages/replay/src/artifact.ts",
@@ -492,6 +827,36 @@
       "path": "packages/replay/src/bounded.ts",
       "bytes": 3112,
       "sha256": "8c51e7dc0e59dddaaa54be0abe768950496554a0cf59f471cb08a28b7d749d4c"
+    },
+    {
+      "path": "packages/replay/src/carrier.ts",
+      "bytes": 5001,
+      "sha256": "7aafe288fae71c4902575428eb6669294c3947687a6454ff4c88366a3838d9ad"
+    },
+    {
+      "path": "packages/replay/src/carrierInput.ts",
+      "bytes": 10089,
+      "sha256": "552672849063fea0e967362fcaaa2aba51a55df5004cd0a093e7762aad6e1945"
+    },
+    {
+      "path": "packages/replay/src/carrierTypes.ts",
+      "bytes": 2291,
+      "sha256": "9dbd7c66070de97f657afe7141bf7d280f83d53e88c3a3a283f0409260c1cd28"
+    },
+    {
+      "path": "packages/replay/src/differential.ts",
+      "bytes": 6060,
+      "sha256": "994291e236e8e462caff26929656d609af31dbd543c4406b64fa19bba59e3c21"
+    },
+    {
+      "path": "packages/replay/src/differentialInput.ts",
+      "bytes": 18139,
+      "sha256": "34e20a1575f2259e23b7167dff127280a1856afcb3a0df229cad9835bc1b45d7"
+    },
+    {
+      "path": "packages/replay/src/differentialTypes.ts",
+      "bytes": 3117,
+      "sha256": "d0fd55364cb373917d0dc9ebd8b236fdf2936627da37475c4f6ae441394e2326"
     },
     {
       "path": "packages/replay/src/errors.ts",
@@ -574,11 +939,6 @@
       "sha256": "a9d9871c061c858564d7eddcb65c0391459333c575b3e11a6d1c1e306c8216a9"
     },
     {
-      "path": "packages/replay/THIRD_PARTY_NOTICES.md",
-      "bytes": 3419,
-      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
-    },
-    {
       "path": "packages/replay/tsconfig.json",
       "bytes": 118,
       "sha256": "1531d8690f5552295ace65757d415e5c2c8f2c7e59232ce19cd8be82e8e2bd82"
@@ -587,11 +947,6 @@
       "path": "packages/tsconfig.base.json",
       "bytes": 361,
       "sha256": "e187b7042c09628eaa41f35036d5fdda62f7c9aa010a41a722c3564d4283f113"
-    },
-    {
-      "path": "README.md",
-      "bytes": 3466,
-      "sha256": "7dad1ae5050bbe60db6b6d23af9803c13c63541665a3e8479e652692e4e942d5"
     },
     {
       "path": "scripts/arrow-asset.mjs",
@@ -604,14 +959,14 @@
       "sha256": "76db84ae0d8f7aa786ea074d28723a342a7becf9f9f8cc40c8f3ab5089ec3a63"
     },
     {
+      "path": "scripts/prepare-moving.mjs",
+      "bytes": 2485,
+      "sha256": "62dc58a5940f8daba65003ea793e0223cf901f58aff85bc40fb22088f69a7f52"
+    },
+    {
       "path": "scripts/prepare-web.mjs",
       "bytes": 931,
       "sha256": "627eb672524f4484c7bf8850cbe67a0aaabc835cf522356f566503f5b713cea9"
-    },
-    {
-      "path": "SECURITY.md",
-      "bytes": 1326,
-      "sha256": "e4a4bfed24af23602ba651322e170e1576356702fcabb05931181a029f980fa1"
     },
     {
       "path": "src/GearInvest.Core/AffineComponentAnalysis.cs",
@@ -632,6 +987,16 @@
       "path": "src/GearInvest.Core/AnchoredTwoCompoundGearRouting.cs",
       "bytes": 8337,
       "sha256": "7e1cc27e290126e487bc433c13c71df38f85acc07644a9ec90d61a1cc275aa26"
+    },
+    {
+      "path": "src/GearInvest.Core/BoundedLinearBlock.cs",
+      "bytes": 5836,
+      "sha256": "d4d5adc518422d5e0c9d51d9a138773c64c0284570e89d895af4a076edb4eb1c"
+    },
+    {
+      "path": "src/GearInvest.Core/CarrierMeshConstraint.cs",
+      "bytes": 1346,
+      "sha256": "ebadb8bb72084184dd8fe7b328726d1b536ed6d2a849198d96a619c12085d3a4"
     },
     {
       "path": "src/GearInvest.Core/CompositeGuardedIndexedStates.cs",
@@ -719,11 +1084,6 @@
       "sha256": "7791fc41e8bdb1353c3984623e617b441b009a83d0c39f483ef77eb1c0e17aa3"
     },
     {
-      "path": "src/GearInvest.Core/packages.lock.json",
-      "bytes": 84,
-      "sha256": "b9f33d012953931d32d61ece89214551e9ac965f411c3cfda3210de94ab75917"
-    },
-    {
       "path": "src/GearInvest.Core/PeriodicEvents.cs",
       "bytes": 2605,
       "sha256": "f143813ead8d14240ad578c9b6ce2978227fcc7dc820fd7ee5c8446fcb1ca82c"
@@ -787,6 +1147,11 @@
       "path": "src/GearInvest.Core/TwoOutputTransmissionProject.cs",
       "bytes": 3032,
       "sha256": "21a3981fb315071fdaf35265736bd6ff1fd4033374396d22acd3c80c79d68993"
+    },
+    {
+      "path": "src/GearInvest.Core/packages.lock.json",
+      "bytes": 84,
+      "sha256": "b9f33d012953931d32d61ece89214551e9ac965f411c3cfda3210de94ab75917"
     },
     {
       "path": "src/GearInvest.Engine/AnchoredCompoundGearRouter.cs",
@@ -919,6 +1284,21 @@
       "sha256": "7e7d6bf347d1faa3d97cb127b3c9788f90a06033241d9634db499d8fc363700b"
     },
     {
+      "path": "src/GearInvest.Engine/CarrierAnalysis.cs",
+      "bytes": 10073,
+      "sha256": "f424fdebe0b485f32604f6b5004fc9eff6a5f491574d8f597a52677f75918b89"
+    },
+    {
+      "path": "src/GearInvest.Engine/CarrierEvaluation.cs",
+      "bytes": 5070,
+      "sha256": "a7ebd4986d4e79758a87a668443bfb5de097d494ece021bb4df414a902ee42b6"
+    },
+    {
+      "path": "src/GearInvest.Engine/CarrierModels.cs",
+      "bytes": 9691,
+      "sha256": "d28a07e9813782790993a03823a176d7e2948c848122e73ba8889a9559b4732a"
+    },
+    {
       "path": "src/GearInvest.Engine/CompiledPlanGeneration.cs",
       "bytes": 13165,
       "sha256": "f3ba6866347e42a28b7db98935d2dc2312238e5d3abe6dfa05791a196491b2b9"
@@ -1017,6 +1397,21 @@
       "path": "src/GearInvest.Engine/CyclicIndexedStateTransitionEngine.cs",
       "bytes": 25666,
       "sha256": "35476a82f16642b3cff5eb3a75966e49eddd68507bae52e0ddef8c1bbfda7a18"
+    },
+    {
+      "path": "src/GearInvest.Engine/DifferentialAnalysis.cs",
+      "bytes": 13640,
+      "sha256": "d81fc53ecbe8c9ee70b839e5e67a8d0fe31fd0e40ca99f411a793902d2704b46"
+    },
+    {
+      "path": "src/GearInvest.Engine/DifferentialEvaluation.cs",
+      "bytes": 2611,
+      "sha256": "591bd07f9165afdfc4a53286b6d626f093d750473c2056ed29039e10936cfe46"
+    },
+    {
+      "path": "src/GearInvest.Engine/DifferentialModels.cs",
+      "bytes": 12771,
+      "sha256": "82ac3f45b4dc3af4cb89de9211f8730a67bfe369706e5a73ba9069944cf0bc0f"
     },
     {
       "path": "src/GearInvest.Engine/DiscreteEmbodimentCompiler.cs",
@@ -1334,11 +1729,6 @@
       "sha256": "eb1079eb7c299cb53701f5514942762f2d7cc186eb4ee6f67d5d5c89eae88336"
     },
     {
-      "path": "src/GearInvest.Engine/packages.lock.json",
-      "bytes": 316,
-      "sha256": "5e0208f75d5e5d46c0e15ee6cf99bfa72a005dc3ca61012abcc1522ac6ecdf90"
-    },
-    {
       "path": "src/GearInvest.Engine/ParallelCoaxialValidation.cs",
       "bytes": 6407,
       "sha256": "604fd84670151a7db394ba70be3e14d9a2b54542ce5ab55b45fdf602743376b4"
@@ -1614,6 +2004,11 @@
       "sha256": "eb3791704df7c4131b1416708a90aea321c3034fe5608788d4c6f1bde343ea78"
     },
     {
+      "path": "src/GearInvest.Engine/packages.lock.json",
+      "bytes": 316,
+      "sha256": "fa3e56984a893ca851b2179dddf4e6eec2ae424d6ab93a42f87b2775cc91dce5"
+    },
+    {
       "path": "src/GearInvest.Layout/AxialTrackGeometry.cs",
       "bytes": 23191,
       "sha256": "8b87e96fbf101de2f9c25b56ecf47bcf32b9e3a1969f3ace3eba80d4bd2a5628"
@@ -1639,11 +2034,6 @@
       "sha256": "1b4e4275c3cf2f3e01135108b2d1a60e625b9259487264dce69ad8c106b5e047"
     },
     {
-      "path": "src/GearInvest.Layout/packages.lock.json",
-      "bytes": 154,
-      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
-    },
-    {
       "path": "src/GearInvest.Layout/ParallelCoaxialLayout.cs",
       "bytes": 4041,
       "sha256": "1bf5be70a111606aac79ec577bc8b675acc5e212bcd05ce549e14a643b792676"
@@ -1667,6 +2057,11 @@
       "path": "src/GearInvest.Layout/SpatialValidator.cs",
       "bytes": 21179,
       "sha256": "80f4ddc66ecbc909809208543d862c420ffe22956661649df1571bc65680a4f3"
+    },
+    {
+      "path": "src/GearInvest.Layout/packages.lock.json",
+      "bytes": 154,
+      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
     },
     {
       "path": "src/GearInvest.Modules.Clock/ClockRecipes.cs",
@@ -1699,11 +2094,6 @@
       "sha256": "19924c9f79820ce1ea5ff4dd6003863f61eb397ff4b9077cf2cfc00e490b9440"
     },
     {
-      "path": "src/GearInvest.Modules.Clock/packages.lock.json",
-      "bytes": 154,
-      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
-    },
-    {
       "path": "src/GearInvest.Modules.Clock/SimpleDate31Recipe.cs",
       "bytes": 4391,
       "sha256": "63689aca4138d50e6750bd43fb576c98cd4bf2301a92b132609ae32e41a03f75"
@@ -1712,6 +2102,11 @@
       "path": "src/GearInvest.Modules.Clock/Weekday7Recipe.cs",
       "bytes": 2798,
       "sha256": "709179b837867b2fd3ded8440ca9c1dce328f50dcbe065e1dfa59ea72ca551b0"
+    },
+    {
+      "path": "src/GearInvest.Modules.Clock/packages.lock.json",
+      "bytes": 154,
+      "sha256": "f05da126a9cde8ed06eacc035629852b76fc0667ebbf233e27c72fed321bbcfd"
     },
     {
       "path": "src/GearInvest.Serialization.Json/AssemblyGenevaSuffixJson.cs",
@@ -1839,6 +2234,11 @@
       "sha256": "dd8976f55138af854855cc66d9688d0914f0aab85590953621830e11b3b6e1df"
     },
     {
+      "path": "src/GearInvest.Serialization.Json/CarrierJson.cs",
+      "bytes": 12735,
+      "sha256": "545f5d8060add91e785f0c0bd720de635e1be58ad071bddb2f0826efb61480f6"
+    },
+    {
       "path": "src/GearInvest.Serialization.Json/CompoundRoutingJson.cs",
       "bytes": 20242,
       "sha256": "c0ffc829f867faefdbc7240adbcf2173aebfa5a0405418b2074d80d1cc8a5c4e"
@@ -1867,6 +2267,11 @@
       "path": "src/GearInvest.Serialization.Json/CrankSliderResultsJson.cs",
       "bytes": 19812,
       "sha256": "103e035bace2710c0c5233fe4585fb08fef95ab7a8878bae8d2b1006e348a2e8"
+    },
+    {
+      "path": "src/GearInvest.Serialization.Json/DifferentialJson.cs",
+      "bytes": 15886,
+      "sha256": "d951e6cd36e6af115391d95084b94fab55374394017811aafed5a47ee84b6c79"
     },
     {
       "path": "src/GearInvest.Serialization.Json/DiscreteEmbodimentJson.cs",
@@ -2012,11 +2417,6 @@
       "path": "src/GearInvest.Serialization.Json/OrientedTwoOutputArtifact.cs",
       "bytes": 2912,
       "sha256": "7acfecf6306671b59896286e397672db258ddf19f6f8a51961f9a4db2d41931e"
-    },
-    {
-      "path": "src/GearInvest.Serialization.Json/packages.lock.json",
-      "bytes": 3863,
-      "sha256": "d2ab216d39ffa448753d17e05e9664cef6a7df4448d1b87308393f75a2f17b2d"
     },
     {
       "path": "src/GearInvest.Serialization.Json/ParallelCoaxialArtifactJson.cs",
@@ -2174,6 +2574,11 @@
       "sha256": "f11de86bd6d7a7b9139b3e8ce00bda1c11bba61670fcda8b2d041ac4586153c7"
     },
     {
+      "path": "src/GearInvest.Serialization.Json/packages.lock.json",
+      "bytes": 3863,
+      "sha256": "9038c7c562e66052826ba1b63ba4c0f80a69c726e0d71a18aea2ddcedfe88033"
+    },
+    {
       "path": "src/GearInvest/AssemblyReplaySdk.cs",
       "bytes": 6038,
       "sha256": "e0e1e26f077f41a6343a241e28f20a24eb1f5496c100b182f03fded20694cf8f"
@@ -2187,6 +2592,11 @@
       "path": "src/GearInvest/CamFollowerSdk.cs",
       "bytes": 22576,
       "sha256": "97ad8498a766386779d030d29f8730c2b05570ee74eecd0a5d7cb3b47eb4cb47"
+    },
+    {
+      "path": "src/GearInvest/CarrierSdk.cs",
+      "bytes": 4659,
+      "sha256": "54d6282a6164496cdc1814071d5272c3a60968329c70465e565094d38efda3a2"
     },
     {
       "path": "src/GearInvest/CompoundRoutingAuthoringController.cs",
@@ -2212,6 +2622,11 @@
       "path": "src/GearInvest/CrankSliderSdk.cs",
       "bytes": 18411,
       "sha256": "2b067d7e368f3b9b4a63a63c893d6f7892f7b5ae18e96144c3474d36fe91ae15"
+    },
+    {
+      "path": "src/GearInvest/DifferentialSdk.cs",
+      "bytes": 5264,
+      "sha256": "7a2d8c7c5cc7814286512aa4c96f86eb425b4b2f61a753051ff187a8c6d0c1bc"
     },
     {
       "path": "src/GearInvest/DiscreteLayoutAuthoringController.cs",
@@ -2307,11 +2722,6 @@
       "path": "src/GearInvest/OrientedTwoOutputSdk.cs",
       "bytes": 6985,
       "sha256": "f029fcd2d6c7381cc753495199ca53b359619146bfb320537ce50012b3c8dcdd"
-    },
-    {
-      "path": "src/GearInvest/packages.lock.json",
-      "bytes": 4811,
-      "sha256": "81533fc0884793930a0cdf05d74040e447a3f043990aa146b047e5fad9d3a404"
     },
     {
       "path": "src/GearInvest/ParallelCoaxialSdk.cs",
@@ -2469,6 +2879,11 @@
       "sha256": "d89959b159a3d827511e4f28e0ee7093e23c4fc2d88b4972de4f52132a313f89"
     },
     {
+      "path": "src/GearInvest/packages.lock.json",
+      "bytes": 4811,
+      "sha256": "63bcc89254ad564bf235733a1cc76d0607fd7312a399995ee47b39b5a0aad823"
+    },
+    {
       "path": "tests/GearInvest.Tests/ArtifactValidationTests.cs",
       "bytes": 1708,
       "sha256": "b1f81f0a2067ea75bb03349c7af9527ad0abdcc8c064e90df285eefb45673a73"
@@ -2477,6 +2892,11 @@
       "path": "tests/GearInvest.Tests/AssemblyInfo.cs",
       "bytes": 80,
       "sha256": "3f7edd72eac91614fcf49f709dd4e560c74ebef8da68a53a02947e5611cd1869"
+    },
+    {
+      "path": "tests/GearInvest.Tests/CarrierTests.cs",
+      "bytes": 12559,
+      "sha256": "061bd8890a81f39030fef3508f2f62ebce0c6ad36f82ae32051228a1272b5e45"
     },
     {
       "path": "tests/GearInvest.Tests/CoaxialAuthoringTests.cs",
@@ -2494,24 +2914,24 @@
       "sha256": "155fe04e605b77cf7f934ef00b513ed149749443b1b204b30dc5e24b6167cb2e"
     },
     {
+      "path": "tests/GearInvest.Tests/DifferentialTests.cs",
+      "bytes": 20517,
+      "sha256": "905033c0beeab0ce511aecfe27f374462ef091983fbe2b5665ccd77b7b04f617"
+    },
+    {
       "path": "tests/GearInvest.Tests/FixtureFactory.cs",
       "bytes": 2071,
       "sha256": "2c0a9852a50838b83c09d910e3a51f2d9c0de829cd74e35007b15807d3d4546d"
     },
     {
       "path": "tests/GearInvest.Tests/GearInvest.Tests.csproj",
-      "bytes": 609,
-      "sha256": "446e34bccafde4bf864a6c2c1867a84eabef4b9c939ef9f5f3bbe2f385e6bb40"
+      "bytes": 822,
+      "sha256": "ca795991ca8397a6a23c3bad4decad51f19aa38ce0aca312b5944caabbdcc31c"
     },
     {
       "path": "tests/GearInvest.Tests/KinematicTests.cs",
       "bytes": 2992,
       "sha256": "4a459563a15760c240593d4c0dd8274c70c18f9e1ddc68da39082706039879f2"
-    },
-    {
-      "path": "tests/GearInvest.Tests/packages.lock.json",
-      "bytes": 5974,
-      "sha256": "ea2e3424c5d13d4b3937e7fe09f4301f470f7dec846320e4a0e740c732f30236"
     },
     {
       "path": "tests/GearInvest.Tests/PlaybackTests.cs",
@@ -2534,10 +2954,9 @@
       "sha256": "d235a9a0970d66eac31a88502e4b5524697e38f779d7cf9b79cf48792183f5a0"
     },
     {
-      "path": "THIRD_PARTY_NOTICES.md",
-      "bytes": 3419,
-      "sha256": "b7707f88f1a64cbc39fd3f7471f1e99b9191f810a90c60ec0cc7aed22fba78fc"
+      "path": "tests/GearInvest.Tests/packages.lock.json",
+      "bytes": 5974,
+      "sha256": "494444f7786dd73459a4330c37868e71f50f52f5b2d797e8b666891139b809ad"
     }
-  ],
-  "selfExcluded": "PUBLIC_FILES.json"
+  ]
 }

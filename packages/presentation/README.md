@@ -1,7 +1,7 @@
 # @gearinvest/presentation
 
 Optional display projection/binding helpers for GenericGear replay. Source
-candidate `0.1.0-rc.public01.1`; not published to npm. The root and assembly
+candidate `0.1.0-rc.public02.1`; not published to npm. The root and assembly
 entries are headless; explicit canvas entries own browser drawing. Three.js is
 a dependency of the example application, not this package.
 

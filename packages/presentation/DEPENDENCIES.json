@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidate": "0.1.0-rc.public01.1",
+  "candidate": "0.1.0-rc.public02.1",
   "policy": "Source-only; no dependency binaries vendored. Metadata is provenance evidence, not legal certification.",
   "dependencies": [
     {

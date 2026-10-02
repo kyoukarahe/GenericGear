@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GenericGear · Carrier Lab</title><link rel="stylesheet" href="style.css"></head>
+<body><main><header><p class="eyebrow">GENERICGEAR / E2a</p><h1>자전과 공전, 하나의 실제 입력</h1><p>정확한 기구학은 SDK가, 표현과 시간은 이 소비 앱이 소유합니다.</p></header>
+<section class="toolbar" aria-label="기구 불러오기"><button id="standalone">100 / 10 단독 기구</button><button id="prefix">42 / 18 + 실제 prefix</button><label class="file">내 replay 열기 <input id="file" type="file" accept=".json"></label></section>
+<section class="stage"><div class="drawing"><svg id="view" viewBox="-125 -100 250 200" role="img" aria-label="캐리어 기구의 pitch circles와 회전 표식"><g transform="scale(1,-1)"><g id="renderer-parent"></g></g></svg><p class="legend">회색: upstream · 청록: 고정 sun · 주황: planet · 흰 선: carrier</p></div>
+<aside><h2>절대 입력 · turn</h2><form id="seek"><label for="turns">분수 또는 정수</label><div class="row"><input id="turns" value="0" autocomplete="off"><button>적용 / Seek</button></div></form><div class="row"><button id="play">재생</button><button id="stop">정지</button><button id="quarter">1/4</button></div>
+<label><input id="parent" type="checkbox"> 변환된 renderer parent</label><label><input id="pivot" type="checkbox"> 외부 marker의 off-center pivot 보정</label>
+<label for="body">실제 body 선택</label><select id="body"></select><pre id="state" aria-live="polite">불러오는 중…</pre><p id="status" role="status"></p></aside></section>
+<details><summary>내 replay JSON 붙여넣기 / 오류 후 기존 기구 유지</summary><textarea id="json" aria-label="Replay JSON" spellcheck="false"></textarea><button id="load-json">JSON 불러오기</button></details>
+<footer><code id="identity"></code><p>Digest 검사 ≠ 기계적 재검증. Browser mechanical validation: <strong>notPerformed</strong>.<br>표시는 근사 pitch geometry이며, 치형·접촉력·제조 가능성을 검증하지 않습니다.</p></footer>
+</main><script type="module" src="main.js"></script></body></html>
