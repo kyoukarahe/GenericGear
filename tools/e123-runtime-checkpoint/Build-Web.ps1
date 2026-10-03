@@ -16,13 +16,15 @@ dotnet build "$root/examples/runtime/dotnet/Runtime.Consumer.csproj" -c Release 
 if ($LASTEXITCODE -ne 0) { throw 'Consumer build failed' }
 $source = "$web/example/source.json"
 if (-not (Test-Path -LiteralPath $source)) { dotnet "$root/examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll" create-example $source; if ($LASTEXITCODE -ne 0) { throw 'Source authoring failed' } }
-$assets = Get-Content -Raw "$root/adapters/browser-runtime/obj/project.assets.json" | ConvertFrom-Json
-$runtimeNotice = $null
-foreach ($folder in $assets.packageFolders.PSObject.Properties.Name) {
-    $candidate = Join-Path $folder 'microsoft.netcore.app.runtime.mono.browser-wasm/10.0.12'
-    if (Test-Path -LiteralPath "$candidate/LICENSE.TXT") { $runtimeNotice = $candidate; break }
-}
-if (-not $runtimeNotice) { throw 'Restored .NET browser runtime notices are missing.' }
+# The SDK may resolve an installed runtime pack instead of a NuGet-cache copy.
+# Read the actual resolved pack, so its notices accompany the runtime we ship.
+$resolvedJson = dotnet msbuild "$root/adapters/browser-runtime/GearInvest.BrowserRuntime.csproj" -target:ResolveFrameworkReferences -p:Configuration=Release -p:MSBuildEnableWorkloadResolver=false -getItem:ResolvedRuntimePack -verbosity:quiet
+if ($LASTEXITCODE -ne 0) { throw 'Runtime pack resolution failed.' }
+$resolved = ($resolvedJson -join "`n") | ConvertFrom-Json
+$runtimePacks = @($resolved.Items.ResolvedRuntimePack | Where-Object { $_.NuGetPackageId -eq 'Microsoft.NETCore.App.Runtime.Mono.browser-wasm' -and $_.NuGetPackageVersion -eq '10.0.12' -and $_.RuntimeIdentifier -eq 'browser-wasm' })
+if ($runtimePacks.Count -ne 1) { throw 'Expected exactly one resolved .NET 10.0.12 browser runtime pack.' }
+$runtimeNotice = $runtimePacks[0].PackageDirectory
+if (-not $runtimeNotice -or -not (Test-Path -LiteralPath "$runtimeNotice/LICENSE.TXT") -or -not (Test-Path -LiteralPath "$runtimeNotice/THIRD-PARTY-NOTICES.TXT")) { throw 'Resolved .NET browser runtime notices are missing.' }
 New-Item -ItemType Directory -Force -Path "$web/licenses/dotnet" | Out-Null
 Copy-Item -LiteralPath "$runtimeNotice/LICENSE.TXT","$runtimeNotice/THIRD-PARTY-NOTICES.TXT" -Destination "$web/licenses/dotnet"
 Copy-Item -LiteralPath "$root/LICENSE","$root/LICENSE_SCOPE.md","$root/THIRD_PARTY_NOTICES.md" -Destination "$web/licenses"

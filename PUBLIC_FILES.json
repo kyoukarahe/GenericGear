@@ -3230,8 +3230,8 @@
     },
     {
       "path": "tools/e123-runtime-checkpoint/Build-Web.ps1",
-      "bytes": 2583,
-      "sha256": "b5ecdb5365d2ff891f49ce8d520d2e8773f4f472d0ecea068a3fba43dc6661fc"
+      "bytes": 3252,
+      "sha256": "355814c26004fb29a519b6ad8fd16c533a8fbc61caeb6873bbec188100c0b141"
     },
     {
       "path": "tools/e123-runtime-checkpoint/README.md",
