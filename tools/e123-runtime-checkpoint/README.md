@@ -17,6 +17,8 @@ error/disposal and superseded loads. Neither proves real browser/mobile acceptan
 Outputs are create-only. Reuse valid build/dependency caches; select a new output
 path for deliberate repeated checks rather than removing previous receipts.
 
+The publish script explicitly disables workload resolution for the prebuilt
+interpreter profile; an installed AOT workload must not change its build path.
 The browser project disables implicit SDK/workload package sources and keeps
 NuGet locked-mode validation enabled. Some Visual Studio workload packages differ
 from the same-version NuGet.org package (see [upstream issue](https://github.com/dotnet/sdk/issues/51675)).

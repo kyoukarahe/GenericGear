@@ -3,7 +3,8 @@ $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $out = [IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
 if (-not $out.StartsWith($root + [IO.Path]::DirectorySeparatorChar)) { throw 'Output must stay under the selected checkout.' }
-dotnet publish "$root/adapters/browser-runtime/GearInvest.BrowserRuntime.csproj" -c Release -p:PublishTrimmed=false -p:RestoreLockedMode=true -o "$out/publish" -v minimal
+# This profile uses the prebuilt interpreter, independent of installed AOT workloads.
+dotnet publish "$root/adapters/browser-runtime/GearInvest.BrowserRuntime.csproj" -c Release -p:MSBuildEnableWorkloadResolver=false -p:PublishTrimmed=false -p:RestoreLockedMode=true -o "$out/publish" -v minimal
 if ($LASTEXITCODE -ne 0) { throw 'WASM publish failed' }
 $web = Join-Path $out 'publish/wwwroot'
 New-Item -ItemType Directory -Force -Path "$web/example" | Out-Null

@@ -3230,13 +3230,13 @@
     },
     {
       "path": "tools/e123-runtime-checkpoint/Build-Web.ps1",
-      "bytes": 2458,
-      "sha256": "e0521c56c5c36a97d02bf6972c956c24269ca623e9a5e1402397ab78f6ec23b0"
+      "bytes": 2583,
+      "sha256": "b5ecdb5365d2ff891f49ce8d520d2e8773f4f472d0ecea068a3fba43dc6661fc"
     },
     {
       "path": "tools/e123-runtime-checkpoint/README.md",
-      "bytes": 2281,
-      "sha256": "4739a10d49f74f5d3ef31fea078bcd2c8156fbb5672c22dfc003af9774aa29f3"
+      "bytes": 2436,
+      "sha256": "4dc5117a247c6c9727558029baf25e7ec9165176d00a17f99daa12b5f9bf8c6b"
     },
     {
       "path": "tools/e123-runtime-checkpoint/browser-checks.html",
