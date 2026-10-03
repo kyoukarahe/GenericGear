@@ -22,9 +22,21 @@ static holds, exact rank/partial/inconsistent boundary analysis and canonical
 source reconstruction. Web consumes exported affine vectors; it does not solve
 rank/contact or rebuild current mechanics. See the [carrier contract](BOUNDED_CARRIER_CONTRACT.md)
 and [differential contract](BOUNDED_DIFFERENTIAL_CONTRACT.md).
-No arbitrary differential network, ring gear, nested carrier, finite chain
-winding, conditional mode switch or downstream worm/belt/nonlinear bridge is
-implied. Pitch-plane checks do not certify tooth, arm, shaft or swept solids.
+No arbitrary differential network, ring gear, nested carrier or downstream
+worm/belt/nonlinear bridge is implied. Pitch-plane checks do not certify tooth,
+arm, shaft or swept solids.
+
+The added [finite winding profile](FINITE_WINDING_CONNECTION_CONTRACT.md) has
+4–21 material links, planar convex pin seats and finite lifts narrower than one
+turn. It connects actual E2b owners to one external-spur suffix. The separate
+[mode profile](MECHANICAL_CONNECTION_MODES_CONTRACT.md) supports explicit
+release/capture, world/relative locks and prescribed direction restrictions.
+The [C# WASM runtime](MECHANICAL_RUNTIME_CONTRACT.md) computes new inputs locally
+and source-revalidates compact checkpoints; old replay packages remain readonly.
+Current provenance is limited to 64 independent causes, the retry ledger to 16,
+and lifetime counters to 128 digits. Compaction does not prove deleted history.
+3D grooves, hundreds of links, multi-turn winding and whole watch networks are
+not implemented. Numeric residual checks are not certified solution bounds.
 
 Nonlinear evaluation is bounded and can refuse requests at numeric/resource
 limits. Approximate stored playback is not exact analytic evaluation. Exact

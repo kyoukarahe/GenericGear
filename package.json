@@ -1,5 +1,5 @@
 {
-  "name":"@gearinvest/source-workspace","version":"0.1.0-rc.public02.1","private":true,"type":"module",
+  "name":"@gearinvest/source-workspace","version":"0.1.0-rc.public03.1","private":true,"type":"module",
   "license":"AGPL-3.0-only","workspaces":["packages/replay","packages/presentation","examples/web"],
   "scripts":{"build":"npm run build --workspace @gearinvest/replay && npm run build --workspace @gearinvest/presentation","test":"node --test examples/web/checks.mjs examples/moving-checks.mjs","labs":"vite --host 127.0.0.1 --port 4408 --strictPort"},
   "devDependencies":{"typescript":"7.0.2","@types/node":"24.13.3"},"engines":{"node":">=22.12.0"}

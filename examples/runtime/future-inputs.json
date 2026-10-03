@@ -1,0 +1,37 @@
+{
+  "format": "gearinvest.future-input-template",
+  "status": "not-an-admissible-mechanism",
+  "r2": {
+    "requestedProfile": "single-layer-spatial-groove-finite-winding",
+    "units": { "length": "mm", "angle": "turn" },
+    "driverShaftFrame": null,
+    "outputShaftFrame": null,
+    "driverGroove": { "representation": null, "pointsOrAnalyticParameters": null, "direction": null, "unwrappedDomain": null },
+    "outputGroove": { "representation": null, "pointsOrAnalyticParameters": null, "direction": null, "unwrappedDomain": null },
+    "linkCount": null,
+    "pinPitchMm": null,
+    "jointAxisConvention": null,
+    "maximumBendDegrees": null,
+    "maximumTwistDegrees": null,
+    "firstAttachmentFrame": null,
+    "lastAttachmentFrame": null,
+    "initialContactsAndWindings": null,
+    "freeSpanBoundaryCondition": null,
+    "independentInputs": null,
+    "finiteWindingDomain": null,
+    "requiredNumericQuality": null,
+    "assetMaterialIdMapping": null
+  },
+  "r4": {
+    "sourceMechanisms": null,
+    "actualShaftPortConnections": null,
+    "fixedWorldAndCarrierLocalFrames": null,
+    "toothCountsModulesMountsRegistration": null,
+    "independentInputPortsByMode": null,
+    "outputPortRequirements": null,
+    "escapementLockReleaseBoundary": null,
+    "physicalBypassDriveIfAny": null
+  },
+  "missingValues": "null means not supplied; no flattening or surrogate shaft is inferred",
+  "referenceOnly": "249 links and approximately 0.85 mm from the request are not validated manufacturing parameters or SDK constants"
+}

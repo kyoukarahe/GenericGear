@@ -11,3 +11,4 @@ examples/web/public/data/*.replay.json
 .vs/
 examples/web/headless-*.json
 examples/web/public/licenses/
+artifacts/

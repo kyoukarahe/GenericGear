@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidate": "0.1.0-rc.public02.1",
+  "candidate": "0.1.0-rc.public03.1",
   "policy": "Source-only; no dependency binaries vendored. Metadata is provenance evidence, not legal certification.",
   "dependencies": [
     {
@@ -1150,6 +1150,44 @@
       "source": "https://registry.npmjs.org/vite/-/vite-8.2.2.tgz",
       "integrity": "sha512-cFKLV/PRgAUlIRm5WjMjJ86jrftzpqcgH+Us+DS8mI3CDNiH30Whrz8uHL3+MOLPAgqbMBAqWdAHAphOAM+z/Q==",
       "optional": false,
+      "redistributedInSource": false
+    },
+    {
+      "ecosystem": "nuget",
+      "name": "Microsoft.NET.Sdk.WebAssembly.Pack",
+      "version": "10.0.12",
+      "scope": "build-tool",
+      "license": "MIT",
+      "licenseEvidence": "expression",
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "contentHash": "MIeBVeWkbKdggl3kmmIUnx8ZNEgjD2m1gTN/0W+TDRn6zcL1WZdq5hXhGQ0wjuSlw/8tvwwCg79PemfkJ3+5JA==",
+      "upstreamNotices": [
+        {
+          "file": "THIRD-PARTY-NOTICES.TXT",
+          "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54"
+        }
+      ],
+      "redistributedInSource": false
+    },
+    {
+      "ecosystem": "nuget",
+      "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+      "version": "10.0.12",
+      "scope": "optional-browser-runtime",
+      "license": "MIT",
+      "licenseEvidence": "expression",
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "contentHash": "7RAMnN/ZL6fjSocFEGSsIeGjZeT2uShNo0+JkkGf7b70i80YLc6rsDVovpifvWhmw8HWOqzXUlLOAcUTCFtzGA==",
+      "upstreamNotices": [
+        {
+          "file": "LICENSE.TXT",
+          "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+        },
+        {
+          "file": "THIRD-PARTY-NOTICES.TXT",
+          "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54"
+        }
+      ],
       "redistributedInSource": false
     }
   ]

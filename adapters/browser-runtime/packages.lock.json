@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack": {
+        "type": "Direct",
+        "requested": "[10.0.12, )",
+        "resolved": "10.0.12",
+        "contentHash": "MIeBVeWkbKdggl3kmmIUnx8ZNEgjD2m1gTN/0W+TDRn6zcL1WZdq5hXhGQ0wjuSlw/8tvwwCg79PemfkJ3+5JA=="
+      },
+      "gearinvest": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Engine": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Modules.Clock": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Serialization.Json": "[0.1.0-rc.public03.1, )"
+        }
+      },
+      "gearinvest.core": {
+        "type": "Project"
+      },
+      "gearinvest.engine": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public03.1, )"
+        }
+      },
+      "gearinvest.layout": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )"
+        }
+      },
+      "gearinvest.modules.clock": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )"
+        }
+      },
+      "gearinvest.serialization.json": {
+        "type": "Project",
+        "dependencies": {
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Engine": "[0.1.0-rc.public03.1, )",
+          "GearInvest.Layout": "[0.1.0-rc.public03.1, )"
+        }
+      }
+    },
+    "net10.0/browser-wasm": {}
+  }
+}

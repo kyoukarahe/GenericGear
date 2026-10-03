@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GenericGear · Connected Winding</title><link rel="stylesheet" href="style.css"></head>
+<body><main><header><p class="eyebrow">GENERICGEAR / FINITE CHAIN → TWO-INPUT CARRIER → SPUR</p><h1>같은 상태, 하나의 연결된 기구</h1><p>유한 체인과 후단 기어를 C#이 계산한 동일 snapshot에서 표시합니다. 재생은 기록된 상태 선택이며, 새 권취 입력이나 브라우저 기계 검증이 아닙니다.</p></header>
+<div class="tools"><label>내 replay <input type="file" id="file" accept=".json"></label><button id="save">재생 위치 저장</button><a href="?restore=1" id="restore" target="_blank" rel="noopener">새 페이지에서 복원</a><button id="download">원본 다운로드</button></div>
+<section id="views" aria-label="동일 snapshot의 깊이별 기구"></section>
+<section class="controls"><label>기록된 sample <input id="sample" type="range" min="0" max="0" value="0"><output id="cursor">0</output></label><button id="previous">이전</button><button id="next">다음</button><button id="play">기록 재생</button><button id="stop">정지</button>
+<label>요청 결과 <select id="attempt"></select></label><button id="show-attempt">결과 확인</button></section>
+<p id="status" role="status">불러오는 중…</p><pre id="readback" aria-live="polite"></pre><details><summary>Identity 및 검증 경계</summary><pre id="identity"></pre><p>NumericResidualOnly · solution error bound: null. 표시 보간 없음. 실패 요청에는 새 frame이 없습니다. Digest PASS는 source 재구성이나 기계 검증의 PASS가 아닙니다. 치형·충돌·동역학은 범위 밖입니다.</p></details>
+</main><script type="module" src="main.js"></script></body></html>

@@ -1,0 +1,11 @@
+using GearInvest;
+using GearInvest.WindingExample;
+
+if (args.Length == 2 && args[0] == "measure") { RuntimeMeasurement.Run(args[1]); return; }
+if (args.Length == 2 && args[0] == "create-example")
+{
+    var bytes = GearInvestSdk.CreateDefault().FinalizeWindingConnection(Example.Create()).Bytes;
+    using var f = new FileStream(args[1], FileMode.CreateNew, FileAccess.Write); f.Write(bytes); return;
+}
+using var host = new MechanicalRuntimeHost(GearInvestSdk.CreateDefault());
+while (Console.ReadLine() is { } line) Console.WriteLine(host.Dispatch(line));

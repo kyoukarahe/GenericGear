@@ -6,7 +6,7 @@ not a legal-certification report.
 
 The following first-party paths are offered under that license, to the extent
 applicable rights exist: `src/`, `packages/*/src/`, `examples/`, `tests/`,
-`scripts/`, `adapters/unity-source/`, project/build metadata, `.github/`, and
+`scripts/`, `tools/`, `adapters/unity-source/`, `adapters/browser-runtime/`, project/build metadata, `.github/`, and
 first-party Markdown documentation. This includes example code, the procedural
 diagnostic-arrow generator and its generated GLBs. Sidecar scope is used rather
 than inserting fields into immutable canonical JSON or editing binary bytes.

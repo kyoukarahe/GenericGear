@@ -10,6 +10,7 @@ closure; lockfile integrity is not legal clearance or a vulnerability audit.
 |---|---|---|
 | System.Text.Json 8.0.6 and its .NET dependencies | JSON implementation | MIT; package metadata/notices from [NuGet](https://www.nuget.org/packages/System.Text.Json/8.0.6) |
 | .NET SDK/runtime | Build/host, not bundled here | Upstream .NET notices apply; not owned by GenericGear |
+| .NET Mono browser runtime 10.0.12 | Downloaded by the optional WASM build, not a source-release binary asset | Original LICENSE.TXT and THIRD-PARTY-NOTICES.TXT are copied into the generated static root by Build-Web.ps1 |
 | xUnit 2.9.3, runner 3.1.1, Microsoft.NET.Test.Sdk 17.14.1 and dependencies | Selected development tests only | Exact package licenses in dependency inventory |
 | TypeScript 7.0.2 | Build-only compiler | Apache-2.0, [upstream](https://github.com/microsoft/TypeScript) |
 | @types/node 24.13.3 | Build-only types | MIT, [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) |

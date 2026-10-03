@@ -3,9 +3,11 @@
 An engine-independent, bounded **ideal-kinematics** SDK. The C# core authors,
 analyzes, finalizes and reconstructs mechanical artifacts. The TypeScript
 packages consume those artifacts; they do not synthesize or validate a new
-mechanism. Unity and browser display objects never own the mechanical truth.
+mechanism. The separate browser runtime executes the shared C# implementation
+locally for the bounded winding/mode profile. Unity and browser display objects
+never own the mechanical truth.
 
-This is a **source release**, version `0.1.0-rc.public02.1`.
+This is a **source release**, version `0.1.0-rc.public03.1`.
 Build and use it from this source tree. No public NuGet/npm package, binary
 download or Unity package is claimed here.
 
@@ -46,6 +48,12 @@ published service. Before distributing it, follow [distribution guidance](docs/D
 
 ## Where to start
 
+- [Browser-local execution and compact checkpoints](examples/runtime/README.md):
+  new input/events in a dedicated C# WASM Worker, not stored-frame selection.
+  Run `pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1`, then
+  `node tools/e123-runtime-checkpoint/serve.mjs artifacts/e123-runtime-checkpoint/web/publish/wwwroot 5187`
+  and open `http://127.0.0.1:5187/example/`. No computation server is used.
+- [Finite planar chain, actual differential suffix and recorded modes](examples/winding/README.md)
 - [Grounded-sun carrier: one actual input](examples/carrier/README.md)
 - [Free-sun differential: two independent inputs](examples/differential/README.md)
 - For their interactive SVG labs: `npm run labs`, then open

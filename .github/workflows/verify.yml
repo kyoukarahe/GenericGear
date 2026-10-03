@@ -28,3 +28,8 @@ jobs:
       - run: npm run build
       - run: npm run build --workspace @gearinvest/public-example
       - run: npm test
+      - run: node scripts/prepare-winding.mjs
+      - run: node tools/e123-implementation/check-replay.mjs generated/winding
+      - run: pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1
+      - run: node tools/e123-runtime-checkpoint/check-runtime.mjs artifacts/e123-runtime-checkpoint/web/publish/wwwroot examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll artifacts/e123-runtime-checkpoint/web/publish/wwwroot/example/source.json generated/runtime-cross-host 4352
+      - run: node tools/e123-runtime-checkpoint/check-lifecycle.mjs artifacts/e123-runtime-checkpoint/web/publish/wwwroot artifacts/e123-runtime-checkpoint/web/publish/wwwroot/example/source.json generated/runtime-lifecycle.json

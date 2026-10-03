@@ -5,6 +5,11 @@ entry. `examples/console/Program.cs` shows typed input → analysis → finaliza
 → source reconstruction → assembly replay export. Refused finalization is not
 an artifact. Preserve both diagnostics and accepted source bytes.
 
+For new browser inputs/events, use the separate [runtime example](../examples/runtime/README.md)
+and [transaction/checkpoint contract](MECHANICAL_RUNTIME_CONTRACT.md). A dedicated
+Worker executes the same production C# as the ordinary DLL consumer. Do not
+treat the readonly TypeScript replay entries below as runtime solvers.
+
 The web packages use public exports (`@gearinvest/replay/assembly`,
 `@gearinvest/presentation/assembly`). `readAssemblyReplay` accepts canonical
 bytes; integrity verification, structural acceptance, same-version .NET source
