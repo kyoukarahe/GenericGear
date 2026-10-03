@@ -8,7 +8,7 @@
       "gearinvest.layout": {
         "type": "Project",
         "dependencies": {
-          "GearInvest.Core": "[0.1.0-rc.public02.1, )"
+          "GearInvest.Core": "[0.1.0-rc.public03.1, )"
         }
       }
     }

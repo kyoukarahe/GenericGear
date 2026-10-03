@@ -10,8 +10,8 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "bytes": 2086,
-      "sha256": "e87f69b9d5286b1a80415e530c3ee6ffdb745d4ac5dbb8661dc0917152832ca7"
+      "bytes": 2239,
+      "sha256": "5b9586a5ccdd5caa40ce9d27b3b8712cde8dfc117e0992dd5fe07714c5d26955"
     },
     {
       "path": ".gitignore",
@@ -70,8 +70,8 @@
     },
     {
       "path": "adapters/browser-runtime/GearInvest.BrowserRuntime.csproj",
-      "bytes": 688,
-      "sha256": "21352d8e055d5be8dc2034e8f771804778910596db0086b5efc4519d6efa7407"
+      "bytes": 939,
+      "sha256": "24feb6038651f31aaa8ac5f99962fb78b450be30f23ef0f8cdcc73d17872cf3c"
     },
     {
       "path": "adapters/browser-runtime/Program.cs",
@@ -2211,7 +2211,7 @@
     {
       "path": "src/GearInvest.Engine/packages.lock.json",
       "bytes": 316,
-      "sha256": "fa3e56984a893ca851b2179dddf4e6eec2ae424d6ab93a42f87b2775cc91dce5"
+      "sha256": "731372057e6a2182fd0e17758c55e644f947b3c93efaf6c557ad5affbaa83736"
     },
     {
       "path": "src/GearInvest.Layout/AxialTrackGeometry.cs",
@@ -2806,7 +2806,7 @@
     {
       "path": "src/GearInvest.Serialization.Json/packages.lock.json",
       "bytes": 3863,
-      "sha256": "9038c7c562e66052826ba1b63ba4c0f80a69c726e0d71a18aea2ddcedfe88033"
+      "sha256": "2baf0bdc2a5b3769b8add519f8180578dd73662f79e49f32c1ad1e468709baa6"
     },
     {
       "path": "src/GearInvest/AssemblyReplaySdk.cs",
@@ -3131,7 +3131,7 @@
     {
       "path": "src/GearInvest/packages.lock.json",
       "bytes": 4811,
-      "sha256": "63bcc89254ad564bf235733a1cc76d0607fd7312a399995ee47b39b5a0aad823"
+      "sha256": "892a62593041f6faf8c0f0dae20e2644cbb2bee47c571f49b874e899eb280fa2"
     },
     {
       "path": "tests/GearInvest.Tests/ArtifactValidationTests.cs",
@@ -3235,8 +3235,8 @@
     },
     {
       "path": "tools/e123-runtime-checkpoint/README.md",
-      "bytes": 1656,
-      "sha256": "c1143bfaf41ff30cfaa71a7d3c1bbaa1de1402d517a019cef8477f1383ea6abf"
+      "bytes": 2281,
+      "sha256": "4739a10d49f74f5d3ef31fea078bcd2c8156fbb5672c22dfc003af9774aa29f3"
     },
     {
       "path": "tools/e123-runtime-checkpoint/browser-checks.html",

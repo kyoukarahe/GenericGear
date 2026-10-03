@@ -17,6 +17,15 @@ error/disposal and superseded loads. Neither proves real browser/mobile acceptan
 Outputs are create-only. Reuse valid build/dependency caches; select a new output
 path for deliberate repeated checks rather than removing previous receipts.
 
+The browser project disables implicit SDK/workload package sources and keeps
+NuGet locked-mode validation enabled. Some Visual Studio workload packages differ
+from the same-version NuGet.org package (see [upstream issue](https://github.com/dotnet/sdk/issues/51675)).
+CI uses a job-local package cache. If an existing local cache reports `NU1403`,
+inspect the package/source first; do not regenerate the lock file or disable its
+validation just to accept that cache. A new `NUGET_PACKAGES` directory can restore
+the locked NuGet.org packages without deleting the shared cache. Reuse that new
+directory for subsequent builds.
+
 `serve.mjs <static-root> <port>` serves only GET/HEAD resources on loopback.
 `/example/` is the ordinary UI. `/verification/` is optional browser acceptance
 tooling, not a prerequisite for loading, executing or restoring a mechanism.
