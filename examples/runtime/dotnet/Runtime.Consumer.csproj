@@ -11,5 +11,6 @@
     <Reference Include="GearInvest.Serialization.Json"><HintPath>$(GearInvestSdkBin)/GearInvest.Serialization.Json.dll</HintPath></Reference>
     <Reference Include="GearInvest.Modules.Clock"><HintPath>$(GearInvestSdkBin)/GearInvest.Modules.Clock.dll</HintPath></Reference>
     <Compile Include="../../winding/WindingExample.cs" Link="WindingExample.cs" />
+    <Compile Include="../../winding/SpatialWindingExample.cs" Link="SpatialWindingExample.cs" />
   </ItemGroup>
 </Project>

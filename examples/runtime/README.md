@@ -2,7 +2,7 @@
 
 역할: **Usage guide**. 먼저 [지원·신뢰·자원 계약](../../docs/MECHANICAL_RUNTIME_CONTRACT.md)을 읽는다.
 새 입력을 계산하는 C# WASM 경로다. 기존 `/winding`, `/mechanical-modes` sample reader는 그대로다.
-Public source `0.1.0-rc.public03.1`의 추가 실행 경로다. NuGet/npm binary package 배포는 아니다.
+Public source `0.1.0-rc.public04.1`의 실행 경로다. NuGet/npm binary package 배포는 아니다.
 
 ## Build and open
 
@@ -33,6 +33,28 @@ example을 함께 배포하며 `.wasm` MIME type을 유지한다. 초기 리소�
 
 ## C# and independent consumption
 
+### Spatial winding and composition
+
+For the new profile, read [the spatial contract](../../docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md)
+and build into a separate create-only source directory:
+
+```powershell
+./tools/e123-runtime-checkpoint/Build-Web.ps1 -Spatial -OutputDirectory artifacts/spatial/web
+node tools/e123-runtime-checkpoint/serve.mjs artifacts/spatial/web/publish/wwwroot 5188
+```
+
+Open `/example/` on that port. The same input/event/save/new-page flow evaluates
+the new geometry in shared C#, not in JavaScript. Isometric/XY/XZ projections
+consume the same current snapshot. For a prefix check, serve
+`artifacts/spatial/web/publish` and open `/wwwroot/example/`.
+`create-spatial-example <new-source-path>` authors the ordinary249-link source;
+`inspect-spatial <source-path>` runs multi-turn forward/stop/reverse/rewind and
+independent pin/bend checks. The source remains create-only on rebuild; use a new
+explicit output directory for a different authored profile, never overwrite an
+old planar source and assume it became spatial. See the [device pack](../../docs/SPATIAL_RUNTIME_DEVICE_ACCEPTANCE.md).
+
+### Native consumer
+
 [console consumer](dotnet/Program.cs)는 여섯 DLL을 참조한다(ProjectReference 없음).
 한 줄 JSON command를 stdin으로 받아 한 줄 결과를 stdout으로 반환한다.
 `load`, `prepare`, `commit`, `cancel`, `checkpoint`, `restore`, `snapshot`, `dispose`는 SDK host의
@@ -57,6 +79,7 @@ Checkpoint는 전체 과거 recording이 아니다. 현재 구속/수치 원본�
 유효 과거로의 rollback 방지나 삭제된 전체 경로의 증명은 하지 않는다. Active provenance64,
 최근 retry16, counter128digits, request16segments/events, 문서4MiB의 경계는 숨기지 않는다.
 서로 독립인 lock 원인이 계속 늘면 resource refusal이며 임의 numeric 합병으로 우회하지 않는다.
-물리 q의 finite domain은 epoch/restore 후에도 유지된다. 아직3D grooves나 수백 링크가 아니다.
+물리 q의 finite domain은 epoch/restore 후에도 유지된다. 기존 planar profile의 작은 범위는 그대로이며,
+새 spatial profile만 명시된3D guided winding·수백 링크·다회전 범위를 제공한다.
 
 기존 replay는 계속 readonly recording 소비이며 이 runtime과 검증 범위가 다르다.

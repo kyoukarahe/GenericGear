@@ -1,5 +1,12 @@
 # R2 / R4 input preparation
 
+Historical public03 planning note. Public04 now implements a bounded guided
+spatial profile and typed downstream composition; use the
+[current contract](../../docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md) and ordinary
+`SpatialWindingExample.cs` instead of treating this non-executable template as
+the current SDK boundary. The following record is retained as historical context;
+it does not claim that all arbitrary watch geometry is now supported.
+
 역할: **입력 준비 / 미구현 경계**. [template](future-inputs.json)은 실행 가능한 source가 아니다.
 모든 null은 미제공이며 default0 또는 평면 입력으로 해석하지 않는다.
 

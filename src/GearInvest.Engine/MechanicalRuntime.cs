@@ -128,7 +128,7 @@ public sealed class RuntimeSnapshot
     {
         SessionId = sessionId; Definition = definition; Mechanical = mechanical; Revision = revision; EventCursor = cursor; HistoryId = history;
         Witnesses = witnesses.OrderBy(w => w.LatentId, StringComparer.Ordinal).ToList().AsReadOnly(); CaptureWitness = capture; LockWitness = locked;
-        StateId = HashText(Pack(MechanicalRuntime.Profile, sessionId, definition.DefinitionId, mechanical.Frame.SnapshotId, mechanical.Mode.ToString(), mechanical.CouplingOffset.Key,
+        StateId = HashText(Pack(MechanicalRuntime.ProfileFor(definition), sessionId, definition.DefinitionId, mechanical.Frame.SnapshotId, mechanical.Mode.ToString(), mechanical.CouplingOffset.Key,
             mechanical.LockReference?.Key ?? "", N(mechanical.AllowedDirection), MechanicalRuntime.Text(revision), MechanicalRuntime.Text(cursor), history));
         Ledger = ledger.TakeLast(16).ToList().AsReadOnly();
     }
@@ -163,6 +163,8 @@ public sealed class MechanicalRuntime
 {
     public const string Profile = "bounded-winding-runtime-checkpoint-v1";
     public const string Version = "1.0";
+    public const string SpatialProfile = "bounded-spatial-winding-runtime-checkpoint-v1";
+    public static string ProfileFor(MechanicalModeDefinition d) => d.Connection.WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
     public const int EpochRequests = 256;
     private readonly WindingDifferentialAnalysis analysis;
     public MechanicalRuntime(MechanicalModeDefinition definition)
@@ -178,7 +180,7 @@ public sealed class MechanicalRuntime
         return new(sessionId, Definition, s, 0, 0, HashText(Pack("runtime-start", sessionId, s.StateId)), new[] { witness }, null, null, Array.Empty<RuntimeLedgerEntry>());
     }
     private RuntimeWitness Witness(Rational q)
-    { var f = SourceFrame(q); return new(f.Coordinates[Definition.Connection.Winding.OutputShaft.Id].Terms.Single().Source.Id, q); }
+    { var f = SourceFrame(q); return new(f.Coordinates[Definition.Connection.WindingSource.OutputShaft.Id].Terms.Single().Source.Id, q); }
     private ConnectedFrame SourceFrame(Rational q)
     {
         var evaluated = WindingDifferentialEngine.Evaluate(analysis, new(q, 0));
@@ -265,24 +267,24 @@ public sealed class MechanicalRuntime
         var values = new Dictionary<string, ConnectedMotionValue>(StringComparer.Ordinal);
         foreach (var w in witnesses)
         {
-            var value = SourceFrame(w.DriverTurns).Coordinates[Definition.Connection.Winding.OutputShaft.Id];
+            var value = SourceFrame(w.DriverTurns).Coordinates[Definition.Connection.WindingSource.OutputShaft.Id];
             if (value.Terms.Single().Source.Id != w.LatentId) throw new ArgumentException("ForeignLatentSource"); values.Add(w.LatentId, value);
         }
         var h = hSpec.Resolve(values); var l = lockSpec?.Resolve(values); var sun = sunSpec.Resolve(values); var planet = planetSpec.Resolve(values);
         var expectedH = capture is null ? ConnectedMotionValue.FromExact(Definition.Connection.InitialCouplingOffset) :
-            ConnectedMotionValue.FromExact(capture.SunNativeTurns).Minus(SourceFrame(capture.DriverTurns).Coordinates[Definition.Connection.Winding.OutputShaft.Id]);
+            ConnectedMotionValue.FromExact(capture.SunNativeTurns).Minus(SourceFrame(capture.DriverTurns).Coordinates[Definition.Connection.WindingSource.OutputShaft.Id]);
         if (h.Key != expectedH.Key) throw new ArgumentException("CaptureWitnessMismatch");
-        if (capture is not null && FiniteWindingSolver.HasUnresolvedEventOrder(Definition.Connection.Winding.Geometry, ConnectedMotionValue.Number(capture.DriverTurns))) throw new ArgumentException("GuardIndeterminate");
+        if (capture is not null && ConnectedWindingKinematics.UnresolvedEvent(Definition.Connection.WindingSource, ConnectedMotionValue.Number(capture.DriverTurns), analysis)) throw new ArgumentException("GuardIndeterminate");
         if (cursor.IsZero && (mode != MechanicalConnectionMode.DriveCapture || capture is not null || lockSpec is not null || direction != 0)) throw new ArgumentException("InvalidModeCursor");
         var lockedMode = mode == MechanicalConnectionMode.WorldCarrierLock || mode == MechanicalConnectionMode.PlanetRelativeLock;
         if (lockedMode != (locked is not null && l is not null) || !lockedMode && (locked is not null || l is not null)) throw new ArgumentException("LockWitnessMismatch");
         var current = WindingDifferentialEngine.EvaluateMode(analysis, q, (_, _) => (sun, planet));
         if (!current.IsAccepted) throw new ArgumentException(current.Status); var f = current.Frame!;
         var s = Definition.Connection; var pd = s.Suffix.Parent.Definition;
-        if (mode != MechanicalConnectionMode.Released && sun.Minus(f.Coordinates[s.Winding.OutputShaft.Id]).Key != h.Key) throw new ArgumentException("ActiveCouplingMismatch");
+        if (mode != MechanicalConnectionMode.Released && sun.Minus(f.Coordinates[s.WindingSource.OutputShaft.Id]).Key != h.Key) throw new ArgumentException("ActiveCouplingMismatch");
         if (lockedMode)
         {
-            if (FiniteWindingSolver.HasUnresolvedEventOrder(s.Winding.Geometry, ConnectedMotionValue.Number(locked!.DriverTurns))) throw new ArgumentException("GuardIndeterminate");
+            if (ConnectedWindingKinematics.UnresolvedEvent(s.WindingSource, ConnectedMotionValue.Number(locked!.DriverTurns), analysis)) throw new ArgumentException("GuardIndeterminate");
             var witnessFrame = WindingDifferentialEngine.EvaluateMode(analysis, locked.DriverTurns, (w, _) => (w.Plus(h), locked.PlanetPort.Resolve(values)));
             if (!witnessFrame.IsAccepted) throw new ArgumentException(witnessFrame.Status);
             ConnectedMotionValue LockValue(ConnectedFrame frame) => mode == MechanicalConnectionMode.WorldCarrierLock ? frame.Coordinates[pd.CarrierShaft.Id] :

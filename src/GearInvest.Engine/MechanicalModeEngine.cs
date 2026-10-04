@@ -12,7 +12,7 @@ public static class MechanicalModeEngine
     public static MechanicalModeState Start(MechanicalModeDefinition definition,Rational initialPlanetPortTurns)
     {
         var a=WindingDifferentialEngine.Prepare(definition.Connection);if(!a.IsValid)throw new ArgumentException(string.Join(",",a.Diagnostics));
-        var first=WindingDifferentialEngine.Evaluate(a,new(definition.Connection.Winding.InitialDriverTurns,initialPlanetPortTurns));if(!first.IsAccepted)throw new ArgumentException(first.Status);
+        var first=WindingDifferentialEngine.Evaluate(a,new(definition.Connection.WindingSource.InitialDriverTurns,initialPlanetPortTurns));if(!first.IsAccepted)throw new ArgumentException(first.Status);
         return new(definition,first.Frame!,MechanicalConnectionMode.DriveCapture,ConnectedMotionValue.FromExact(definition.Connection.InitialCouplingOffset),null,0,0,0,
             HashText(Pack("initial",definition.DefinitionId,F(initialPlanetPortTurns))),Array.Empty<MechanicalModeLedgerEntry>());
     }
@@ -39,14 +39,14 @@ public static class MechanicalModeEngine
             var needed=RequiredInputPorts(d,current.Mode);var actual=segment.Input.IndependentPorts.Keys.ToArray();
             if(actual.Except(needed).Any())return Fail("ModeInputOwnershipConflict");
             if(needed.Except(actual).Any())return Fail("Underdetermined");
-            if(segment.Input.Observations.Keys.Except(d.Connection.Suffix.Parent.Definition.Ports.Select(p=>p.Id).Concat(new[]{d.Connection.Suffix.OutputPort.Id})).Any())return Fail("InvalidReference");
+            if(segment.Input.Observations.Keys.Except(d.Connection.Suffix.Parent.Definition.Ports.Select(p=>p.Id).Concat(new[]{d.Connection.Suffix.OutputPort.Id}).Concat(d.Connection.Transmission?.Stages.Select(s=>s.OutputPort.Id)??Array.Empty<string>())).Any())return Fail("InvalidReference");
             if(current.Mode==MechanicalConnectionMode.DirectionRestrictedDrive && (segment.Input.DriverTurns-current.Frame.DriverTurns)*current.AllowedDirection<0)return Fail("DirectionConflict");
-            // The source admits axes strictly inside convex support guides. Its same-side support geometry
-            // makes passive w monotonically increase with q; direction is path-wise, not endpoint modulo.
-            var error=FiniteWindingSolver.ValidateSegment(d.Connection.Winding.Geometry,ConnectedMotionValue.Number(current.Frame.DriverTurns),ConnectedMotionValue.Number(segment.Input.DriverTurns));
+            // DirectionRestrictedDrive constrains the declared unwrapped DRIVER coordinate above.
+            // Validate the chosen source's path; do not assume a spatial passive rotor is monotone.
+            var error=ConnectedWindingKinematics.ValidateSegment(d.Connection.WindingSource,ConnectedMotionValue.Number(current.Frame.DriverTurns),ConnectedMotionValue.Number(segment.Input.DriverTurns),a);
             if(error is not null)return Fail(error);
             var next=Evaluate(a,current,segment.Input);if(!next.IsAccepted)return Fail(next.Status);
-            if(segment.Events.Count>0&&FiniteWindingSolver.HasUnresolvedEventOrder(d.Connection.Winding.Geometry,ConnectedMotionValue.Number(segment.Input.DriverTurns)))return Fail("GuardIndeterminate");
+            if(segment.Events.Count>0&&ConnectedWindingKinematics.UnresolvedEvent(d.Connection.WindingSource,ConnectedMotionValue.Number(segment.Input.DriverTurns),a))return Fail("GuardIndeterminate");
             foreach(var observation in segment.Input.Observations)
             {
                 var difference=next.Frame!.Ports[observation.Key].Minus(ConnectedMotionValue.FromExact(observation.Value));
@@ -63,14 +63,14 @@ public static class MechanicalModeEngine
                     case MechanicalConnectionEventKind.Release:mode=MechanicalConnectionMode.Released;break;
                     case MechanicalConnectionEventKind.AlignCapture:
                     {
-                        var delta=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.Winding.OutputShaft.Id]).Scale(1,-d.AlignmentOffset);
+                        var delta=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.WindingSource.OutputShaft.Id]).Scale(1,-d.AlignmentOffset);
                         if(!delta.IsExact)return Fail("GuardIndeterminate");if(delta.Exact!=Rational.Zero)return Fail("AlignmentConflict");
                         h=ConnectedMotionValue.FromExact(d.AlignmentOffset);mode=MechanicalConnectionMode.DriveCapture;break;
                     }
                     case MechanicalConnectionEventKind.Capture:
                     case MechanicalConnectionEventKind.CapturePositive:
                     case MechanicalConnectionEventKind.CaptureNegative:
-                        h=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.Winding.OutputShaft.Id]);
+                        h=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.WindingSource.OutputShaft.Id]);
                         direction=e.Kind==MechanicalConnectionEventKind.CapturePositive?1:e.Kind==MechanicalConnectionEventKind.CaptureNegative?-1:0;
                         mode=direction==0?MechanicalConnectionMode.DriveCapture:MechanicalConnectionMode.DirectionRestrictedDrive;break;
                     case MechanicalConnectionEventKind.LockWorldCarrier:

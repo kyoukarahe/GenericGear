@@ -22,14 +22,16 @@ public sealed partial class GearInvestSdk
     {var stored=DifferentialSuffixJson.Read(bytes);var fresh=FinalizeDifferentialSuffix(stored.Source);if(!bytes.SequenceEqual(fresh.Bytes))throw new ArtifactFormatException("Suffix rebuild differs.");return fresh;}
     public byte[] WriteWindingConnectionDraft(WindingDifferentialDefinition source)=>WindingConnectionJson.WriteDraft(source);
     public WindingDifferentialDefinition ReadWindingConnectionDraft(byte[] bytes)=>WindingConnectionJson.ReadDraft(bytes);
+    public byte[] WriteSpatialWindingConnectionDraft(WindingDifferentialDefinition source)=>SpatialWindingJson.WriteDraft(source);
+    public WindingDifferentialDefinition ReadSpatialWindingConnectionDraft(byte[] bytes)=>SpatialWindingJson.ReadDraft(bytes);
     public WindingConnectionArtifact FinalizeWindingConnection(WindingDifferentialDefinition source)
     {
         var a=PrepareWindingConnection(source);if(!a.IsValid)throw new ArgumentException("Connected admission: "+string.Join(",",a.Diagnostics));
         var parent=TryFinalizeDifferential(source.Suffix.Parent);if(!parent.IsFinalized)throw new ArgumentException("Parent source not finalizable.");
-        return WindingConnectionJson.WriteArtifact(source,parent.Artifact!);
+        return source.WindingSource is SpatialWindingDefinition ? SpatialWindingJson.WriteArtifact(source,parent.Artifact!) : WindingConnectionJson.WriteArtifact(source,parent.Artifact!);
     }
     public WindingConnectionArtifact ReadWindingConnectionArtifact(byte[] bytes)
-    {var stored=WindingConnectionJson.ReadArtifact(bytes);var fresh=FinalizeWindingConnection(stored.Source);if(!fresh.Bytes.SequenceEqual(bytes))throw new ArtifactFormatException("Current connected source differs.");return fresh;}
+    {var stored=WindingConnectionJson.ReadRuntimeSource(bytes);var fresh=FinalizeWindingConnection(stored.Source);if(!fresh.Bytes.SequenceEqual(bytes))throw new ArtifactFormatException("Current connected source differs.");return fresh;}
     public ConnectedEvaluation EvaluateWindingConnection(WindingDifferentialAnalysis analysis,WindingDriveInput input)=>WindingDifferentialEngine.Evaluate(analysis,input);
     public ConnectedAdvance AdvanceWindingConnection(WindingDifferentialAnalysis analysis,ConnectedFrame state,IEnumerable<WindingDriveInput> segments)=>WindingDifferentialEngine.Advance(analysis,state,segments);
     public WindingRecordingArtifact RecordWindingConnection(WindingConnectionArtifact source,Rational initialPlanetPortTurns,IEnumerable<IEnumerable<WindingDriveInput>> requests)

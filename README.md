@@ -7,7 +7,7 @@ mechanism. The separate browser runtime executes the shared C# implementation
 locally for the bounded winding/mode profile. Unity and browser display objects
 never own the mechanical truth.
 
-This is a **source release**, version `0.1.0-rc.public03.1`.
+This is a **source release**, version `0.1.0-rc.public04.1`.
 Build and use it from this source tree. No public NuGet/npm package, binary
 download or Unity package is claimed here.
 
@@ -48,6 +48,15 @@ published service. Before distributing it, follow [distribution guidance](docs/D
 
 ## Where to start
 
+- [3D guided winding and connected transmission](docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md):
+  hundreds of fixed-pitch links, unwrapped multi-turn input, actual conditional
+  coupling/differential/spur stages and terminal carrier. Run
+  `pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1 -Spatial -OutputDirectory artifacts/spatial/web`,
+  then `node tools/e123-runtime-checkpoint/serve.mjs artifacts/spatial/web/publish/wwwroot 5188`
+  and open `http://127.0.0.1:5188/example/`. Guided spherical-joint scope only;
+  numeric residuals and sampled path checks are not continuous certificates.
+  [Real-device acceptance](docs/SPATIAL_RUNTIME_DEVICE_ACCEPTANCE.md) remains
+  unverified on Android/iOS/Safari; Windows checks do not imply mobile acceptance.
 - [Browser-local execution and compact checkpoints](examples/runtime/README.md):
   new input/events in a dedicated C# WASM Worker, not stored-frame selection.
   Run `pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1`, then

@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 const [cli,checkpointPath,logPath,output]=process.argv.slice(2);
 const checkpointUtf8=await readFile(checkpointPath,'utf8'), log=JSON.parse(await readFile(logPath,'utf8'));
 const p=spawn('dotnet',[cli],{stdio:['pipe','pipe','inherit'],windowsHide:true}), queue=[];
-createInterface({input:p.stdout}).on('line',line=>queue.shift().resolve(JSON.parse(line)));
+createInterface({input:p.stdout,crlfDelay:Infinity}).on('line',line=>queue.shift().resolve(JSON.parse(line)));
 p.on('exit',code=>{for(const q of queue.splice(0))q.reject(new Error('Process exited '+code));});
 const send=message=>new Promise((resolve,reject)=>{queue.push({resolve,reject});p.stdin.write(JSON.stringify(message)+'\n');});
 const initial=await send({op:'restore',checkpointUtf8});assert.equal(initial.status,'Restored');let last=initial.snapshot.state;

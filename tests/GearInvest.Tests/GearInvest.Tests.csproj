@@ -9,6 +9,7 @@
     <Compile Include="../../examples/carrier/CarrierExample.cs" Link="Shared/CarrierExample.cs" />
     <Compile Include="../../examples/differential/DifferentialExample.cs" Link="Shared/DifferentialExample.cs" />
     <Compile Include="../../examples/winding/WindingExample.cs" Link="Shared/WindingExample.cs" />
+    <Compile Include="../../examples/winding/SpatialWindingExample.cs" Link="Shared/SpatialWindingExample.cs" />
     <Compile Include="../../examples/winding/ModeExample.cs" Link="Shared/ModeExample.cs" />
   </ItemGroup>
 </Project>

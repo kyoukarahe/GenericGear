@@ -1,4 +1,4 @@
-param([string]$OutputDirectory = 'artifacts/e123-runtime-checkpoint/web')
+param([string]$OutputDirectory = 'artifacts/e123-runtime-checkpoint/web', [switch]$Spatial)
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $out = [IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
@@ -15,7 +15,11 @@ Copy-Item -LiteralPath "$root/tools/e123-runtime-checkpoint/browser-checks.js" -
 dotnet build "$root/examples/runtime/dotnet/Runtime.Consumer.csproj" -c Release -p:RestoreLockedMode=true -v minimal
 if ($LASTEXITCODE -ne 0) { throw 'Consumer build failed' }
 $source = "$web/example/source.json"
-if (-not (Test-Path -LiteralPath $source)) { dotnet "$root/examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll" create-example $source; if ($LASTEXITCODE -ne 0) { throw 'Source authoring failed' } }
+if (-not (Test-Path -LiteralPath $source)) {
+    $authorCommand = if ($Spatial) { 'create-spatial-example' } else { 'create-example' }
+    dotnet "$root/examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll" $authorCommand $source
+    if ($LASTEXITCODE -ne 0) { throw 'Source authoring failed' }
+}
 # The SDK may resolve an installed runtime pack instead of a NuGet-cache copy.
 # Read the actual resolved pack, so its notices accompany the runtime we ship.
 $resolvedJson = dotnet msbuild "$root/adapters/browser-runtime/GearInvest.BrowserRuntime.csproj" -target:ResolveFrameworkReferences -p:Configuration=Release -p:MSBuildEnableWorkloadResolver=false -getItem:ResolvedRuntimePack -verbosity:quiet

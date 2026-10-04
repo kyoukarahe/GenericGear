@@ -1,5 +1,45 @@
 # Verification scope
 
+## public04.1 spatial winding and composition
+
+The selected public source passed **196 .NET tests**, zero failures/skips, on
+Windows with .NET SDK10.0.401. Both SDK targets and the source-built Mono10.0.12
+WASM interpreter compiled successfully. The33 spatial cases cover independent
+pin-distance/joint/attachment oracles,201/249/320-link variants, phase and actual
+owner composition, rehashed checkpoint mutations and atomic refusals. These
+counts are a selected public suite, not all historical development tests.
+
+The ordinary public DLL consumer authored the249-link source, finalized/read it,
+then ran forward/stop/reverse/rewind across2.3 unwrapped turns. Every pin pitch
+and bend was checked;53 additional domain points yielded53 contact-count pairs
+without refusal for that authored input. This is not a proof of arbitrary input
+geometry, global root uniqueness or validity between all samples.
+
+The rebuilt public native/WASM smoke performed32 new requests and100 semantic
+comparisons, including checkpoint reconstruction in a fresh managed process.
+Maximum numerical difference was6.850076061937216e-14; status, exact fields,
+owner/mode/cursor and correlation semantics matched. Ten lifecycle cases used
+nine real Node workers. Node is not actual browser or physical-device evidence.
+The hosted workflow additionally runs4352 requests/17 checkpoints for spatial
+and retained planar profiles; consult the Release for the actual hosted verdict.
+
+Actual Windows Chrome154 used this public build through `/example/`: new
+q=-83/1000,planet=13/37 with Release; then q=-67/1000,sun=7/29,planet=-3/17 with
+Capture. Page/Worker fetch sealing permitted new calculation and local storage.
+Saving264456 checkpoint bytes and opening a new page preserved revision2 and
+state9f044b18…; q=-43/1000 with planet=-3/17 then reached Accepted revision3,
+statec5d762ed…. No stored recording supplied these results. A screenshot capture
+timeout was a tooling limitation; subsequent viewport capture and authoritative
+DOM/state readback succeeded. This is a bounded desktop smoke, not mobile proof.
+
+Source-only ZIP consumption, published-file hashes and hosted Actions are
+separate release gates, recorded with the final commit/archive in the Release.
+Android/iOS/Safari real-device acceptance remains **UNVERIFIED**; the
+[device pack](SPATIAL_RUNTIME_DEVICE_ACCEPTANCE.md) describes the outstanding flow.
+The [spatial contract](SPATIAL_WINDING_COMPOSITION_CONTRACT.md) explicitly retains
+guided transfer, spherical free-twist joints, underdetermined link roll,
+NumericResidualOnly and sampled-path rather than continuous certification.
+
 ## public03.1 runtime addition
 
 Local Windows verification used .NET SDK 10.0.401, .NET 8 host, Mono browser

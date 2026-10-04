@@ -2,6 +2,12 @@ using GearInvest;
 using GearInvest.WindingExample;
 
 if (args.Length == 2 && args[0] == "measure") { RuntimeMeasurement.Run(args[1]); return; }
+if (args.Length == 2 && args[0] == "inspect-spatial") { SpatialAcceptance.Run(args[1]); return; }
+if (args.Length == 2 && args[0] == "create-spatial-example")
+{
+    var bytes = GearInvestSdk.CreateDefault().FinalizeWindingConnection(SpatialExample.Create()).Bytes;
+    using var f = new FileStream(args[1], FileMode.CreateNew, FileAccess.Write); f.Write(bytes); return;
+}
 if (args.Length == 2 && args[0] == "create-example")
 {
     var bytes = GearInvestSdk.CreateDefault().FinalizeWindingConnection(Example.Create()).Bytes;

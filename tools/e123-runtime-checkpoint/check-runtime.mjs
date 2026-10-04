@@ -8,10 +8,11 @@ import { createHash } from 'node:crypto';
 
 const [rootArg, cliArg, sourceArg, outputArg, countArg] = process.argv.slice(2);
 const root = resolve(rootArg), cli = resolve(cliArg), sourceUtf8 = await readFile(sourceArg, 'utf8'), output = resolve(outputArg), count = Number(countArg ?? 4352);
+assert.ok(Number.isInteger(count) && count >= 17, 'This protocol checks the 16-entry stale window; use at least 17 requests.');
 await mkdir(output, { recursive: true });
 function managed() {
   const child = spawn('dotnet', [cli], { stdio: ['pipe', 'pipe', 'inherit'], windowsHide: true }); const pending = [];
-  createInterface({ input: child.stdout }).on('line', line => { const next = pending.shift(); if (!next) throw new Error('Unsolicited managed result'); try { next.resolve(JSON.parse(line)); } catch(e) { next.reject(e); } });
+  createInterface({ input: child.stdout, crlfDelay: Infinity }).on('line', line => { const next = pending.shift(); if (!next) throw new Error('Unsolicited managed result'); try { next.resolve(JSON.parse(line)); } catch(e) { next.reject(e); } });
   child.on('exit', code => { for (const p of pending.splice(0)) p.reject(new Error('Managed process exited ' + code)); });
   return { send: command => new Promise((resolve, reject) => { pending.push({ resolve, reject }); child.stdin.write(JSON.stringify(command) + '\n'); }), close: () => child.stdin.end() };
 }
@@ -71,7 +72,7 @@ const conflict={...latestRequest,segments:[{...latestRequest.segments[0],driverT
 for (const [id,q,kinds] of [['release',fraction(13,200),['Release']],['independent',fraction(7,100),[]],['capture',fraction(7,100),['Capture']],['world',fraction(3,50),['LockWorldCarrier']],['world-move',fraction(13,200),[]],['relative',fraction(13,200),['LockPlanetRelative']],['relative-move',fraction(7,100),[]]]) {
   const r=request(state,id,q,kinds);const result=await advance(r);samples.push({request:r,state:result.snapshot.state});
 }
-const before=state.state.stateId;await advance(request(state,'outside',fraction(1,2)),'WindingBoundary');assert.equal((await both({op:'snapshot'})).snapshot.state.stateId,before);
+const before=state.state.stateId;await advance(request(state,'outside',fraction(Math.ceil(loaded.capabilities.driverMaximumTurns)+1)),'WindingBoundary');assert.equal((await both({op:'snapshot'})).snapshot.state.stateId,before);
 const missing=request(state,'extra',fraction(7,100));missing.segments[0].independentPorts[loaded.capabilities.planetPort]=fraction(0);await advance(missing,'ModeInputOwnershipConflict');
 // Exact same candidate after compaction, plus native fresh-process restore (no full history input).
 const checkpoint=wasm({op:'checkpoint'});await writeFile(join(output,'locked.checkpoint.json'),checkpoint.checkpointUtf8,{flag:'wx'});

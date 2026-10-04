@@ -39,6 +39,7 @@ public static class WindingConnectionJson
     public const string RecordingFormat = "gear-invest.winding-drive-recording";
     public const string ReplayFormat = "gear-invest.winding-connection-replay";
     public const int MaxBytes = 4 * 1024 * 1024;
+    public static WindingConnectionArtifact ReadRuntimeSource(byte[] bytes) => SpatialWindingJson.IsFormat(bytes, SpatialWindingJson.ArtifactFormat) ? SpatialWindingJson.ReadArtifact(bytes) : ReadArtifact(bytes);
     public static byte[] WriteDraft(WindingDifferentialDefinition s) => Encode(w =>
     {
         Start(w,DraftFormat); w.WriteString("profile",WindingDifferentialDefinition.Profile); w.WriteString("definitionId",s.DefinitionId);
@@ -130,6 +131,7 @@ public static class WindingConnectionJson
     }
     internal static void Scene(Utf8JsonWriter w,WindingConnectionArtifact artifact)
     {
+        if (artifact.Source.WindingSource is SpatialWindingDefinition) { SpatialWindingJson.Scene(w, artifact); return; }
         var s=artifact.Source;var g=s.Winding.Geometry;w.WriteStartArray();
         void Node(string id,string owner,string kind,double radius,IEnumerable<WindingPoint>? points=null)
         {w.WriteStartObject();w.WriteString("id",id);w.WriteString("owner",owner);w.WriteString("kind",kind);w.WriteNumber("radiusMm",radius);Array(w,"pointsMm",points??System.Array.Empty<WindingPoint>(),Point);w.WriteEndObject();}
@@ -158,6 +160,11 @@ public static class WindingConnectionJson
         Array(w,"pins",g.Pins.Select((p,i)=>(p,i)),(x,v)=>{x.WriteStartObject();x.WriteString("id",source.PinId(v.i));Point(x,"positionMm",v.p);x.WriteEndObject();});
         w.WriteEndObject(); w.WriteString("displayUnavailableReason",f.DisplayUnavailableReason);
         Array(w,"matricesMm",f.MatricesMm,(x,p)=>{ x.WriteStartObject(); x.WriteString("id",p.Key); x.WriteStartArray("matrix");foreach(var n in p.Value)x.WriteNumberValue(n);x.WriteEndArray();x.WriteEndObject(); });w.WriteEndObject();
+    }
+    internal static void Frame(Utf8JsonWriter w, ConnectedFrame f, ConnectedWindingSource source)
+    {
+        if (source is FiniteWindingDefinition planar) Frame(w, f, planar);
+        else SpatialWindingJson.WriteFrame(w, f, (SpatialWindingDefinition)source);
     }
     internal static void Value(Utf8JsonWriter w,ConnectedMotionValue value)
     {

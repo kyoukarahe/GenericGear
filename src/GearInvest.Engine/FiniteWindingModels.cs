@@ -8,7 +8,7 @@ using static GearInvest.Engine.OrientedGoalKeys;
 
 namespace GearInvest.Engine;
 
-public sealed class FiniteWindingDefinition
+public sealed class FiniteWindingDefinition : ConnectedWindingSource
 {
     public FiniteWindingDefinition(OrientedShaft driverShaft, OrientedShaft outputShaft, string driverBodyId, string outputBodyId,
         string chainId, FiniteWindingGeometry geometry, Rational initialDriverTurns, int initialDriverContact, int initialOutputContact)
@@ -22,19 +22,23 @@ public sealed class FiniteWindingDefinition
             driverBodyId, outputBodyId, chainId, P(g.DriverCenter), P(g.OutputCenter), D(g.PlaneZMm), Pack(g.DriverSeats.Select(P).ToArray()), Pack(g.OutputSeats.Select(P).ToArray()),
             N(g.LinkCount), D(g.PitchMm), N(g.MaxDriverContact), N(g.MaxOutputContact), D(g.MaxBendDegrees), D(g.DriverMinimumTurns), D(g.DriverMaximumTurns), D(g.OutputMinimumTurns), D(g.OutputMaximumTurns), F(initialDriverTurns), N(initialDriverContact), N(initialOutputContact)));
     }
-    public OrientedShaft DriverShaft { get; }
-    public OrientedShaft OutputShaft { get; }
-    public string DriverBodyId { get; }
-    public string OutputBodyId { get; }
-    public string ChainId { get; }
+    public override OrientedShaft DriverShaft { get; }
+    public override OrientedShaft OutputShaft { get; }
+    public override string DriverBodyId { get; }
+    public override string OutputBodyId { get; }
+    public override string ChainId { get; }
     public FiniteWindingGeometry Geometry { get; }
-    public Rational InitialDriverTurns { get; }
+    public override Rational InitialDriverTurns { get; }
     public int InitialDriverContact { get; }
     public int InitialOutputContact { get; }
-    public string DefinitionId { get; }
-    public string PinId(int index) => ChainId + "/pin-" + index.ToString("D2", System.Globalization.CultureInfo.InvariantCulture);
-    public string LinkId(int index) => ChainId + "/link-" + index.ToString("D2", System.Globalization.CultureInfo.InvariantCulture);
-    public string? Validate()
+    public override string DefinitionId { get; }
+    public override int LinkCount => Geometry.LinkCount;
+    public override double PitchMm => Geometry.PitchMm;
+    public override double DriverMinimumTurns => Geometry.DriverMinimumTurns;
+    public override double DriverMaximumTurns => Geometry.DriverMaximumTurns;
+    public override string PinId(int index) => ChainId + "/pin-" + index.ToString("D2", System.Globalization.CultureInfo.InvariantCulture);
+    public override string LinkId(int index) => ChainId + "/link-" + index.ToString("D2", System.Globalization.CultureInfo.InvariantCulture);
+    public override string? Validate()
     {
         var error = Geometry.Validate(); if (error is not null) return error;
         if (new[] { DriverShaft.Id, OutputShaft.Id, DriverBodyId, OutputBodyId, ChainId }.Distinct(StringComparer.Ordinal).Count() != 5) return "DuplicateIdentity";
@@ -58,16 +62,27 @@ public sealed class FiniteWindingDefinition
 public sealed class WindingDifferentialDefinition
 {
     public const string Profile = "finite-winding-differential-spur-v1";
+    public const string SpatialProfile = "spatial-winding-differential-composition-v1";
     public WindingDifferentialDefinition(FiniteWindingDefinition winding, DifferentialSuffixDefinition suffix, string couplingId,
         string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains = null)
+        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, null) { }
+    public WindingDifferentialDefinition(SpatialWindingDefinition winding, DifferentialSuffixDefinition suffix, string couplingId,
+        string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains = null, ConnectedTransmission? transmission = null)
+        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, transmission) { }
+    private WindingDifferentialDefinition(ConnectedWindingSource winding, DifferentialSuffixDefinition suffix, string couplingId,
+        string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains, ConnectedTransmission? transmission)
     {
-        Winding = winding; Suffix = suffix; CouplingId = MechanicalAuthoringProfile.IdValue(couplingId);
+        WindingSource = winding; Suffix = suffix; Transmission = transmission; CouplingId = MechanicalAuthoringProfile.IdValue(couplingId);
         SunPortId = MechanicalAuthoringProfile.IdValue(sunPortId); PlanetPortId = MechanicalAuthoringProfile.IdValue(planetPortId);
         MechanicalAuthoringProfile.Number(initialCouplingOffset); InitialCouplingOffset = initialCouplingOffset;
         RequiredDomains = DifferentialProfile.Set(requiredDomains ?? Array.Empty<string>(), x => x, 16);
-        DefinitionId = HashText(Pack(Profile, winding.DefinitionId, suffix.DefinitionId, couplingId, sunPortId, planetPortId, F(initialCouplingOffset), Pack(RequiredDomains.ToArray())));
+        DefinitionId = HashText(Pack(SourceProfile, winding.DefinitionId, suffix.DefinitionId, couplingId, sunPortId, planetPortId, F(initialCouplingOffset), Pack(RequiredDomains.ToArray())));
+        if (winding is SpatialWindingDefinition) DefinitionId = HashText(Pack(DefinitionId, transmission?.DefinitionId ?? ""));
     }
-    public FiniteWindingDefinition Winding { get; }
+    public FiniteWindingDefinition Winding => WindingSource as FiniteWindingDefinition ?? throw new InvalidOperationException("Spatial source: use WindingSource.");
+    public ConnectedWindingSource WindingSource { get; }
+    public ConnectedTransmission? Transmission { get; }
+    public string SourceProfile => WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
     public DifferentialSuffixDefinition Suffix { get; }
     public string CouplingId { get; }
     public string SunPortId { get; }
@@ -79,6 +94,18 @@ public sealed class WindingDifferentialDefinition
 
 public sealed class WindingDifferentialAnalysis
 {
+    private readonly System.Collections.Generic.Dictionary<double, SpatialWindingQuery> spatialQueries = new();
+    private readonly System.Collections.Generic.Queue<double> spatialOrder = new();
+    internal SpatialWindingQuery SpatialQuery(double q)
+    {
+        lock (spatialQueries)
+        {
+            if (spatialQueries.TryGetValue(q, out var cached)) return cached;
+            var result = SpatialWindingSolver.Evaluate(((SpatialWindingDefinition)Source.WindingSource).Geometry, q);
+            if (spatialOrder.Count == 8) spatialQueries.Remove(spatialOrder.Dequeue());
+            spatialQueries.Add(q, result); spatialOrder.Enqueue(q); return result;
+        }
+    }
     internal WindingDifferentialAnalysis(WindingDifferentialDefinition source, DifferentialSuffixAnalysis suffix, IEnumerable<string> errors)
     { Source = source; Suffix = suffix; Diagnostics = errors.ToList().AsReadOnly(); }
     public WindingDifferentialDefinition Source { get; }
@@ -91,20 +118,38 @@ public static partial class WindingDifferentialEngine
 {
     public static WindingDifferentialAnalysis Prepare(WindingDifferentialDefinition s)
     {
-        var suffix = DifferentialSuffixAnalyzer.Prepare(s.Suffix); var errors = suffix.Diagnostics.ToList(); var winding = s.Winding.Validate(); if (winding is not null) errors.Add(winding);
+        var suffix = DifferentialSuffixAnalyzer.Prepare(s.Suffix); var errors = suffix.Diagnostics.ToList(); var winding = s.WindingSource.Validate(); if (winding is not null) errors.Add(winding);
         // Validate bounded source counts before expanding material identities. Invalid input is
         // diagnostic data, not permission to allocate LinkCount elements (or overflow count + 1).
         if (winding is not null) return new(s, suffix, errors);
         var d = s.Suffix.Parent.Definition;
         if (d.Prefix is not null || d.Holds.Count != 0) errors.Add("UnsupportedConnectedParentBoundary");
-        if (s.Winding.OutputShaft.Id == d.SunShaft.Id || !d.SunShaft.Contains(s.Winding.OutputShaft.Frame.Origin) || d.SunShaft.Frame.Z != ExactVector3.UnitZ || d.SunShaft.Frame.X != ExactVector3.UnitX) errors.Add("InvalidCoaxialIndependentRotorBinding");
+        if (s.WindingSource.OutputShaft.Id == d.SunShaft.Id || !d.SunShaft.Contains(s.WindingSource.OutputShaft.Frame.Origin) || d.SunShaft.Frame.Z != s.WindingSource.OutputShaft.Frame.Z || d.SunShaft.Frame.X != s.WindingSource.OutputShaft.Frame.X) errors.Add("InvalidCoaxialIndependentRotorBinding");
         foreach (var item in new[] { (s.SunPortId, d.SunShaft.Id), (s.PlanetPortId, d.PlanetShaft.Id) })
             if (!d.Ports.Any(p => p.Id == item.Item1 && p.ShaftId == item.Item2) || !s.Suffix.Parent.InputPortIds.Contains(item.Item1)) errors.Add("InvalidInputPortOwner");
         var all = suffix.Parent.CoordinateIds.Concat(new[] { d.CarrierBodyId, d.SunBodyId, d.PlanetBodyId, s.Suffix.OutputShaft.Id, s.Suffix.DriverGear.Id, s.Suffix.OutputGear.Id, s.Suffix.ContactId, s.Suffix.OutputPort.Id })
-            .Concat(d.Ports.Select(p => p.Id)).Concat(new[] { s.CouplingId, s.Winding.DriverShaft.Id, s.Winding.OutputShaft.Id, s.Winding.DriverBodyId, s.Winding.OutputBodyId, s.Winding.ChainId })
-            .Concat(Enumerable.Range(0, s.Winding.Geometry.LinkCount + 1).Select(s.Winding.PinId)).Concat(Enumerable.Range(0, s.Winding.Geometry.LinkCount).Select(s.Winding.LinkId)).ToArray();
+            .Concat(d.Ports.Select(p => p.Id)).Concat(new[] { s.CouplingId, s.WindingSource.DriverShaft.Id, s.WindingSource.OutputShaft.Id, s.WindingSource.DriverBodyId, s.WindingSource.OutputBodyId, s.WindingSource.ChainId })
+            .Concat(Enumerable.Range(0, s.WindingSource.LinkCount + 1).Select(s.WindingSource.PinId)).Concat(Enumerable.Range(0, s.WindingSource.LinkCount).Select(s.WindingSource.LinkId)).ToArray();
         if (all.Distinct(StringComparer.Ordinal).Count() != all.Length) errors.Add("DuplicateIdentity");
-        if (ConnectedMotionValue.Number(d.PlaneMm.Origin.Z) == s.Winding.Geometry.PlaneZMm || ConnectedMotionValue.Number(s.Suffix.DriverGear.MountingFrame.Origin.Z) == s.Winding.Geometry.PlaneZMm) errors.Add("UnsupportedOverlappingWindingPitchPlane");
+        var transmissionError = ConnectedTransmissionCompiler.Validate(s, new System.Collections.Generic.HashSet<string>(all, StringComparer.Ordinal));
+        if (transmissionError is not null) errors.Add(transmissionError);
+        if (s.WindingSource is FiniteWindingDefinition planar && (ConnectedMotionValue.Number(d.PlaneMm.Origin.Z) == planar.Geometry.PlaneZMm || ConnectedMotionValue.Number(s.Suffix.DriverGear.MountingFrame.Origin.Z) == planar.Geometry.PlaneZMm)) errors.Add("UnsupportedOverlappingWindingPitchPlane");
+        if (s.WindingSource is SpatialWindingDefinition spatial)
+        {
+            var g = spatial.Geometry; var normal = WindingPoint3.Of(d.PlaneMm.Z);
+            var extrema = g.Bridge.Select(p => p.Dot(normal)).ToList();
+            foreach (var guide in new[] { g.Driver, g.Output })
+            {
+                var origin = WindingPoint3.Of(guide.Frame.Origin).Dot(normal);
+                var axial = WindingPoint3.Of(guide.Frame.Z).Dot(normal) * guide.HeightChangeMmPerTurn * guide.MaximumGuideTurns;
+                var radial = Math.Max(guide.RadiusMm, guide.RadiusMm + guide.RadiusChangeMmPerTurn * guide.MaximumGuideTurns) *
+                    (Math.Abs(WindingPoint3.Of(guide.Frame.X).Dot(normal)) + Math.Abs(WindingPoint3.Of(guide.Frame.Y).Dot(normal)));
+                extrema.Add(origin + Math.Min(0, axial) - radial); extrema.Add(origin + Math.Max(0, axial) + radial);
+            }
+            var pitchPlanes = new[] { d.PlaneMm.Origin, s.Suffix.DriverGear.MountingFrame.Origin }
+                .Concat(s.Transmission?.Stages.Select(stage => stage.DriverGear.MountingFrame.Origin) ?? Array.Empty<ExactVector3>());
+            if (pitchPlanes.Select(p => WindingPoint3.Of(p).Dot(normal)).Any(z => z >= extrema.Min() && z <= extrema.Max())) errors.Add("UnsupportedOverlappingWindingPitchPlane");
+        }
         // A finalized definition has no requested path yet. Per-request path checks cannot be
         // promoted to a whole-domain source certificate through RequiredDomains.
         var performed = new[] { "source-admission", "exact-relations", "pitch-placement", "numeric-residual" };

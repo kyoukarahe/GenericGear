@@ -36,3 +36,7 @@ jobs:
       - run: pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1
       - run: node tools/e123-runtime-checkpoint/check-runtime.mjs artifacts/e123-runtime-checkpoint/web/publish/wwwroot examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll artifacts/e123-runtime-checkpoint/web/publish/wwwroot/example/source.json generated/runtime-cross-host 4352
       - run: node tools/e123-runtime-checkpoint/check-lifecycle.mjs artifacts/e123-runtime-checkpoint/web/publish/wwwroot artifacts/e123-runtime-checkpoint/web/publish/wwwroot/example/source.json generated/runtime-lifecycle.json
+      - run: pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1 -Spatial -OutputDirectory artifacts/spatial/web
+      - run: dotnet examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll inspect-spatial artifacts/spatial/web/publish/wwwroot/example/source.json
+      - run: node tools/e123-runtime-checkpoint/check-runtime.mjs artifacts/spatial/web/publish/wwwroot examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll artifacts/spatial/web/publish/wwwroot/example/source.json generated/spatial-cross-host 4352
+      - run: node tools/e123-runtime-checkpoint/check-lifecycle.mjs artifacts/spatial/web/publish/wwwroot artifacts/spatial/web/publish/wwwroot/example/source.json generated/spatial-lifecycle.json

@@ -24,7 +24,7 @@ public static partial class WindingDifferentialEngine
     {
         var paths = requests.Take(17).Select(p => p.Take(17).ToArray()).ToArray();
         if (paths.Length > 16 || paths.Any(p => p.Length > 16) || paths.Sum(p => p.Length) > 64) throw new ArgumentException("Recording resource limit.");
-        var first = Evaluate(a, new(a.Source.Winding.InitialDriverTurns, initialPlanetPortTurns));
+        var first = Evaluate(a, new(a.Source.WindingSource.InitialDriverTurns, initialPlanetPortTurns));
         if (!first.IsAccepted) throw new ArgumentException(first.Status);
         var current = first.Frame!; var attempts = new List<ConnectedAdvance>();
         foreach (var path in paths) { var result = Advance(a, current, path); attempts.Add(result); if (result.IsAccepted) current = result.Frame!; }

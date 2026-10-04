@@ -103,14 +103,14 @@ public sealed class MechanicalRuntimeHost : IDisposable
     {
         if (session is null) return Error("NotLoaded");
         using var state = JsonDocument.Parse(session.Snapshot(scene));
-        var d = session.Current.Definition; var g = d.Connection.Winding.Geometry;
+        var d = session.Current.Definition; var g = d.Connection.WindingSource;
         return Json(new { status, committed = status == "Accepted" || status == "AlreadyCommitted", snapshot = state.RootElement,
-            capabilities = new { profile = MechanicalRuntime.Profile, version = MechanicalRuntime.Version, modes = d.AllowedModes.Select(m => m.ToString()).ToArray(),
+            capabilities = new { profile = MechanicalRuntime.ProfileFor(d), version = MechanicalRuntime.Version, modes = d.AllowedModes.Select(m => m.ToString()).ToArray(),
                 sunPort = d.Connection.SunPortId, planetPort = d.Connection.PlanetPortId,
                 driverMinimumTurns = g.DriverMinimumTurns, driverMaximumTurns = g.DriverMaximumTurns,
                 currentStateValidation = "source-rebuilt", deletedHistoryValidation = "notPerformed", numericQuality = "NumericResidualOnly", solutionErrorBoundTurns = (double?)null,
                 activeProvenanceLimit = 64, retryLedgerLimit = 16, epochRequests = MechanicalRuntime.EpochRequests,
-                notPerformed = new[] { "tooth-solids", "swept-solids", "dynamics", "3d-winding", "general-gear-network" } } });
+                notPerformed = g is SpatialWindingDefinition ? new[] { "tooth-solids", "swept-solids", "dynamics", "continuous-path-proof", "unique-link-roll", "general-gear-network" } : new[] { "tooth-solids", "swept-solids", "dynamics", "3d-winding", "general-gear-network" } } });
     }
     private static string Error(string status) => Json(new { status, committed = false });
     private static string Json(object value) => JsonSerializer.Serialize(value);

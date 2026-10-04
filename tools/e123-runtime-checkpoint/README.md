@@ -32,3 +32,10 @@ directory for subsequent builds.
 `/example/` is the ordinary UI. `/verification/` is optional browser acceptance
 tooling, not a prerequisite for loading, executing or restoring a mechanism.
 Read [verification scope](../../docs/VERIFICATION.md) for actual observed platforms.
+
+For spatial winding, pass `-Spatial -OutputDirectory artifacts/spatial/web` to
+the build script and use that output's `publish/wwwroot` and `example/source.json`
+in the same commands. Keep planar and spatial sources separate: source authoring
+is create-only, while current compiled SDK/Worker resources are incrementally
+rebuilt. The new [profile](../../docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md) has
+sampled path checks and underdetermined link roll, not continuous certification.

@@ -27,36 +27,39 @@ public static class MechanicalRuntimeJson
 {
     public const string Format = "gear-invest.mechanical-runtime-checkpoint";
     public const string Version = "1.0";
+    public const string SpatialVersion = "2.0";
+    private static string VersionFor(WindingConnectionArtifact source) => source.Source.WindingSource is SpatialWindingDefinition ? SpatialVersion : Version;
     public static MechanicalCheckpointArtifact Write(WindingConnectionArtifact source, RuntimeSnapshot state)
     {
         Require(source.Source.DefinitionId == state.Definition.Connection.DefinitionId, "ForeignSnapshot");
         var payload = Encode(w =>
         {
-            w.WriteStartObject(); w.WriteString("runtimeProfile", MechanicalRuntime.Profile); w.WriteString("runtimeVersion", MechanicalRuntime.Version);
-            w.WriteString("stateSchema", Version); w.WriteString("sourceArtifactId", source.ArtifactId); w.WriteBase64String("sourceArtifactUtf8", source.Bytes);
+            w.WriteStartObject(); w.WriteString("runtimeProfile", MechanicalRuntime.ProfileFor(state.Definition)); w.WriteString("runtimeVersion", MechanicalRuntime.Version);
+            w.WriteString("stateSchema", VersionFor(source)); w.WriteString("sourceArtifactId", source.ArtifactId); w.WriteBase64String("sourceArtifactUtf8", source.Bytes);
             w.WriteStartObject("policy"); w.WriteString("definitionId", state.Definition.DefinitionId);
             MechanicalAuthoringJson.Strings(w, "allowedModes", state.Definition.AllowedModes.Select(m => m.ToString())); Fraction(w, "alignmentOffset", state.Definition.AlignmentOffset); w.WriteEndObject();
             w.WriteString("validation", "current-state-source-revalidated"); w.WriteString("deletedHistoryValidation", "notPerformed");
             w.WritePropertyName("state"); State(w, state); w.WriteEndObject();
         });
-        var bytes = Encode(w => { MechanicalAuthoringJson.Start(w, Format, Version); w.WriteString("payloadId", Hash(payload)); w.WriteBase64String("payloadUtf8", payload); w.WriteEndObject(); });
+        var bytes = Encode(w => { MechanicalAuthoringJson.Start(w, Format, VersionFor(source)); w.WriteString("payloadId", Hash(payload)); w.WriteBase64String("payloadUtf8", payload); w.WriteEndObject(); });
         return new(source, state, bytes);
     }
     public static MechanicalCheckpointArtifact Read(byte[] bytes) => MechanicalAuthoringJson.Guard(() =>
     {
         using var envelope = Parse(bytes); var root = envelope.RootElement;
-        Require(S(root, "format") == Format && S(root, "formatVersion") == Version, "UnsupportedProfile");
+        var schema = S(root, "formatVersion");
+        Require(S(root, "format") == Format && (schema == Version || schema == SpatialVersion), "UnsupportedProfile");
         var raw = Raw(root, "payloadUtf8"); Require(Hash(raw) == S(root, "payloadId"), "CheckpointDigestMismatch");
         using var doc = Parse(raw); var p = doc.RootElement;
-        Require(S(p, "runtimeProfile") == MechanicalRuntime.Profile && S(p, "runtimeVersion") == MechanicalRuntime.Version && S(p, "stateSchema") == Version, "UnsupportedProfile");
-        var source = ReadArtifact(Raw(p, "sourceArtifactUtf8")); Require(source.ArtifactId == S(p, "sourceArtifactId"), "ForeignSnapshot");
+        Require(S(p, "runtimeProfile") == (schema == Version ? MechanicalRuntime.Profile : MechanicalRuntime.SpatialProfile) && S(p, "runtimeVersion") == MechanicalRuntime.Version && S(p, "stateSchema") == schema, "UnsupportedProfile");
+        var source = ReadRuntimeSource(Raw(p, "sourceArtifactUtf8")); Require(source.ArtifactId == S(p, "sourceArtifactId") && VersionFor(source) == schema, "ForeignSnapshot");
         var policy = p.GetProperty("policy");
         var definition = new MechanicalModeDefinition(source.Source, Items(policy, "allowedModes", 5).Select(e => Enum.Parse<MechanicalConnectionMode>(e.GetString()!)), F(policy.GetProperty("alignmentOffset")));
         Require(definition.DefinitionId == S(policy, "definitionId"), "ForeignPolicy");
         var s = p.GetProperty("state"); var frame = s.GetProperty("frame"); var q = F(frame.GetProperty("driverTurns"));
         var pd = definition.Connection.Suffix.Parent.Definition;
-        var sun = Items(frame, "coordinates", 6).Single(e => S(e, "shaftId") == pd.SunShaft.Id).GetProperty("value");
-        var planet = Items(frame, "ports", 7).Single(e => S(e, "portId") == definition.Connection.PlanetPortId).GetProperty("value");
+        var sun = Items(frame, "coordinates", schema == SpatialVersion ? 10 : 6).Single(e => S(e, "shaftId") == pd.SunShaft.Id).GetProperty("value");
+        var planet = Items(frame, "ports", schema == SpatialVersion ? 11 : 7).Single(e => S(e, "portId") == definition.Connection.PlanetPortId).GetProperty("value");
         var capture = s.GetProperty("captureWitness"); var locked = s.GetProperty("lockWitness");
         var state = new MechanicalRuntime(definition).Restore(S(s, "sessionId"), Count(s, "revision"), Count(s, "eventCursor"), S(s, "historyId"), E<MechanicalConnectionMode>(s, "mode"), s.GetProperty("allowedDirection").GetInt32(), q,
             Affine(s.GetProperty("couplingOffset")), s.GetProperty("lockReference").ValueKind == JsonValueKind.Null ? null : Affine(s.GetProperty("lockReference")), Affine(sun), Affine(planet),
@@ -66,13 +69,13 @@ public static class MechanicalRuntimeJson
             Items(s, "ledger", 16).Select(e => new RuntimeLedgerEntry(S(e, "requestId"), S(e, "payloadId"), S(e, "resultStateId"), Count(e, "revision"), Count(e, "eventCursor"), Items(e, "eventIds", 16).Select(id => id.GetString()!))));
         var rebuilt = Write(source, state); using var freshEnvelope = Parse(rebuilt.Bytes); using var fresh = Parse(Raw(freshEnvelope.RootElement, "payloadUtf8"));
         Compare(p, fresh.RootElement, "runtime-checkpoint");
-        var canonicalEnvelope = Encode(w => { MechanicalAuthoringJson.Start(w, Format, Version); w.WriteString("payloadId", Hash(raw)); w.WriteBase64String("payloadUtf8", raw); w.WriteEndObject(); });
+        var canonicalEnvelope = Encode(w => { MechanicalAuthoringJson.Start(w, Format, schema); w.WriteString("payloadId", Hash(raw)); w.WriteBase64String("payloadUtf8", raw); w.WriteEndObject(); });
         Require(bytes.SequenceEqual(canonicalEnvelope), "NoncanonicalCheckpointEnvelope");
         return new MechanicalCheckpointArtifact(source, state, bytes);
     });
     public static byte[] Snapshot(WindingConnectionArtifact source, RuntimeSnapshot state, bool includeScene = false) => Encode(w =>
     {
-        w.WriteStartObject(); w.WriteString("profile", MechanicalRuntime.Profile); w.WriteString("runtimeVersion", MechanicalRuntime.Version);
+        w.WriteStartObject(); w.WriteString("profile", MechanicalRuntime.ProfileFor(state.Definition)); w.WriteString("runtimeVersion", MechanicalRuntime.Version);
         w.WriteString("sourceArtifactId", source.ArtifactId); w.WritePropertyName("state"); State(w, state);
         if (includeScene) { w.WritePropertyName("scene"); Scene(w, source); }
         w.WriteEndObject();
@@ -94,7 +97,7 @@ public static class MechanicalRuntimeJson
             x.WriteStartObject(); x.WriteString("requestId", e.RequestId); x.WriteString("payloadId", e.PayloadId); x.WriteString("resultStateId", e.ResultStateId);
             Count(x, "revision", e.Revision); Count(x, "eventCursor", e.EventCursor); MechanicalAuthoringJson.Strings(x, "eventIds", e.EventIds); x.WriteEndObject();
         });
-        w.WritePropertyName("frame"); Frame(w, m.Frame, s.Definition.Connection.Winding); w.WriteEndObject();
+        w.WritePropertyName("frame"); Frame(w, m.Frame, s.Definition.Connection.WindingSource); w.WriteEndObject();
     }
     private static RuntimeAffine Affine(JsonElement p) => new(F(p.GetProperty("constant")), Items(p, "terms", 64).Select(t => new KeyValuePair<string, Rational>(S(t, "latentId"), F(t.GetProperty("coefficient")))));
     private static void Affine(Utf8JsonWriter w, string name, RuntimeAffine value)

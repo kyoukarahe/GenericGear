@@ -35,8 +35,16 @@ The [C# WASM runtime](MECHANICAL_RUNTIME_CONTRACT.md) computes new inputs locall
 and source-revalidates compact checkpoints; old replay packages remain readonly.
 Current provenance is limited to 64 independent causes, the retry ledger to 16,
 and lifetime counters to 128 digits. Compaction does not prove deleted history.
-3D grooves, hundreds of links, multi-turn winding and whole watch networks are
-not implemented. Numeric residual checks are not certified solution bounds.
+The separate [spatial winding/composition profile](SPATIAL_WINDING_COMPOSITION_CONTRACT.md)
+adds8–512 fixed-pitch links on variable-radius/height helical pin guides, finite
+unwrapped multi-turn motion, guided transfer and spherical free-twist joints.
+One actual conditional winding/differential connection supports1–4 extra serial
+spur stages and a terminal carrier with0–8 rigid attachments. The ordinary
+example uses249 links and also accepts other documented authoring parameters.
+Spatial checkpoints use explicit format2.0; old planar1.0 remains readable.
+Unguided slack chains, arbitrary moving-axis graphs and whole watch networks are
+not implied. Link roll is underdetermined; numeric residuals and sampled path
+checks are not certified solution bounds or continuous-path proofs.
 
 Nonlinear evaluation is bounded and can refuse requests at numeric/resource
 limits. Approximate stored playback is not exact analytic evaluation. Exact

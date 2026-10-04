@@ -1,6 +1,6 @@
 {
-  "name":"@gearinvest/public-example","version":"0.1.0-rc.public03.1","private":true,"type":"module","license":"AGPL-3.0-only",
+  "name":"@gearinvest/public-example","version":"0.1.0-rc.public04.1","private":true,"type":"module","license":"AGPL-3.0-only",
   "scripts":{"dev":"vite --host 127.0.0.1","prebuild":"node ../../scripts/copy-web-notices.mjs","build":"vite build"},
-  "dependencies":{"@gearinvest/replay":"0.1.0-rc.public03.1","@gearinvest/presentation":"0.1.0-rc.public03.1","three":"0.186.0"},
+  "dependencies":{"@gearinvest/replay":"0.1.0-rc.public04.1","@gearinvest/presentation":"0.1.0-rc.public04.1","three":"0.186.0"},
   "devDependencies":{"vite":"8.2.2"}
 }

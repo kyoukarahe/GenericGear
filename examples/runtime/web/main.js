@@ -28,6 +28,12 @@ function show(r) {
   $('coordinates').textContent = s.frame.coordinates.map(c => `${c.shaftId}: ${c.value.exact ? c.value.exact.numerator + '/' + c.value.exact.denominator : c.value.estimate} (${c.value.kind})`).join('\n');
   $('scene').replaceChildren();
   if (s.frame.displayUnavailableReason) { $('quality').textContent += ' · DisplayUnavailable: ' + s.frame.displayUnavailableReason; return; }
+  const spatial = s.frame.winding.profile === 'finite-spatial-guided-pin-chain-v1';
+  $('projection-label').hidden = !spatial;
+  if (spatial) {
+    $('quality').textContent = `${s.frame.winding.pins.length - 1}개 고정 피치 링크 · 3D pin-guide · pitch residual ${s.frame.winding.pitchResidualMm} mm · NumericResidualOnly / error bound null · 구간은 수치 표본 검사(연속 증명 아님) · 링크 roll 미정`;
+    drawSpatial(s.frame); return;
+  }
   const ns = 'http://www.w3.org/2000/svg'; const planes = new Map(), bounds = new Map();
   for (const pose of s.frame.matricesMm) {
     const node = scene.find(n => n.id === pose.id); if (!node) continue; const m = pose.matrix, z = m[14];
@@ -46,6 +52,23 @@ function show(r) {
     svg.setAttribute('viewBox',`${(xmin+xmax-size)/2} ${(ymin+ymax-size)/2} ${size} ${size}`); $('scene').append(svg);
   }
 }
+function drawSpatial(frame) {
+  const ns='http://www.w3.org/2000/svg', svg=document.createElementNS(ns,'svg'), points=[];
+  const project=([x,y,z])=>$('projection').value==='xy'?[x,-y]:$('projection').value==='xz'?[x,-z]:[(x-y)*.866,(x+y)*.35-z];
+  svg.setAttribute('aria-label','같은 snapshot의 전체 3D 링크·차동·기어·carrier');svg.style.gridColumn='1 / -1';
+  for(const pose of frame.matricesMm) {
+    const node=scene.find(n=>n.id===pose.id);if(!node)continue;const m=pose.matrix;
+    const local=node.kind==='polyline'?node.pointsMm:Array.from({length:33},(_,i)=>[node.radiusMm*Math.cos(i*Math.PI/16),node.radiusMm*Math.sin(i*Math.PI/16),0]);
+    const vertices=local.map(([x,y,z=0])=>project([m[0]*x+m[4]*y+m[8]*z+m[12],m[1]*x+m[5]*y+m[9]*z+m[13],m[2]*x+m[6]*y+m[10]*z+m[14]]));
+    points.push(...vertices);const shape=document.createElementNS(ns,'polyline');shape.setAttribute('points',vertices.map(p=>p.join(',')).join(' '));
+    shape.setAttribute('stroke',node.kind==='pin'?'#f2c984':node.owner.includes('drum')?'#496b8b':'#83d8d0');shape.setAttribute('stroke-width',node.kind==='pin'?'.13':'.22');shape.setAttribute('fill','none');
+    const title=document.createElementNS(ns,'title');title.textContent=node.owner;shape.append(title);svg.append(shape);
+  }
+  if(!points.length)return;
+  const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),xmin=Math.min(...xs)-3,xmax=Math.max(...xs)+3,ymin=Math.min(...ys)-3,ymax=Math.max(...ys)+3;
+  svg.setAttribute('viewBox',`${xmin} ${ymin} ${xmax-xmin} ${ymax-ymin}`);$('scene').append(svg);
+}
+$('projection').onchange=()=>{if(result)show(result);};
 function enabled(on) { for (const id of ['advance', 'save', 'restore', 'seal', 'download']) $(id).disabled = !on; }
 async function boot() {
   const started = performance.now(); const stored = await readCheckpoint(slot); savedId = stored?.artifactId ?? null;
