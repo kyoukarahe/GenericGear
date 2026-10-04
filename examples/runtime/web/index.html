@@ -3,7 +3,7 @@
 <body><header><p>GenericGear / E123 · shared C# on WebAssembly</p><h1>새 입력으로 움직이는 기구</h1><p>유한 체인 · 실제 차동 축 · 기계 이벤트 · 로컬 체크포인트</p></header>
 <main><section aria-label="입력"><h2>완전한 입력과 명시적 이벤트</h2>
 <p id="loading">Runtime 준비 중…</p>
-<form id="controls"><label>Driver q (turn, 분수)<input id="q" value="13/200" autocomplete="off"></label>
+<p id="drive-boundary"></p><form id="controls"><label>선택된 실제 릴 (unwrapped turn, 분수)<input id="q" value="13/200" autocomplete="off"></label>
 <label id="planet-label">Planet port (turn)<input id="planet" value="3/10" autocomplete="off"></label>
 <label id="sun-label">Sun port (turn)<input id="sun" value="2/25" autocomplete="off"></label>
 <label>도착 후 이벤트<select id="event"><option value="">없음 — 운동만 진행</option><option>Release</option><option>Capture</option><option>LockWorldCarrier</option><option>LockPlanetRelative</option><option>CapturePositive</option><option>CaptureNegative</option><option>AlignCapture</option></select></label>
@@ -11,5 +11,5 @@
 <div class="actions"><button id="save" disabled>체크포인트 저장</button><a href="?restore=1" target="_blank" rel="noopener">새 페이지에서 복원</a><button id="restore" disabled>저장 상태 복원</button><button id="seal" disabled>정적 로드 후 네트워크 차단</button><button id="download" disabled>체크포인트 파일 받기</button></div>
 <p id="storage">아직 저장하지 않음</p><p id="network">초기 정적 리소스 로드만 사용합니다. 입력 계산 서버는 없습니다.</p></section>
 <section aria-label="실행 결과"><h2>동일 snapshot의 전체 부품</h2><p id="status" role="status">준비 중</p><p id="quality"></p><label id="projection-label" hidden>3D 표시 투영<select id="projection"><option value="iso">등각</option><option value="xy">XY</option><option value="xz">XZ</option></select></label><div id="scene"></div><dl id="identity"></dl><pre id="coordinates"></pre></section>
-<section><h2>사용 범위</h2><p>각 기계 요청은 완전한 vector와 순서가 있는 이벤트입니다. 표시 프레임은 영구 이벤트를 만들지 않습니다. 기구는 finite domain에서만 진행합니다.</p><p>복원은 현재 source·구속·수치 원본을 재검산합니다. 삭제된 전체 과거 이력, 힘/마찰, 3D 다층 권취를 인증하지 않습니다. PC에서의 검증과 실제 Android/iOS 검증은 별개입니다.</p><details><summary>실행·리소스 기록</summary><pre id="log"></pre></details></section></main>
+<section><h2>사용 범위</h2><p>각 기계 요청은 완전한 vector와 순서가 있는 이벤트입니다. 표시 프레임은 영구 이벤트를 만들지 않습니다. 기구는 finite domain에서만 진행합니다.</p><p>복원은 현재 source·구속·수치 원본을 재검산합니다. 삭제된 전체 과거 이력, 힘/마찰, swept collision, 연속 구간 유효성을 인증하지 않습니다. PC에서의 검증과 실제 Android/iOS 검증은 별개입니다.</p><details><summary>실행·리소스 기록</summary><pre id="log"></pre></details></section></main>
 <script type="module" src="./main.js"></script></body></html>

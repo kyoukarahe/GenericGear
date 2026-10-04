@@ -8,6 +8,7 @@ namespace GearInvest.Layout;
 public static class SpatialWindingSolver
 {
     public const long DefaultWorkLimit = 8000000;
+    public const string RefinedPolicy = "binary64-chord-bracket-refined-v1";
     private sealed class Budget
     {
         public Budget(long limit) { Limit = limit; }
@@ -37,6 +38,13 @@ public static class SpatialWindingSolver
     }
 
     public static SpatialWindingQuery Evaluate(SpatialWindingGeometry g, double q, long workLimit = DefaultWorkLimit)
+        => EvaluateCore(g, q, workLimit, false);
+    /// <summary>The same bounded algorithm with tighter passive-endpoint stopping criteria.
+    /// Used by the additive selected-drive profile; legacy numerical output is unchanged.
+    /// This is not a solution-error bound or continuous-path certificate.</summary>
+    public static SpatialWindingQuery EvaluateRefined(SpatialWindingGeometry g, double q, long workLimit = DefaultWorkLimit)
+        => EvaluateCore(g, q, workLimit, true);
+    private static SpatialWindingQuery EvaluateCore(SpatialWindingGeometry g, double q, long workLimit, bool refined)
     {
         var budget = new Budget(Math.Min(DefaultWorkLimit, workLimit));
         var error = g.Validate(); if (error is not null) return new(error, 0);
@@ -72,10 +80,10 @@ public static class SpatialWindingSolver
             if (brackets.Count != 1) return new("AmbiguousBranch", budget.Used);
             var left = brackets[0].Lo; var right = brackets[0].Hi;
             var fl = Trace(g, q, left, budget).Residual;
-            for (var i = 0; i < 48 && right - left > 2e-13; i++)
+            for (var i = 0; i < (refined ? 52 : 48) && right - left > (refined ? 2e-15 : 2e-13); i++)
             {
                 var mid = (left + right) * .5; var fm = Trace(g, q, mid, budget).Residual;
-                if (Math.Abs(fm) < 2e-11) { left = right = mid; break; }
+                if (Math.Abs(fm) < (refined ? 1e-13 : 2e-11)) { left = right = mid; break; }
                 if (fm * fl > 0) { left = mid; fl = fm; } else right = mid;
             }
             var w = (left + right) * .5; var walk = Trace(g, q, w, budget); var pins = walk.Pins;

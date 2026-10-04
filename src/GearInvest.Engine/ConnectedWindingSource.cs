@@ -26,11 +26,23 @@ public abstract class ConnectedWindingSource
     public abstract double DriverMaximumTurns { get; }
 }
 
+public enum MaterialTraversalOrder { Forward, Reverse }
+
 public sealed class SpatialWindingDefinition : ConnectedWindingSource
 {
+    public const string SelectedDriveProfile = "selected-drive-spatial-guided-pin-chain-v1";
     public SpatialWindingDefinition(OrientedShaft driverShaft, OrientedShaft outputShaft, string driverBodyId,
         string outputBodyId, string chainId, SpatialWindingGeometry geometry, Rational initialDriverTurns)
+        : this(driverShaft, outputShaft, driverBodyId, outputBodyId, chainId, geometry, initialDriverTurns, null) { }
+    /// <summary>Explicit role authoring; material order maps solver walking to persistent pin/link identity.</summary>
+    public SpatialWindingDefinition(OrientedShaft driverShaft, OrientedShaft outputShaft, string driverBodyId,
+        string outputBodyId, string chainId, SpatialWindingGeometry geometry, Rational initialDriverTurns, MaterialTraversalOrder materialOrder)
+        : this(driverShaft, outputShaft, driverBodyId, outputBodyId, chainId, geometry, initialDriverTurns, (MaterialTraversalOrder?)materialOrder) { }
+    private SpatialWindingDefinition(OrientedShaft driverShaft, OrientedShaft outputShaft, string driverBodyId,
+        string outputBodyId, string chainId, SpatialWindingGeometry geometry, Rational initialDriverTurns, MaterialTraversalOrder? materialOrder)
     {
+        if (materialOrder.HasValue && !Enum.IsDefined(typeof(MaterialTraversalOrder), materialOrder.Value)) throw new ArgumentException("InvalidMaterialOrder");
+        HasSelectedDriveBoundary = materialOrder.HasValue; MaterialOrder = materialOrder ?? MaterialTraversalOrder.Forward;
         DriverShaft = driverShaft; OutputShaft = outputShaft; DriverBodyId = MechanicalAuthoringProfile.IdValue(driverBodyId);
         OutputBodyId = MechanicalAuthoringProfile.IdValue(outputBodyId); ChainId = MechanicalAuthoringProfile.IdValue(chainId);
         MechanicalAuthoringProfile.Number(initialDriverTurns); InitialDriverTurns = initialDriverTurns; Geometry = geometry;
@@ -42,7 +54,23 @@ public sealed class SpatialWindingDefinition : ConnectedWindingSource
             outputShaft.Id, Frame(outputShaft.Frame), outputShaft.IsPrescribed.ToString(), driverBodyId, outputBodyId, chainId, F(initialDriverTurns),
             Guide(g.Driver), Guide(g.Output), Pack(g.Bridge.Select(p => Pack(D(p.X), D(p.Y), D(p.Z))).ToArray()), N(g.LinkCount), D(g.PitchMm),
             D(g.MaxBendDegrees), D(g.MaxAttachmentBendDegrees), D(g.DriverMinimumTurns), D(g.DriverMaximumTurns), D(g.OutputMinimumTurns), D(g.OutputMaximumTurns)));
+        if (HasSelectedDriveBoundary) DefinitionId = HashText(Pack(SelectedDriveProfile, SpatialWindingSolver.RefinedPolicy, DefinitionId, MaterialOrder.ToString()));
     }
+    /// <summary>Author a NEW immutable source, not runtime switching or an inverse command.
+    /// Guides retain physical handedness/frames. Reversed walking retains material neighbours.</summary>
+    public SpatialWindingDefinition SelectDriveBoundary(string prescribedShaftId, Rational initialPrescribedTurns)
+    {
+        if (prescribedShaftId != DriverShaft.Id && prescribedShaftId != OutputShaft.Id) throw new ArgumentException("InvalidDriveBoundaryOwner");
+        if (prescribedShaftId == DriverShaft.Id)
+            return new(new(DriverShaft.Id, DriverShaft.Frame, true), new(OutputShaft.Id, OutputShaft.Frame), DriverBodyId, OutputBodyId, ChainId, Geometry, initialPrescribedTurns, MaterialOrder);
+        var g = Geometry;
+        var reversed = new SpatialWindingGeometry(g.Output, g.Driver, g.Bridge.Reverse(), g.LinkCount, g.PitchMm,
+            g.MaxBendDegrees, g.MaxAttachmentBendDegrees, g.OutputMinimumTurns, g.OutputMaximumTurns, g.DriverMinimumTurns, g.DriverMaximumTurns);
+        return new(new(OutputShaft.Id, OutputShaft.Frame, true), new(DriverShaft.Id, DriverShaft.Frame), OutputBodyId, DriverBodyId, ChainId, reversed, initialPrescribedTurns,
+            MaterialOrder == MaterialTraversalOrder.Forward ? MaterialTraversalOrder.Reverse : MaterialTraversalOrder.Forward);
+    }
+    public bool HasSelectedDriveBoundary { get; }
+    public MaterialTraversalOrder MaterialOrder { get; }
     public override OrientedShaft DriverShaft { get; }
     public override OrientedShaft OutputShaft { get; }
     public override string DriverBodyId { get; }
@@ -55,8 +83,8 @@ public sealed class SpatialWindingDefinition : ConnectedWindingSource
     public override double PitchMm => Geometry.PitchMm;
     public override double DriverMinimumTurns => Geometry.DriverMinimumTurns;
     public override double DriverMaximumTurns => Geometry.DriverMaximumTurns;
-    public override string PinId(int index) => ChainId + "/pin-" + index.ToString("D3", System.Globalization.CultureInfo.InvariantCulture);
-    public override string LinkId(int index) => ChainId + "/link-" + index.ToString("D3", System.Globalization.CultureInfo.InvariantCulture);
+    public override string PinId(int index) => ChainId + "/pin-" + (MaterialOrder == MaterialTraversalOrder.Reverse ? LinkCount - index : index).ToString("D3", System.Globalization.CultureInfo.InvariantCulture);
+    public override string LinkId(int index) => ChainId + "/link-" + (MaterialOrder == MaterialTraversalOrder.Reverse ? LinkCount - 1 - index : index).ToString("D3", System.Globalization.CultureInfo.InvariantCulture);
     public override string? Validate()
     {
         var error = Geometry.Validate(); if (error is not null) return error;
@@ -64,8 +92,9 @@ public sealed class SpatialWindingDefinition : ConnectedWindingSource
         if (Frame(DriverShaft.Frame) != Frame(Geometry.Driver.Frame) || Frame(OutputShaft.Frame) != Frame(Geometry.Output.Frame)) return "InvalidActualWindingOwner";
         if (!DriverShaft.IsPrescribed || OutputShaft.IsPrescribed) return "InvalidWindingBoundaryOwnership";
         if (InitialDriverTurns < WindingDifferentialEngine.Binary64Boundary(DriverMinimumTurns) || InitialDriverTurns > WindingDifferentialEngine.Binary64Boundary(DriverMaximumTurns)) return "WindingBoundary";
-        var q = SpatialWindingSolver.Evaluate(Geometry, ConnectedMotionValue.Number(InitialDriverTurns)); return q.IsAccepted ? null : q.Status;
+        var q = Query(ConnectedMotionValue.Number(InitialDriverTurns)); return q.IsAccepted ? null : q.Status;
     }
+    internal SpatialWindingQuery Query(double q) => HasSelectedDriveBoundary ? SpatialWindingSolver.EvaluateRefined(Geometry, q) : SpatialWindingSolver.Evaluate(Geometry, q);
 }
 
 internal static class ConnectedWindingKinematics
@@ -82,7 +111,7 @@ internal static class ConnectedWindingKinematics
         for (var i = 0; i <= count; i++)
         {
             var q = from + (to - from) * i / count;
-            var r = analysis?.SpatialQuery(q) ?? SpatialWindingSolver.Evaluate(g, q);
+            var r = analysis?.SpatialQuery(q) ?? ((SpatialWindingDefinition)source).Query(q);
             work += r.NumericWork; if (!r.IsAccepted) return r.Status;
             if (work > 40000000) return "ResourceLimit";
         }
@@ -91,7 +120,7 @@ internal static class ConnectedWindingKinematics
     internal static bool UnresolvedEvent(ConnectedWindingSource source, double q, WindingDifferentialAnalysis? analysis = null)
     {
         if (source is FiniteWindingDefinition planar) return FiniteWindingSolver.HasUnresolvedEventOrder(planar.Geometry, q);
-        var g = ((SpatialWindingDefinition)source).Geometry; var r = analysis?.SpatialQuery(q) ?? SpatialWindingSolver.Evaluate(g, q);
+        var g = ((SpatialWindingDefinition)source).Geometry; var r = analysis?.SpatialQuery(q) ?? ((SpatialWindingDefinition)source).Query(q);
         if (!r.IsAccepted) return true;
         var junctions = g.Bridge.Concat(new[] { g.Driver.Meridian(g.Driver.ExitParameter(q)), g.Output.Meridian(g.Output.ExitParameter(r.Pose!.OutputTurns)) });
         return r.Pose!.Pins.Any(p => junctions.Any(j => (p.PositionMm - j).Length < 1e-7));

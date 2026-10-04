@@ -117,7 +117,7 @@ public static partial class WindingDifferentialEngine
                 if (!query.IsAccepted) return new(query.Status); spatial = query.Pose!;
             }
             var w = ConnectedMotionValue.FromResidual(HashText(Pack(source.DefinitionId, F(q), "passive-shaft")), spatial?.OutputTurns ?? pose!.OutputTurns);
-            var selected = boundary(w, s); var sunPort = d.Ports.Single(p => p.Id == s.SunPortId);
+            var selected = boundary(s.CouplingShaftId == s.WindingSource.DriverShaft.Id ? ConnectedMotionValue.FromExact(q) : w, s); var sunPort = d.Ports.Single(p => p.Id == s.SunPortId);
             var vector = new SortedDictionary<string, ConnectedMotionValue>(StringComparer.Ordinal)
             { [s.SunPortId] = selected.Sun.Scale(sunPort.FrameInShaft.Z.Z, sunPort.ReadoutOffset.Value), [s.PlanetPortId] = selected.PlanetPort };
             var coordinates = a.Suffix.Parent.Coordinates.ToDictionary(c => c.ShaftId, c => ConnectedMotionValue.Apply(c.Law!, vector), StringComparer.Ordinal);

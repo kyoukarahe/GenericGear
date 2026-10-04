@@ -17,6 +17,7 @@ function clearFailure(message) { $('status').textContent = message; $('scene').r
 function show(r) {
   if (!r.snapshot) { clearFailure(r.status + (r.detail ? ': ' + r.detail : '')); record('refusal', r); return; }
   result = r; if (r.snapshot.scene) scene = r.snapshot.scene; const s = r.snapshot.state;
+  $('drive-boundary').textContent = `Prescribed: ${r.capabilities.prescribedShaft} · coupling rotor: ${r.capabilities.couplingShaft} · passive: ${r.capabilities.passiveShaft} · 축 native turn (+1, offset 0). 역할은 source 작성 시 고정됩니다.`;
   $('status').textContent = `${r.status} · ${s.mode} · revision ${s.revision} · epoch ${s.epoch}`;
   $('quality').textContent = 'C# source/active constraints/finite path 검산 · NumericResidualOnly · solution error bound: null · 삭제 이력: notPerformed';
   $('planet-label').hidden = !s.requiredInputPorts.includes(r.capabilities.planetPort);

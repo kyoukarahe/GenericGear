@@ -63,26 +63,39 @@ public sealed class WindingDifferentialDefinition
 {
     public const string Profile = "finite-winding-differential-spur-v1";
     public const string SpatialProfile = "spatial-winding-differential-composition-v1";
+    public const string SelectedDriveProfile = "selected-drive-spatial-winding-composition-v1";
     public WindingDifferentialDefinition(FiniteWindingDefinition winding, DifferentialSuffixDefinition suffix, string couplingId,
         string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains = null)
-        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, null) { }
+        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, null, null) { }
     public WindingDifferentialDefinition(SpatialWindingDefinition winding, DifferentialSuffixDefinition suffix, string couplingId,
         string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains = null, ConnectedTransmission? transmission = null)
-        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, transmission) { }
+        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, transmission, null) { }
+    public WindingDifferentialDefinition(SpatialWindingDefinition winding, string couplingShaftId, DifferentialSuffixDefinition suffix, string couplingId,
+        string sunPortId, string planetPortId, Rational initialCouplingOffset,
+        IEnumerable<string>? requiredDomains = null, ConnectedTransmission? transmission = null)
+        : this((ConnectedWindingSource)winding, suffix, couplingId, sunPortId, planetPortId, initialCouplingOffset, requiredDomains, transmission, couplingShaftId) { }
     private WindingDifferentialDefinition(ConnectedWindingSource winding, DifferentialSuffixDefinition suffix, string couplingId,
-        string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains, ConnectedTransmission? transmission)
+        string sunPortId, string planetPortId, Rational initialCouplingOffset, IEnumerable<string>? requiredDomains, ConnectedTransmission? transmission, string? couplingShaftId)
     {
+        HasSelectedDriveBoundary = winding is SpatialWindingDefinition spatial && spatial.HasSelectedDriveBoundary;
+        if (HasSelectedDriveBoundary != (couplingShaftId is not null)) throw new ArgumentException("ExplicitDriveAndCouplingRequired");
+        CouplingShaftId = couplingShaftId ?? winding.OutputShaft.Id;
+        if (CouplingShaftId != winding.DriverShaft.Id && CouplingShaftId != winding.OutputShaft.Id) throw new ArgumentException("InvalidCouplingOwner");
         WindingSource = winding; Suffix = suffix; Transmission = transmission; CouplingId = MechanicalAuthoringProfile.IdValue(couplingId);
         SunPortId = MechanicalAuthoringProfile.IdValue(sunPortId); PlanetPortId = MechanicalAuthoringProfile.IdValue(planetPortId);
         MechanicalAuthoringProfile.Number(initialCouplingOffset); InitialCouplingOffset = initialCouplingOffset;
         RequiredDomains = DifferentialProfile.Set(requiredDomains ?? Array.Empty<string>(), x => x, 16);
         DefinitionId = HashText(Pack(SourceProfile, winding.DefinitionId, suffix.DefinitionId, couplingId, sunPortId, planetPortId, F(initialCouplingOffset), Pack(RequiredDomains.ToArray())));
         if (winding is SpatialWindingDefinition) DefinitionId = HashText(Pack(DefinitionId, transmission?.DefinitionId ?? ""));
+        if (HasSelectedDriveBoundary) DefinitionId = HashText(Pack(DefinitionId, CouplingShaftId));
     }
     public FiniteWindingDefinition Winding => WindingSource as FiniteWindingDefinition ?? throw new InvalidOperationException("Spatial source: use WindingSource.");
     public ConnectedWindingSource WindingSource { get; }
     public ConnectedTransmission? Transmission { get; }
-    public string SourceProfile => WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
+    public bool HasSelectedDriveBoundary { get; }
+    public string CouplingShaftId { get; }
+    public OrientedShaft CouplingShaft => CouplingShaftId == WindingSource.DriverShaft.Id ? WindingSource.DriverShaft : WindingSource.OutputShaft;
+    public string SourceProfile => HasSelectedDriveBoundary ? SelectedDriveProfile : WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
     public DifferentialSuffixDefinition Suffix { get; }
     public string CouplingId { get; }
     public string SunPortId { get; }
@@ -101,7 +114,7 @@ public sealed class WindingDifferentialAnalysis
         lock (spatialQueries)
         {
             if (spatialQueries.TryGetValue(q, out var cached)) return cached;
-            var result = SpatialWindingSolver.Evaluate(((SpatialWindingDefinition)Source.WindingSource).Geometry, q);
+            var result = ((SpatialWindingDefinition)Source.WindingSource).Query(q);
             if (spatialOrder.Count == 8) spatialQueries.Remove(spatialOrder.Dequeue());
             spatialQueries.Add(q, result); spatialOrder.Enqueue(q); return result;
         }
@@ -124,7 +137,7 @@ public static partial class WindingDifferentialEngine
         if (winding is not null) return new(s, suffix, errors);
         var d = s.Suffix.Parent.Definition;
         if (d.Prefix is not null || d.Holds.Count != 0) errors.Add("UnsupportedConnectedParentBoundary");
-        if (s.WindingSource.OutputShaft.Id == d.SunShaft.Id || !d.SunShaft.Contains(s.WindingSource.OutputShaft.Frame.Origin) || d.SunShaft.Frame.Z != s.WindingSource.OutputShaft.Frame.Z || d.SunShaft.Frame.X != s.WindingSource.OutputShaft.Frame.X) errors.Add("InvalidCoaxialIndependentRotorBinding");
+        if (s.CouplingShaft.Id == d.SunShaft.Id || !d.SunShaft.Contains(s.CouplingShaft.Frame.Origin) || d.SunShaft.Frame.Z != s.CouplingShaft.Frame.Z || d.SunShaft.Frame.X != s.CouplingShaft.Frame.X) errors.Add("InvalidCoaxialIndependentRotorBinding");
         foreach (var item in new[] { (s.SunPortId, d.SunShaft.Id), (s.PlanetPortId, d.PlanetShaft.Id) })
             if (!d.Ports.Any(p => p.Id == item.Item1 && p.ShaftId == item.Item2) || !s.Suffix.Parent.InputPortIds.Contains(item.Item1)) errors.Add("InvalidInputPortOwner");
         var all = suffix.Parent.CoordinateIds.Concat(new[] { d.CarrierBodyId, d.SunBodyId, d.PlanetBodyId, s.Suffix.OutputShaft.Id, s.Suffix.DriverGear.Id, s.Suffix.OutputGear.Id, s.Suffix.ContactId, s.Suffix.OutputPort.Id })

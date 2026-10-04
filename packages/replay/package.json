@@ -1,6 +1,6 @@
 {
   "name": "@gearinvest/replay",
-  "version": "0.1.0-rc.public04.1",
+  "version": "0.1.0-rc.public05.1",
   "description": "Headless bounded consumption and approximate stored playback of GearInvest artifacts; not a mechanical solver.",
   "type": "module",
   "sideEffects": false,

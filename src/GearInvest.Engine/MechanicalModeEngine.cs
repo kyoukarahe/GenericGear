@@ -63,14 +63,14 @@ public static class MechanicalModeEngine
                     case MechanicalConnectionEventKind.Release:mode=MechanicalConnectionMode.Released;break;
                     case MechanicalConnectionEventKind.AlignCapture:
                     {
-                        var delta=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.WindingSource.OutputShaft.Id]).Scale(1,-d.AlignmentOffset);
+                        var delta=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.CouplingShaftId]).Scale(1,-d.AlignmentOffset);
                         if(!delta.IsExact)return Fail("GuardIndeterminate");if(delta.Exact!=Rational.Zero)return Fail("AlignmentConflict");
                         h=ConnectedMotionValue.FromExact(d.AlignmentOffset);mode=MechanicalConnectionMode.DriveCapture;break;
                     }
                     case MechanicalConnectionEventKind.Capture:
                     case MechanicalConnectionEventKind.CapturePositive:
                     case MechanicalConnectionEventKind.CaptureNegative:
-                        h=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.WindingSource.OutputShaft.Id]);
+                        h=current.Frame.Coordinates[pd.SunShaft.Id].Minus(current.Frame.Coordinates[s.CouplingShaftId]);
                         direction=e.Kind==MechanicalConnectionEventKind.CapturePositive?1:e.Kind==MechanicalConnectionEventKind.CaptureNegative?-1:0;
                         mode=direction==0?MechanicalConnectionMode.DriveCapture:MechanicalConnectionMode.DirectionRestrictedDrive;break;
                     case MechanicalConnectionEventKind.LockWorldCarrier:

@@ -39,3 +39,14 @@ in the same commands. Keep planar and spatial sources separate: source authoring
 is create-only, while current compiled SDK/Worker resources are incrementally
 rebuilt. The new [profile](../../docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md) has
 sampled path checks and underdetermined link roll, not continuous certification.
+
+For an explicitly selected real-reel boundary use `-SelectedDrive -OutputDirectory
+artifacts/selected-drive/web`, then point both checks at that output's
+`publish/wwwroot` and `example/source.json`. The ordinary multi-turn check is
+`dotnet examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll inspect-spatial artifacts/selected-drive/web/publish/wwwroot/example/source.json -1 23/20`.
+Do not reuse the legacy example's lower branch bound as a validity claim.
+`check-drive-compatibility.mjs <old-public04-consumer.dll> <new-consumer.dll>
+<old-source.json> <selected-source.json> <new-receipt.json>` runs the actual two
+readers; obtain the old DLL by building the unchanged public04 source separately.
+It does not rewrite old source/checkpoint bytes. Real-device work follows the
+[selected-drive pack](../../docs/DRV_DEVICE_ACCEPTANCE.md).

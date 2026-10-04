@@ -1,5 +1,50 @@
 # Verification scope
 
+## public05.1 selected real-reel drive boundary
+
+The selected public suite passed **214 .NET tests**, zero failures/skips, on
+Windows with .NET SDK10.0.401. Both SDK targets and the Mono10.0.12 WASM
+interpreter built successfully. The18 new tests exercise the ordinary public
+source/runtime/restore path, independently expanded exact transmission laws,
+201/249/320-link variants, material neighbours/frames, mode transitions,
+finite-branch/resource refusals and rehashed binding/witness mutations.
+
+The prepublication independent source candidate used the same mechanical
+implementation and selected artifact
+`9a6cbff511bcebaeebb1aa33c0ffa8d7213e44d489255c9d07d2a4a22a166678`.
+It passed4352 same-session requests,8756 response comparisons,17 checkpoints
+and fresh native continuation; maximum numeric difference was6.963318810448982e-12.
+World/relative locks were active across epoch boundaries; observed live
+provenance was at most3. Ten lifecycle cases used nine real Node workers.
+Those counts are separate from the selected .NET suite and actual browser work.
+
+Actual Windows Chrome154 on that independent candidate ran new exact inputs,
+Release/Capture/world lock with page/Worker fetch sealing, saved a269112-byte
+checkpoint, restored it in a new page and continued. The actual subsequent UI
+requests matched a fresh native process. Independent53-point pin/joint checks
+and a2.15-turn forward/stop/reverse/rewind run used the same249-link geometry.
+This supports bounded desktop behavior, not physical or mobile certification.
+
+A reproduced endpoint-angle cross-host discrepancy was corrected only in the
+new explicit profile; comparison tolerances were not relaxed. Legacy source
+and checkpoint bytes retain their old policy. An actual public04 reader rejects
+selected source/checkpoint3.0 without changing its prior state. Existing source
+calls with positional null domains still compile. See the
+[selected-boundary contract](SELECTED_DRIVE_BOUNDARY_CONTRACT.md) for exact
+ownership, numerical quality, failure semantics and version boundaries.
+
+Release-specific source ZIP consumption, artifact/build correspondence, actual
+public-build browser smoke, hosted main/tag CI and anonymous downloads are
+separate delivery gates. Their actual verdicts and exact commit/hash belong to
+the GitHub Release; a source document does not predict a hosted result.
+The workflow retains the planar/spatial long runs and runs the selected-drive
+long path in a separate job, without sharing writable build outputs.
+
+Android/iOS/Safari remains **UNVERIFIED**; follow the
+[current device pack](DRV_DEVICE_ACCEPTANCE.md). PATH-GAP remains **OPEN**:
+sampled path admission does not exclude narrow invalid intervals. No continuous
+certificate, arbitrary graph inverse solver, dynamics or governor is claimed.
+
 ## public04.1 spatial winding and composition
 
 The selected public source passed **196 .NET tests**, zero failures/skips, on

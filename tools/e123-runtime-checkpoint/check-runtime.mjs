@@ -6,8 +6,10 @@ import { pathToFileURL } from 'node:url';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 
-const [rootArg, cliArg, sourceArg, outputArg, countArg] = process.argv.slice(2);
+const [rootArg, cliArg, sourceArg, outputArg, countArg, firstNumeratorArg] = process.argv.slice(2);
 const root = resolve(rootArg), cli = resolve(cliArg), sourceUtf8 = await readFile(sourceArg, 'utf8'), output = resolve(outputArg), count = Number(countArg ?? 4352);
+const firstNumerator=Number(firstNumeratorArg??400000);
+assert.ok(Number.isSafeInteger(firstNumerator),'Exact schedule start required.');
 assert.ok(Number.isInteger(count) && count >= 17, 'This protocol checks the 16-entry stale window; use at least 17 requests.');
 await mkdir(output, { recursive: true });
 function managed() {
@@ -32,7 +34,14 @@ function same(a, b, path = '') {
   }
   assert.equal(a, b, path);
 }
-async function both(command) { const b = wasm(command); const a = await native.send(command); same(a, b); ++comparisons; return b; }
+async function both(command) {
+  const b = wasm(command); const a = await native.send(command);
+  try { same(a, b); } catch(error) {
+    await writeFile(join(output,'cross-host-failure.json'),JSON.stringify({comparisons,command,error:String(error),native:a,wasm:b},null,2),{flag:'wx'});
+    native.close(); throw error;
+  }
+  ++comparisons; return b;
+}
 function fraction(n, d = 1) { n = BigInt(n); d = BigInt(d); let a = n < 0n ? -n : n, b = d; while (b) [a,b] = [b,a%b]; return { numerator: String(n/a), denominator: String(d/a) }; }
 function request(snapshot, id, q, kinds = []) {
   const s = snapshot.state, c = loaded.capabilities;
@@ -49,13 +58,17 @@ async function advance(r, expected = 'Accepted') {
   timings.push(performance.now()-t); maxLive=Math.max(maxLive,state.state.witnesses.length);maxSnapshotBytes=Math.max(maxSnapshotBytes,Buffer.byteLength(JSON.stringify(result))); return result;
 }
 for (let i=0;i<count;i++) {
-  const r = request(state,'r-'+i,fraction(400000+i,10000000),[i%2===0?'Release':'Capture']); firstRequest??=r; latestRequest=r;
+  const selectedDrive=loaded.capabilities.profile==='bounded-selected-drive-spatial-runtime-checkpoint-v1';
+  // Keep actual capture/lock witnesses live across epoch boundaries in the selected-role path.
+  const events=selectedDrive&&i===250?['LockWorldCarrier']:selectedDrive&&i>250&&i<260?[]:selectedDrive&&i===260?['Capture']:
+    selectedDrive&&i===506?['LockPlanetRelative']:selectedDrive&&i>506&&i<516?[]:selectedDrive&&i===516?['Capture']:[i%2===0?'Release':'Capture'];
+  const r = request(state,'r-'+i,fraction(firstNumerator+i,10000000),events); firstRequest??=r; latestRequest=r;
   await advance(r);
   if (i%256===255 || i===count-1) {
     const t=performance.now();const ck=wasm({op:'checkpoint'});const nck=await native.send({op:'checkpoint'});assert.equal(ck.status,'CheckpointCreated');assert.equal(nck.status,'CheckpointCreated');
     // Raw numerical bytes are not the semantic contract. Cross-restore each host's independently produced bytes.
     const restoredWasm=wasm({op:'restore',checkpointUtf8:nck.checkpointUtf8}); const restoredNative=await native.send({op:'restore',checkpointUtf8:ck.checkpointUtf8}); same(restoredNative,restoredWasm);assert.equal(restoredWasm.status,'Restored');state=restoredWasm.snapshot;
-    saved.push({ revision:state.state.revision, epoch:state.state.epoch, cursor:state.state.eventCursor, liveProvenance:state.state.witnesses.length, retainedLedger:state.state.ledger.length, bytes:Buffer.byteLength(ck.checkpointUtf8), createAndTwoHostRestoreMs:performance.now()-t, artifactId:ck.artifactId });
+    saved.push({ revision:state.state.revision, epoch:state.state.epoch, cursor:state.state.eventCursor, mode:state.state.mode, lockWitnessPresent:state.state.lockWitness!==null, liveProvenance:state.state.witnesses.length, retainedLedger:state.state.ledger.length, bytes:Buffer.byteLength(ck.checkpointUtf8), createAndTwoHostRestoreMs:performance.now()-t, artifactId:ck.artifactId });
     await advance(r,'AlreadyApplied');
     if(i===count-1) await writeFile(join(output,'long.checkpoint.json'),ck.checkpointUtf8,{flag:'wx'});
   }
@@ -63,7 +76,8 @@ for (let i=0;i<count;i++) {
 const negativeBefore=state.state.stateId;
 const under=request(state,'missing',fraction(1,20));under.segments[0].independentPorts={};await advance(under,'Underdetermined');
 await advance({...request(state,'foreign',fraction(1,20)),definitionId:'foreign'},'ForeignSnapshot');
-const unresolved=request(state,'uncertain-observation',fraction(1,20));unresolved.segments[0].observations[loaded.capabilities.sunPort]=fraction(0);await advance(unresolved,'GuardIndeterminate');
+const unresolved=request(state,'uncertain-observation',fraction(1,20));unresolved.segments[0].observations[loaded.capabilities.sunPort]=fraction(0);
+await advance(unresolved,loaded.capabilities.couplingShaft===loaded.capabilities.prescribedShaft?'InconsistentObservation':'GuardIndeterminate');
 const inconsistent=request(state,'conflicting-observation',fraction(1,20));inconsistent.segments[0].observations[loaded.capabilities.planetPort]=fraction(1);await advance(inconsistent,'InconsistentObservation');
 assert.equal((await both({op:'snapshot'})).snapshot.state.stateId,negativeBefore);
 await advance(firstRequest,'StaleSnapshot');

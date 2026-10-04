@@ -2,7 +2,7 @@
 
 역할: **Usage guide**. 먼저 [지원·신뢰·자원 계약](../../docs/MECHANICAL_RUNTIME_CONTRACT.md)을 읽는다.
 새 입력을 계산하는 C# WASM 경로다. 기존 `/winding`, `/mechanical-modes` sample reader는 그대로다.
-Public source `0.1.0-rc.public04.1`의 실행 경로다. NuGet/npm binary package 배포는 아니다.
+Public source `0.1.0-rc.public05.1`의 실행 경로다. NuGet/npm binary package 배포는 아니다.
 
 ## Build and open
 
@@ -32,6 +32,29 @@ example을 함께 배포하며 `.wasm` MIME type을 유지한다. 초기 리소�
 지우며 마지막 정상 identity를 명시한다. Consumer의 UI 값은 식·ratio·chain 정답이 아니다.
 
 ## C# and independent consumption
+
+### Selected real-reel drive boundary
+
+Read the [selected-boundary contract](../../docs/SELECTED_DRIVE_BOUNDARY_CONTRACT.md).
+The same249-link source explicitly selects its conical reel as prescribed and
+coupling owner. Supply its exact native unwrapped turns and all mode-required
+inputs; the shared SDK computes both winding and the connected transmission.
+
+```powershell
+./tools/e123-runtime-checkpoint/Build-Web.ps1 -SelectedDrive -OutputDirectory artifacts/selected-drive/web
+node tools/e123-runtime-checkpoint/serve.mjs artifacts/selected-drive/web/publish/wwwroot 5189
+```
+
+Open `http://127.0.0.1:5189/example/`. The roles must read prescribed/coupling
+`spatial/passive`, passive `spatial/driver`; their original ID names do not decide
+their roles. Use the same new-input/event/save/new-page-restore controls below.
+`create-selected-drive-example <new-source-path>` authors this source.
+`inspect-spatial <source-path> -1 23/20` independently checks its2.15-turn
+forward/stop/reverse/rewind path and pin/joint geometry. The old spatial example's
+default lower bound is not a promise of a solution for the selected opposite branch.
+Rebuild checks canonical source identity and refuses mismatched existing inputs.
+Use a separate output for each profile. Checkpoint3.0 is explicit; old1.0/2.0
+keep their original meaning. Follow the [device pack](../../docs/DRV_DEVICE_ACCEPTANCE.md).
 
 ### Spatial winding and composition
 

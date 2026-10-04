@@ -3,7 +3,7 @@
     <LangVersion>latest</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
     <Deterministic>true</Deterministic><ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <Version>0.1.0-rc.public04.1</Version><Authors>Karahe</Authors>
+    <Version>0.1.0-rc.public05.1</Version><Authors>Karahe</Authors>
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression><PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/kyoukarahe/GenericGear</RepositoryUrl><RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/kyoukarahe/GenericGear</PackageProjectUrl>

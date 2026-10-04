@@ -9,7 +9,7 @@ using GearInvest.Layout;
 // it does not generate poses or supply a substitute winding/constraint engine.
 internal static class SpatialAcceptance
 {
-    public static void Run(string sourcePath)
+    public static void Run(string sourcePath,Rational? minimum=null,Rational? maximum=null)
     {
         var sdk=GearInvestSdk.CreateDefault();var bytes=File.ReadAllBytes(sourcePath);
         var timer=Stopwatch.StartNew();var artifact=sdk.ReadWindingConnectionArtifact(bytes);
@@ -20,7 +20,9 @@ internal static class SpatialAcceptance
         var states=new List<object>();double maximumPitchResidual=0,maximumBend=0;var contacts=new HashSet<(int,int)>();
         // Deliberately crosses more than two turns in one normal request, stops,
         // reverses and rewinds. Limits are finite and never reduced modulo one.
-        var inputs=new[]{new Rational(-23,20),new Rational(23,20),new Rational(23,20),new Rational(-23,20),Rational.Zero};
+        var lower=minimum??new Rational(-23,20);var upper=maximum??new Rational(23,20);
+        if(upper-lower<=2)throw new ArgumentException("This multi-turn observer requires an explicit interval wider than two turns.");
+        var inputs=new[]{lower,upper,upper,lower,Rational.Zero};
         for(var i=0;i<inputs.Length;i++)
         {
             var before=session.Current;
@@ -39,7 +41,8 @@ internal static class SpatialAcceptance
         long maximumWork=0;var refused=new Dictionary<string,int>();
         for(var i=0;i<53;i++)
         {
-            var q=-1.15+2.3*i/52;var query=SpatialWindingSolver.Evaluate(source.Geometry,q);maximumWork=Math.Max(maximumWork,query.NumericWork);
+            var exact=lower+(upper-lower)*new Rational(i,52);var q=(double)exact.Numerator/(double)exact.Denominator;
+            var query=source.HasSelectedDriveBoundary?SpatialWindingSolver.EvaluateRefined(source.Geometry,q):SpatialWindingSolver.Evaluate(source.Geometry,q);maximumWork=Math.Max(maximumWork,query.NumericWork);
             if(!query.IsAccepted){refused[query.Status]=refused.GetValueOrDefault(query.Status)+1;continue;}
             Check(query.Pose!);contacts.Add((query.Pose!.DriverContact,query.Pose.OutputContact));
         }
@@ -47,7 +50,7 @@ internal static class SpatialAcceptance
         var checkpoint=session.Checkpoint();using var restored=sdk.RestoreMechanicalRuntime(checkpoint.Bytes);
         if(restored.Current.StateId!=session.Current.StateId)throw new InvalidOperationException("Fresh session restore identity");
         Console.WriteLine(JsonSerializer.Serialize(new{status="PASS",profile=SpatialWindingGeometry.Profile,sourceArtifactId=artifact.ArtifactId,
-            sourceBytes=bytes.Length,admissionMs,links=source.LinkCount,source.PitchMm,wholePathRequests=states,gridQueries=53,refused,
+            sourceBytes=bytes.Length,admissionMs,links=source.LinkCount,source.PitchMm,observedMinimum=lower.ToString(),observedMaximum=upper.ToString(),wholePathRequests=states,gridQueries=53,refused,
             distinctContactCounts=contacts.Count,maximumWork,maximumPitchResidualMm=maximumPitchResidual,maximumBendDegrees=maximumBend,
             checkpointBytes=checkpoint.Bytes.Length,checkpointStateId=session.Current.StateId,
             limits=new[]{"ordinary runtime validates sampled interior paths, not continuous proof","53 point queries are a numerical observation, not a global root uniqueness proof","latency samples include public runtime work; no p95 with5 requests"}}));

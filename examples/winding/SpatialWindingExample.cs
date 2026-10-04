@@ -9,6 +9,17 @@ namespace GearInvest.WindingExample;
 /// <summary>Author input, not a pose catalog. Uses the same public APIs with arbitrary material identities and link counts.</summary>
 public static class SpatialExample
 {
+    /// <summary>The same finite chain, explicitly authored with its coaxial conical reel prescribed.
+    /// Independent sun and reel owners remain distinct; no duplicated or synchronised input coordinate.</summary>
+    public static WindingDifferentialDefinition CreateSelectedDrive(int links = 249, Rational? scale = null,
+        string materialId = "spatial-chain", int extraStages = 2, Rational? initialTurns = null)
+    {
+        var source = Create(links, scale, materialId, extraStages);
+        var original = (SpatialWindingDefinition)source.WindingSource;
+        var selected = original.SelectDriveBoundary(original.OutputShaft.Id, initialTurns ?? new Rational(13,1000));
+        return new(selected, selected.DriverShaft.Id, source.Suffix, source.CouplingId, source.SunPortId, source.PlanetPortId,
+            source.InitialCouplingOffset, transmission: source.Transmission);
+    }
     public static WindingDifferentialDefinition Create(int links = 249, Rational? scale = null, string materialId = "spatial-chain", int extraStages = 2)
     {
         if (extraStages < 1 || extraStages > 4) throw new ArgumentException("One to four explicit stages.");

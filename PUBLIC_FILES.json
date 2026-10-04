@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidate": "0.1.0-rc.public04.1",
+  "candidate": "0.1.0-rc.public05.1",
   "kind": "source-only",
   "files": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "bytes": 3085,
-      "sha256": "861be83ecc2200b2a86b74c0df9e8ca2ca3e5d6840587966fdb5cdc167f89b68"
+      "bytes": 4764,
+      "sha256": "684142983e83b6262e21015016151eb3f2d77d6deee1f1fd3be3b1a90f6c71ff"
     },
     {
       "path": ".gitignore",
@@ -36,7 +36,7 @@
     {
       "path": "Directory.Build.props",
       "bytes": 1483,
-      "sha256": "367014abe6a72e22b3123b2c9c01e4fccabec633a06fa1648d83948ed372361f"
+      "sha256": "dd3ba95d93f937bd9072e0f22abb9fff72ea790a4453104824832d7ed67fe42b"
     },
     {
       "path": "LICENSE",
@@ -55,8 +55,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5335,
-      "sha256": "3fca6e970fd8ad4ecb828ba81c6f656406d3e24ae08a612dca942bc80fd28eb2"
+      "bytes": 6161,
+      "sha256": "87db045d41250f456c2e57af6a297d793860ad94fba9bed011c9eacdd75753c0"
     },
     {
       "path": "SECURITY.md",
@@ -289,6 +289,11 @@
       "sha256": "87743d96717452aea7331ce4be98ed0c1369ea2dd734b37cac52edbee05e8f3b"
     },
     {
+      "path": "docs/DRV_DEVICE_ACCEPTANCE.md",
+      "bytes": 3525,
+      "sha256": "a77bd9e4d1dd642e81508067dfde51a25794b83d6c4f648de7c59346612721a6"
+    },
+    {
       "path": "docs/FINITE_WINDING_CONNECTION_CONTRACT.md",
       "bytes": 12977,
       "sha256": "1f657a9d78dea69726a20f406a2b26b66bdf2d4211b2a4c64f82b4934c3736fb"
@@ -304,6 +309,11 @@
       "sha256": "89089e9bde5e9eb968ad5e8909f5b6598fdad4aa41088317b311e9b4211ea524"
     },
     {
+      "path": "docs/SELECTED_DRIVE_BOUNDARY_CONTRACT.md",
+      "bytes": 9010,
+      "sha256": "142f3d937d32a89b96c8238a311457534447ceeb655535e9aa585ba9c48428d9"
+    },
+    {
       "path": "docs/SPATIAL_RUNTIME_DEVICE_ACCEPTANCE.md",
       "bytes": 6537,
       "sha256": "576665327abec4329a3d449b617aaa604ef71469531cedc453da9eab236e85b4"
@@ -315,13 +325,13 @@
     },
     {
       "path": "docs/SUPPORTED_SCOPE.md",
-      "bytes": 4575,
-      "sha256": "bfc93fa1bbc835a6de45de9ff9ecc59529ff571556b2bce7a1a2f0065a86fab4"
+      "bytes": 5294,
+      "sha256": "50fa402229dec4ef1e682a9a2c1ef410dab0894d48838ef71d49bb9a1909dd1d"
     },
     {
       "path": "docs/VERIFICATION.md",
-      "bytes": 10037,
-      "sha256": "bb1440d4d90cfe2463b4c69dd30dddcd33be30ac27894b5af81004b40c45d0e9"
+      "bytes": 12833,
+      "sha256": "6562c8d5cdb1abdecc6f58b6123d27b1edb601680a72e7fe6f05feb072a6ee7f"
     },
     {
       "path": "examples/carrier/CarrierExample.cs",
@@ -665,13 +675,13 @@
     },
     {
       "path": "examples/runtime/README.md",
-      "bytes": 5716,
-      "sha256": "f364ccb50b6311b3ec79c7e9a808bb4e1bc02ae533db4b1faa68837be1c5321b"
+      "bytes": 7105,
+      "sha256": "5350cbc088dfb91a20cfea95ce9ffd04cb63e2edc204c6d3cfcbd98e35444acf"
     },
     {
       "path": "examples/runtime/dotnet/Program.cs",
-      "bytes": 928,
-      "sha256": "a44cff0ba1ba96b40be1e63d6bbe63d9e4cad9c068d6dfb4c82acb7294fa703a"
+      "bytes": 2201,
+      "sha256": "088357d5dbb376a3c82f761cc283f90b1f2910ca2d4b0b1c6e50224fedd49045"
     },
     {
       "path": "examples/runtime/dotnet/Runtime.Consumer.csproj",
@@ -680,13 +690,13 @@
     },
     {
       "path": "examples/runtime/dotnet/RuntimeMeasurement.cs",
-      "bytes": 2642,
-      "sha256": "434cc36bc06711a176a481bfd132af5cae48e7f717d659b593a4b5d92cabfc28"
+      "bytes": 2894,
+      "sha256": "cc001633c9d3e233ef38a0e44ea0daf9c2312cc01bfcb61a7b70ce159d4111ba"
     },
     {
       "path": "examples/runtime/dotnet/SpatialAcceptance.cs",
-      "bytes": 5384,
-      "sha256": "49b9dbfc738f3e14d3902741039f838604ac30cf2d747cabcfde5df11be3f0b6"
+      "bytes": 5846,
+      "sha256": "36f15056394e4975727ffd97d20278110a97f68432269be134d455ed9a11ea3a"
     },
     {
       "path": "examples/runtime/dotnet/packages.lock.json",
@@ -700,13 +710,13 @@
     },
     {
       "path": "examples/runtime/web/index.html",
-      "bytes": 2904,
-      "sha256": "ba954c4c2ad25dbddaa1170137b403f5a168d521f2f8481ec6f9f273a60a0c13"
+      "bytes": 2977,
+      "sha256": "a8ebc781d9fcfe7d09af402f23ecb8255b59fdbdf22d596b403b29d3c9aa4dae"
     },
     {
       "path": "examples/runtime/web/main.js",
-      "bytes": 10975,
-      "sha256": "28caaef75497d36777229a378c1f21e7e79d8fc5cb027612d0675929edae6d21"
+      "bytes": 11234,
+      "sha256": "66aa8eab1eaf5b736996403f180da428b0cd28bc68658dee0630447a01f38ea1"
     },
     {
       "path": "examples/runtime/web/style.css",
@@ -761,7 +771,7 @@
     {
       "path": "examples/web/package.json",
       "bytes": 418,
-      "sha256": "36ad13a0950bef6dfb5a365c38f8e9f3edd11419ac47f1ddeaaa27ce42d79421"
+      "sha256": "549a71d582ccc6710e66c6f44bf2c0ac31d35c987241d66df694218eaa5d5280"
     },
     {
       "path": "examples/web/public/data/mixed.oriented.json",
@@ -785,8 +795,8 @@
     },
     {
       "path": "examples/winding/SpatialWindingExample.cs",
-      "bytes": 2951,
-      "sha256": "5263c816f4306729c7835c0642e95aad54eaf810d8c7f0384ae57b7814c40b45"
+      "bytes": 3847,
+      "sha256": "1e1f07b9c378b86bee5f11896c24e1e0299f45fc01dbd4f5f5e1feb3fd23562f"
     },
     {
       "path": "examples/winding/WindingExample.cs",
@@ -831,12 +841,12 @@
     {
       "path": "package-lock.json",
       "bytes": 40120,
-      "sha256": "eb2c44880e6b27f496f395417dbf9aa4104de4131aac61ff82226f1d1af4cf17"
+      "sha256": "f38401a1de3241ab7bcb16f017a3f66d01e2e3346aaa6aac9c36da85ccd4c9bc"
     },
     {
       "path": "package.json",
       "bytes": 559,
-      "sha256": "f13fe23caba866cdd2238e4448c5e66de3bf8fe0ac6e1f6fec23f922a073ecfa"
+      "sha256": "da08a19896dee0bc5c1c87350f66ddf6e8f4f297c1a2e3c80e76f847307a869e"
     },
     {
       "path": "packages/presentation/DEPENDENCIES.json",
@@ -866,7 +876,7 @@
     {
       "path": "packages/presentation/package.json",
       "bytes": 1548,
-      "sha256": "cdc235452c56eb571d2d6faac35f5266f74e1b11ea75c695d2627fdaac7022ff"
+      "sha256": "d848d7788d434ba75d765bf17a07ee61e02f7edd3bf9b26910df2f1f431f6013"
     },
     {
       "path": "packages/presentation/src/assembly.ts",
@@ -951,7 +961,7 @@
     {
       "path": "packages/replay/package.json",
       "bytes": 1507,
-      "sha256": "e4b49d844876ecc9c532eec0d3a6e049d477b9c192fb0b774c865f775e9d46fd"
+      "sha256": "8c019e0c26a4ea7d3e99318a6aaa4ab9b69982fdaf57f674c1c40f3dbbe52fff"
     },
     {
       "path": "packages/replay/src/artifact.ts",
@@ -1530,8 +1540,8 @@
     },
     {
       "path": "src/GearInvest.Engine/ConnectedWindingSource.cs",
-      "bytes": 6595,
-      "sha256": "dbd76cdcb473c9343d156ab595d11fb5db5234e23b60b8f618ef88d0bc27c6d2"
+      "bytes": 9821,
+      "sha256": "cb087290ed7132ae2b4580cfb9e3492847b7b7f2833c187ce463e31bc44150f5"
     },
     {
       "path": "src/GearInvest.Engine/ContinuousEventBridgeModels.cs",
@@ -1660,8 +1670,8 @@
     },
     {
       "path": "src/GearInvest.Engine/FiniteWindingModels.cs",
-      "bytes": 13206,
-      "sha256": "6f73f719dd7733ab1082b67e544d9fe95a5377558ba7a75d0247d3aec7760b0a"
+      "bytes": 14620,
+      "sha256": "69a91fa53256585e9c689cf4d30489327080abb7bcb780cb472e1338d03016b0"
     },
     {
       "path": "src/GearInvest.Engine/GearInvest.Engine.csproj",
@@ -1850,8 +1860,8 @@
     },
     {
       "path": "src/GearInvest.Engine/MechanicalModeEngine.cs",
-      "bytes": 10758,
-      "sha256": "2423b4873589af8aa8bfd0957e01e423e87b57bb7002e08ed46cf0f8bf2ee48a"
+      "bytes": 10732,
+      "sha256": "7ab27fdbcf7c30fc601ce5f54fa490d38cdea4da827f96c844d402605d8fb6e2"
     },
     {
       "path": "src/GearInvest.Engine/MechanicalModeRecording.cs",
@@ -1860,8 +1870,8 @@
     },
     {
       "path": "src/GearInvest.Engine/MechanicalRuntime.cs",
-      "bytes": 22019,
-      "sha256": "aebd397b1a3f495a376464f6556c7ea228152524d7a0e83b0c318dd44738be51"
+      "bytes": 22159,
+      "sha256": "7e0c6a53c60c6e11cb6183629961cbd003c393eb740379e598999612f856122b"
     },
     {
       "path": "src/GearInvest.Engine/OpenBeltAnalysis.cs",
@@ -2195,8 +2205,8 @@
     },
     {
       "path": "src/GearInvest.Engine/WindingDifferentialEvaluation.cs",
-      "bytes": 15684,
-      "sha256": "5efa733ab940327729cc48d9b7d7c573141c077e6adaeea2170edf4cca8b3a5a"
+      "bytes": 15774,
+      "sha256": "0ce1478f604af317e59db83773318c4bfb2a15bc22506b4e49e6b24b47c802c0"
     },
     {
       "path": "src/GearInvest.Engine/WindingDriveRecording.cs",
@@ -2305,8 +2315,8 @@
     },
     {
       "path": "src/GearInvest.Layout/SpatialWindingSolver.cs",
-      "bytes": 10920,
-      "sha256": "6210e09a86cecd6e75435f21586bedd00356a397628d59c4cc50fab254c5676f"
+      "bytes": 11663,
+      "sha256": "b480816b2887926974f436654e4a3faa05b9ce6d3ac9f9196cf1f6cc583de21f"
     },
     {
       "path": "src/GearInvest.Layout/packages.lock.json",
@@ -2635,8 +2645,8 @@
     },
     {
       "path": "src/GearInvest.Serialization.Json/MechanicalRuntimeJson.cs",
-      "bytes": 12112,
-      "sha256": "baeacb15333043daa37fc154600f8d5b22324d8cad1ca1899ab4e69f1aa6451b"
+      "bytes": 12441,
+      "sha256": "0e4725619af4a0e32813c4688e5b29a62a43fd157c70b9cb6f5728bd42cb8b52"
     },
     {
       "path": "src/GearInvest.Serialization.Json/MechanismArtifact.cs",
@@ -2785,8 +2795,8 @@
     },
     {
       "path": "src/GearInvest.Serialization.Json/SpatialWindingJson.cs",
-      "bytes": 10194,
-      "sha256": "a2d8c5a0341cb602482b124a9c7fa685b4eef963ba4898b6896cbb8759ac1bc9"
+      "bytes": 12355,
+      "sha256": "68842a89f5528bad31407cf0a0288407edfd569793194738ac5988085ebdbce0"
     },
     {
       "path": "src/GearInvest.Serialization.Json/TransmissionGoalJson.cs",
@@ -2830,8 +2840,8 @@
     },
     {
       "path": "src/GearInvest.Serialization.Json/WindingConnectionJson.cs",
-      "bytes": 21069,
-      "sha256": "dfcbf745119d0f7354d99b850dcfaf4891df8fe94201ee493660ea0724dc1fe0"
+      "bytes": 21150,
+      "sha256": "7d2eecfaaeda8d67cf29dc34241c208f11aa11e65f78a90240cd1a99bef49f34"
     },
     {
       "path": "src/GearInvest.Serialization.Json/WormDriveArtifact.cs",
@@ -2975,8 +2985,8 @@
     },
     {
       "path": "src/GearInvest/MechanicalRuntimeHost.cs",
-      "bytes": 7726,
-      "sha256": "fcd0cd73085b393e7c3d617c4b538d720d8b569840290760cae7a6f1847e8930"
+      "bytes": 7992,
+      "sha256": "0a9d15c839d3bdf7c92cfed81d32d9185d6ac4e796f87c7f42386689c4e09699"
     },
     {
       "path": "src/GearInvest/MechanicalRuntimeSdk.cs",
@@ -3219,6 +3229,16 @@
       "sha256": "905033c0beeab0ce511aecfe27f374462ef091983fbe2b5665ccd77b7b04f617"
     },
     {
+      "path": "tests/GearInvest.Tests/DriveBoundaryContractTests.cs",
+      "bytes": 18268,
+      "sha256": "eea4e67ab57a8835c1b0b14ab25f003d503964a564a2f8ea73053e2719a90e7e"
+    },
+    {
+      "path": "tests/GearInvest.Tests/DriveBoundaryTests.cs",
+      "bytes": 4510,
+      "sha256": "997e27ce83259caf9b3dc7471d3ec4ccf6af6e4895fd186e631da62549d1a550"
+    },
+    {
       "path": "tests/GearInvest.Tests/FixtureFactory.cs",
       "bytes": 2071,
       "sha256": "2c0a9852a50838b83c09d910e3a51f2d9c0de829cd74e35007b15807d3d4546d"
@@ -3290,13 +3310,13 @@
     },
     {
       "path": "tools/e123-runtime-checkpoint/Build-Web.ps1",
-      "bytes": 3367,
-      "sha256": "89b7bc555b174162a7dfbce4615ad25d4f36d19ab0386534a8023bb9b53ebc28"
+      "bytes": 3764,
+      "sha256": "c40da140949a6907d2a4f6e00e1269502837f1e20ad46dd800784121cbd1e513"
     },
     {
       "path": "tools/e123-runtime-checkpoint/README.md",
-      "bytes": 2922,
-      "sha256": "417a5fc118bbb9e28bb02b2d21b2aed570b3ec5a5791817db6d8a67b24921b07"
+      "bytes": 3772,
+      "sha256": "f989175396653eae7a26012d6e8f94bf22829f315a7becdc816e80fd786194f4"
     },
     {
       "path": "tools/e123-runtime-checkpoint/browser-checks.html",
@@ -3309,14 +3329,19 @@
       "sha256": "f6ca8c2bab97e08d336ff8566e85b382abd8ea6997695d46e80e9e6db8e0844b"
     },
     {
+      "path": "tools/e123-runtime-checkpoint/check-drive-compatibility.mjs",
+      "bytes": 2706,
+      "sha256": "877fdc820a78800bfc7d3d881176d1a6a19c10ffd9d026b56325dcb7f111e39d"
+    },
+    {
       "path": "tools/e123-runtime-checkpoint/check-lifecycle.mjs",
       "bytes": 4830,
       "sha256": "740f25554f332fbc7dd7e5c78b75a8259c13c86e60d5b07b19f69439da36ecad"
     },
     {
       "path": "tools/e123-runtime-checkpoint/check-runtime.mjs",
-      "bytes": 9974,
-      "sha256": "afd60ff4fef13fe9655f16f6634320ca7ec14e4d6500b2e84ebbba8900165f2c"
+      "bytes": 10986,
+      "sha256": "0fc019156d2e0f07a0d85a387df6ff692c84fe7e9e31e05bb47b2f5db6ff5325"
     },
     {
       "path": "tools/e123-runtime-checkpoint/check-ui-readback.mjs",
@@ -3333,6 +3358,5 @@
       "bytes": 1336,
       "sha256": "c525a6a373e11423211db543af1df1d28515193fa5c3921cb2ec2764e52f5642"
     }
-  ],
-  "selfExcluded": "PUBLIC_FILES.json"
+  ]
 }

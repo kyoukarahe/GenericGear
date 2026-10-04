@@ -39,7 +39,7 @@ public static class WindingConnectionJson
     public const string RecordingFormat = "gear-invest.winding-drive-recording";
     public const string ReplayFormat = "gear-invest.winding-connection-replay";
     public const int MaxBytes = 4 * 1024 * 1024;
-    public static WindingConnectionArtifact ReadRuntimeSource(byte[] bytes) => SpatialWindingJson.IsFormat(bytes, SpatialWindingJson.ArtifactFormat) ? SpatialWindingJson.ReadArtifact(bytes) : ReadArtifact(bytes);
+    public static WindingConnectionArtifact ReadRuntimeSource(byte[] bytes) => SpatialWindingJson.IsFormat(bytes, SpatialWindingJson.ArtifactFormat) || SpatialWindingJson.IsFormat(bytes, SpatialWindingJson.SelectedArtifactFormat) ? SpatialWindingJson.ReadArtifact(bytes) : ReadArtifact(bytes);
     public static byte[] WriteDraft(WindingDifferentialDefinition s) => Encode(w =>
     {
         Start(w,DraftFormat); w.WriteString("profile",WindingDifferentialDefinition.Profile); w.WriteString("definitionId",s.DefinitionId);

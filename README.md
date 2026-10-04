@@ -7,7 +7,7 @@ mechanism. The separate browser runtime executes the shared C# implementation
 locally for the bounded winding/mode profile. Unity and browser display objects
 never own the mechanical truth.
 
-This is a **source release**, version `0.1.0-rc.public04.1`.
+This is a **source release**, version `0.1.0-rc.public05.1`.
 Build and use it from this source tree. No public NuGet/npm package, binary
 download or Unity package is claimed here.
 
@@ -48,6 +48,16 @@ published service. Before distributing it, follow [distribution guidance](docs/D
 
 ## Where to start
 
+- [Select an actual reel as the drive boundary](docs/SELECTED_DRIVE_BOUNDARY_CONTRACT.md):
+  one exact prescribed coordinate drives both3D winding and its real coupling to
+  the differential/transmission. Roles are fixed while authoring a new immutable
+  source, not swapped by an arbitrary inverse command. Run
+  `pwsh -NoProfile -File tools/e123-runtime-checkpoint/Build-Web.ps1 -SelectedDrive -OutputDirectory artifacts/selected-drive/web`,
+  then `node tools/e123-runtime-checkpoint/serve.mjs artifacts/selected-drive/web/publish/wwwroot 5189`
+  and open `http://127.0.0.1:5189/example/`. New input, explicit mode changes,
+  checkpoint3.0 and new-page continuation use the same C# WASM core.
+  [Mobile acceptance](docs/DRV_DEVICE_ACCEPTANCE.md) remains unverified;
+  sampled path checking is not continuous certification.
 - [3D guided winding and connected transmission](docs/SPATIAL_WINDING_COMPOSITION_CONTRACT.md):
   hundreds of fixed-pitch links, unwrapped multi-turn input, actual conditional
   coupling/differential/spur stages and terminal carrier. Run

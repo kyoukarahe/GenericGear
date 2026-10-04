@@ -164,7 +164,8 @@ public sealed class MechanicalRuntime
     public const string Profile = "bounded-winding-runtime-checkpoint-v1";
     public const string Version = "1.0";
     public const string SpatialProfile = "bounded-spatial-winding-runtime-checkpoint-v1";
-    public static string ProfileFor(MechanicalModeDefinition d) => d.Connection.WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
+    public const string SelectedDriveProfile = "bounded-selected-drive-spatial-runtime-checkpoint-v1";
+    public static string ProfileFor(MechanicalModeDefinition d) => d.Connection.HasSelectedDriveBoundary ? SelectedDriveProfile : d.Connection.WindingSource is SpatialWindingDefinition ? SpatialProfile : Profile;
     public const int EpochRequests = 256;
     private readonly WindingDifferentialAnalysis analysis;
     public MechanicalRuntime(MechanicalModeDefinition definition)
@@ -272,7 +273,7 @@ public sealed class MechanicalRuntime
         }
         var h = hSpec.Resolve(values); var l = lockSpec?.Resolve(values); var sun = sunSpec.Resolve(values); var planet = planetSpec.Resolve(values);
         var expectedH = capture is null ? ConnectedMotionValue.FromExact(Definition.Connection.InitialCouplingOffset) :
-            ConnectedMotionValue.FromExact(capture.SunNativeTurns).Minus(SourceFrame(capture.DriverTurns).Coordinates[Definition.Connection.WindingSource.OutputShaft.Id]);
+            ConnectedMotionValue.FromExact(capture.SunNativeTurns).Minus(SourceFrame(capture.DriverTurns).Coordinates[Definition.Connection.CouplingShaftId]);
         if (h.Key != expectedH.Key) throw new ArgumentException("CaptureWitnessMismatch");
         if (capture is not null && ConnectedWindingKinematics.UnresolvedEvent(Definition.Connection.WindingSource, ConnectedMotionValue.Number(capture.DriverTurns), analysis)) throw new ArgumentException("GuardIndeterminate");
         if (cursor.IsZero && (mode != MechanicalConnectionMode.DriveCapture || capture is not null || lockSpec is not null || direction != 0)) throw new ArgumentException("InvalidModeCursor");
@@ -281,7 +282,7 @@ public sealed class MechanicalRuntime
         var current = WindingDifferentialEngine.EvaluateMode(analysis, q, (_, _) => (sun, planet));
         if (!current.IsAccepted) throw new ArgumentException(current.Status); var f = current.Frame!;
         var s = Definition.Connection; var pd = s.Suffix.Parent.Definition;
-        if (mode != MechanicalConnectionMode.Released && sun.Minus(f.Coordinates[s.WindingSource.OutputShaft.Id]).Key != h.Key) throw new ArgumentException("ActiveCouplingMismatch");
+        if (mode != MechanicalConnectionMode.Released && sun.Minus(f.Coordinates[s.CouplingShaftId]).Key != h.Key) throw new ArgumentException("ActiveCouplingMismatch");
         if (lockedMode)
         {
             if (ConnectedWindingKinematics.UnresolvedEvent(s.WindingSource, ConnectedMotionValue.Number(locked!.DriverTurns), analysis)) throw new ArgumentException("GuardIndeterminate");

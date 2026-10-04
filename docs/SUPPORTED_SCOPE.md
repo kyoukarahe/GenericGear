@@ -42,6 +42,15 @@ One actual conditional winding/differential connection supports1–4 extra seria
 spur stages and a terminal carrier with0–8 rigid attachments. The ordinary
 example uses249 links and also accepts other documented authoring parameters.
 Spatial checkpoints use explicit format2.0; old planar1.0 remains readable.
+The additive [selected-drive profile](SELECTED_DRIVE_BOUNDARY_CONTRACT.md) allows
+either real reel to be selected at source-authoring time, with the actual
+prescribed or passive reel explicitly chosen as coupling owner. The selected
+exact native coordinate is shared by winding and coupling; the solved opposite
+reel stays numerical. Material IDs, actual contact phases and independent
+coaxial ownership are preserved. Selected checkpoints use explicit3.0 and a
+refined endpoint numerical policy; old sources/checkpoints retain their original
+algorithm and interpretation. This is not general inverse kinematics or runtime
+switching of arbitrary input shafts. See the [ordinary example](../examples/runtime/README.md).
 Unguided slack chains, arbitrary moving-axis graphs and whole watch networks are
 not implied. Link roll is underdetermined; numeric residuals and sampled path
 checks are not certified solution bounds or continuous-path proofs.

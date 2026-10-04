@@ -107,6 +107,8 @@ public sealed class MechanicalRuntimeHost : IDisposable
         return Json(new { status, committed = status == "Accepted" || status == "AlreadyCommitted", snapshot = state.RootElement,
             capabilities = new { profile = MechanicalRuntime.ProfileFor(d), version = MechanicalRuntime.Version, modes = d.AllowedModes.Select(m => m.ToString()).ToArray(),
                 sunPort = d.Connection.SunPortId, planetPort = d.Connection.PlanetPortId,
+                prescribedShaft = g.DriverShaft.Id, passiveShaft = g.OutputShaft.Id, couplingShaft = d.Connection.CouplingShaftId,
+                prescribedCoordinate = "shaft-native-unwrapped", prescribedUnit = "turn", directionRestrictedShaft = g.DriverShaft.Id,
                 driverMinimumTurns = g.DriverMinimumTurns, driverMaximumTurns = g.DriverMaximumTurns,
                 currentStateValidation = "source-rebuilt", deletedHistoryValidation = "notPerformed", numericQuality = "NumericResidualOnly", solutionErrorBoundTurns = (double?)null,
                 activeProvenanceLimit = 64, retryLedgerLimit = 16, epochRequests = MechanicalRuntime.EpochRequests,

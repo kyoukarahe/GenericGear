@@ -28,7 +28,8 @@ public static class MechanicalRuntimeJson
     public const string Format = "gear-invest.mechanical-runtime-checkpoint";
     public const string Version = "1.0";
     public const string SpatialVersion = "2.0";
-    private static string VersionFor(WindingConnectionArtifact source) => source.Source.WindingSource is SpatialWindingDefinition ? SpatialVersion : Version;
+    public const string SelectedDriveVersion = "3.0";
+    private static string VersionFor(WindingConnectionArtifact source) => source.Source.HasSelectedDriveBoundary ? SelectedDriveVersion : source.Source.WindingSource is SpatialWindingDefinition ? SpatialVersion : Version;
     public static MechanicalCheckpointArtifact Write(WindingConnectionArtifact source, RuntimeSnapshot state)
     {
         Require(source.Source.DefinitionId == state.Definition.Connection.DefinitionId, "ForeignSnapshot");
@@ -48,18 +49,18 @@ public static class MechanicalRuntimeJson
     {
         using var envelope = Parse(bytes); var root = envelope.RootElement;
         var schema = S(root, "formatVersion");
-        Require(S(root, "format") == Format && (schema == Version || schema == SpatialVersion), "UnsupportedProfile");
+        Require(S(root, "format") == Format && (schema == Version || schema == SpatialVersion || schema == SelectedDriveVersion), "UnsupportedProfile");
         var raw = Raw(root, "payloadUtf8"); Require(Hash(raw) == S(root, "payloadId"), "CheckpointDigestMismatch");
         using var doc = Parse(raw); var p = doc.RootElement;
-        Require(S(p, "runtimeProfile") == (schema == Version ? MechanicalRuntime.Profile : MechanicalRuntime.SpatialProfile) && S(p, "runtimeVersion") == MechanicalRuntime.Version && S(p, "stateSchema") == schema, "UnsupportedProfile");
+        Require(S(p, "runtimeProfile") == (schema == Version ? MechanicalRuntime.Profile : schema == SpatialVersion ? MechanicalRuntime.SpatialProfile : MechanicalRuntime.SelectedDriveProfile) && S(p, "runtimeVersion") == MechanicalRuntime.Version && S(p, "stateSchema") == schema, "UnsupportedProfile");
         var source = ReadRuntimeSource(Raw(p, "sourceArtifactUtf8")); Require(source.ArtifactId == S(p, "sourceArtifactId") && VersionFor(source) == schema, "ForeignSnapshot");
         var policy = p.GetProperty("policy");
         var definition = new MechanicalModeDefinition(source.Source, Items(policy, "allowedModes", 5).Select(e => Enum.Parse<MechanicalConnectionMode>(e.GetString()!)), F(policy.GetProperty("alignmentOffset")));
         Require(definition.DefinitionId == S(policy, "definitionId"), "ForeignPolicy");
         var s = p.GetProperty("state"); var frame = s.GetProperty("frame"); var q = F(frame.GetProperty("driverTurns"));
         var pd = definition.Connection.Suffix.Parent.Definition;
-        var sun = Items(frame, "coordinates", schema == SpatialVersion ? 10 : 6).Single(e => S(e, "shaftId") == pd.SunShaft.Id).GetProperty("value");
-        var planet = Items(frame, "ports", schema == SpatialVersion ? 11 : 7).Single(e => S(e, "portId") == definition.Connection.PlanetPortId).GetProperty("value");
+        var sun = Items(frame, "coordinates", schema != Version ? 10 : 6).Single(e => S(e, "shaftId") == pd.SunShaft.Id).GetProperty("value");
+        var planet = Items(frame, "ports", schema != Version ? 11 : 7).Single(e => S(e, "portId") == definition.Connection.PlanetPortId).GetProperty("value");
         var capture = s.GetProperty("captureWitness"); var locked = s.GetProperty("lockWitness");
         var state = new MechanicalRuntime(definition).Restore(S(s, "sessionId"), Count(s, "revision"), Count(s, "eventCursor"), S(s, "historyId"), E<MechanicalConnectionMode>(s, "mode"), s.GetProperty("allowedDirection").GetInt32(), q,
             Affine(s.GetProperty("couplingOffset")), s.GetProperty("lockReference").ValueKind == JsonValueKind.Null ? null : Affine(s.GetProperty("lockReference")), Affine(sun), Affine(planet),
@@ -86,6 +87,7 @@ public static class MechanicalRuntimeJson
         w.WriteString("stateId", s.StateId); w.WriteString("historyId", s.HistoryId); Count(w, "revision", s.Revision); Count(w, "epoch", s.Epoch);
         Count(w, "eventCursor", s.EventCursor); Count(w, "staleBeforeRevision", s.StaleBeforeRevision); w.WriteString("mode", m.Mode.ToString()); w.WriteNumber("allowedDirection", m.AllowedDirection);
         MechanicalAuthoringJson.Strings(w, "requiredInputPorts", MechanicalModeEngine.RequiredInputPorts(s.Definition, m.Mode));
+        if (s.Definition.Connection.HasSelectedDriveBoundary) SpatialWindingJson.DriveBinding(w, s.Definition.Connection);
         w.WritePropertyName("couplingOffset"); Value(w, m.CouplingOffset); w.WritePropertyName("lockReference"); if (m.LockReference is null) w.WriteNullValue(); else Value(w, m.LockReference);
         w.WritePropertyName("captureWitness");
         if (s.CaptureWitness is null) w.WriteNullValue(); else { w.WriteStartObject(); Fraction(w, "driverTurns", s.CaptureWitness.DriverTurns); Fraction(w, "sunNativeTurns", s.CaptureWitness.SunNativeTurns); w.WriteEndObject(); }

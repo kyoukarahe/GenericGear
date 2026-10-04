@@ -1,4 +1,4 @@
-param([string]$OutputDirectory = 'artifacts/e123-runtime-checkpoint/web', [switch]$Spatial)
+param([string]$OutputDirectory = 'artifacts/e123-runtime-checkpoint/web', [switch]$Spatial, [switch]$SelectedDrive)
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $out = [IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
@@ -16,10 +16,13 @@ dotnet build "$root/examples/runtime/dotnet/Runtime.Consumer.csproj" -c Release 
 if ($LASTEXITCODE -ne 0) { throw 'Consumer build failed' }
 $source = "$web/example/source.json"
 if (-not (Test-Path -LiteralPath $source)) {
-    $authorCommand = if ($Spatial) { 'create-spatial-example' } else { 'create-example' }
+    $authorCommand = if ($SelectedDrive) { 'create-selected-drive-example' } elseif ($Spatial) { 'create-spatial-example' } else { 'create-example' }
     dotnet "$root/examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll" $authorCommand $source
     if ($LASTEXITCODE -ne 0) { throw 'Source authoring failed' }
 }
+$exampleKind = if ($SelectedDrive) { 'selected-drive' } elseif ($Spatial) { 'spatial' } else { 'planar' }
+dotnet "$root/examples/runtime/dotnet/bin/Release/net8.0/Runtime.Consumer.dll" check-example $exampleKind $source
+if ($LASTEXITCODE -ne 0) { throw 'Source identity does not match selected example inputs.' }
 # The SDK may resolve an installed runtime pack instead of a NuGet-cache copy.
 # Read the actual resolved pack, so its notices accompany the runtime we ship.
 $resolvedJson = dotnet msbuild "$root/adapters/browser-runtime/GearInvest.BrowserRuntime.csproj" -target:ResolveFrameworkReferences -p:Configuration=Release -p:MSBuildEnableWorkloadResolver=false -getItem:ResolvedRuntimePack -verbosity:quiet
