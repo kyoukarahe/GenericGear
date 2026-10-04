@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidate": "0.1.0-rc.public05.1",
+  "candidate": "0.1.0-rc.public05.2",
   "kind": "source-only",
   "files": [
     {
@@ -36,7 +36,7 @@
     {
       "path": "Directory.Build.props",
       "bytes": 1483,
-      "sha256": "dd3ba95d93f937bd9072e0f22abb9fff72ea790a4453104824832d7ed67fe42b"
+      "sha256": "10ed528564df7fb9b0a75c3455c62833f4039772ddebd58e67f02bf8d45b6963"
     },
     {
       "path": "LICENSE",
@@ -55,8 +55,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6161,
-      "sha256": "87db045d41250f456c2e57af6a297d793860ad94fba9bed011c9eacdd75753c0"
+      "bytes": 6414,
+      "sha256": "058c3bccaf2353527af31b081a1fe546277c08d019fefd69f032f5e540a0b130"
     },
     {
       "path": "SECURITY.md",
@@ -310,8 +310,8 @@
     },
     {
       "path": "docs/SELECTED_DRIVE_BOUNDARY_CONTRACT.md",
-      "bytes": 9010,
-      "sha256": "142f3d937d32a89b96c8238a311457534447ceeb655535e9aa585ba9c48428d9"
+      "bytes": 9477,
+      "sha256": "089dc4f84b067f4870239f5152e8e803f651be524961ecfb4d9ff832670c626d"
     },
     {
       "path": "docs/SPATIAL_RUNTIME_DEVICE_ACCEPTANCE.md",
@@ -330,8 +330,8 @@
     },
     {
       "path": "docs/VERIFICATION.md",
-      "bytes": 12833,
-      "sha256": "6562c8d5cdb1abdecc6f58b6123d27b1edb601680a72e7fe6f05feb072a6ee7f"
+      "bytes": 14339,
+      "sha256": "f24e91f036e136155da581ca916145850c993e97c59601b6c0642bac674f78f8"
     },
     {
       "path": "examples/carrier/CarrierExample.cs",
@@ -676,7 +676,7 @@
     {
       "path": "examples/runtime/README.md",
       "bytes": 7105,
-      "sha256": "5350cbc088dfb91a20cfea95ce9ffd04cb63e2edc204c6d3cfcbd98e35444acf"
+      "sha256": "531379be40c74f32ad74e2092ccef418036d0a7b34b343fd2316ee6d93d83e66"
     },
     {
       "path": "examples/runtime/dotnet/Program.cs",
@@ -771,7 +771,7 @@
     {
       "path": "examples/web/package.json",
       "bytes": 418,
-      "sha256": "549a71d582ccc6710e66c6f44bf2c0ac31d35c987241d66df694218eaa5d5280"
+      "sha256": "94bf61cb928315f207195e3c4720abb05ebfcbacd1ccce00a0a47f288e575f85"
     },
     {
       "path": "examples/web/public/data/mixed.oriented.json",
@@ -841,12 +841,12 @@
     {
       "path": "package-lock.json",
       "bytes": 40120,
-      "sha256": "f38401a1de3241ab7bcb16f017a3f66d01e2e3346aaa6aac9c36da85ccd4c9bc"
+      "sha256": "ba2d0419933d893fea729b2fa8b9e9a002f98601b1ca539cfcd52955265dc6f9"
     },
     {
       "path": "package.json",
       "bytes": 559,
-      "sha256": "da08a19896dee0bc5c1c87350f66ddf6e8f4f297c1a2e3c80e76f847307a869e"
+      "sha256": "09ca163ce6376830f5f91ded0e2646c063783409d128ea439e7432ff3810e1e2"
     },
     {
       "path": "packages/presentation/DEPENDENCIES.json",
@@ -876,7 +876,7 @@
     {
       "path": "packages/presentation/package.json",
       "bytes": 1548,
-      "sha256": "d848d7788d434ba75d765bf17a07ee61e02f7edd3bf9b26910df2f1f431f6013"
+      "sha256": "11d873874631db4de06bfdbe8fd62854b761e24fcb232dcd66f3a51da76c551f"
     },
     {
       "path": "packages/presentation/src/assembly.ts",
@@ -961,7 +961,7 @@
     {
       "path": "packages/replay/package.json",
       "bytes": 1507,
-      "sha256": "8c019e0c26a4ea7d3e99318a6aaa4ab9b69982fdaf57f674c1c40f3dbbe52fff"
+      "sha256": "9f2d9997ecebcab8c64d5564214a43430441805db4cc01edaab75ae2a5be16c2"
     },
     {
       "path": "packages/replay/src/artifact.ts",
@@ -1540,8 +1540,8 @@
     },
     {
       "path": "src/GearInvest.Engine/ConnectedWindingSource.cs",
-      "bytes": 9821,
-      "sha256": "cb087290ed7132ae2b4580cfb9e3492847b7b7f2833c187ce463e31bc44150f5"
+      "bytes": 10576,
+      "sha256": "ccc013a05272c9c1aa368493992b730851471c206f9a88e0ae9b2a12b23d2e26"
     },
     {
       "path": "src/GearInvest.Engine/ContinuousEventBridgeModels.cs",
@@ -3284,6 +3284,11 @@
       "sha256": "c49060fb99b597a0c4eba2ff11ebef48b98863078f9bc570ddcc6cab7d87b482"
     },
     {
+      "path": "tests/GearInvest.Tests/SpatialSegmentBoundaryTests.cs",
+      "bytes": 8381,
+      "sha256": "26a70eb30daf883ca77cc8af53bb8f0a476f1e21d9cec25560c0aee5970aa6a2"
+    },
+    {
       "path": "tests/GearInvest.Tests/SpatialWindingTests.cs",
       "bytes": 8399,
       "sha256": "a6b307cd8b6f92105eb51c487b37711116c803599c999c8362bfd80630c42b84"
@@ -3302,6 +3307,26 @@
       "path": "tests/GearInvest.Tests/packages.lock.json",
       "bytes": 5974,
       "sha256": "494444f7786dd73459a4330c37868e71f50f52f5b2d797e8b666891139b809ad"
+    },
+    {
+      "path": "tools/boundary-01/README.md",
+      "bytes": 5133,
+      "sha256": "6508638ca63d14801e584bd72d6e7966f0358337f7017f554aad667797a4f101"
+    },
+    {
+      "path": "tools/boundary-01/check-browser-readback.mjs",
+      "bytes": 4945,
+      "sha256": "fd9271a78aeb201530a104ffc2c09979f3255c3d040df13c79fe49cf2987f3ef"
+    },
+    {
+      "path": "tools/boundary-01/check-runtime.mjs",
+      "bytes": 10335,
+      "sha256": "37242265d792b48b0c7f867046b21bb6a9742be75ea43dc042b5de0c607b9192"
+    },
+    {
+      "path": "tools/boundary-01/prepare-browser.mjs",
+      "bytes": 2034,
+      "sha256": "4c5fa78994b69c8b5fe421c11a8f043907b3cba4a4c6b4f0c8c6b002eabed1fb"
     },
     {
       "path": "tools/e123-implementation/check-replay.mjs",

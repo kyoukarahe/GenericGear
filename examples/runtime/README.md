@@ -2,7 +2,7 @@
 
 역할: **Usage guide**. 먼저 [지원·신뢰·자원 계약](../../docs/MECHANICAL_RUNTIME_CONTRACT.md)을 읽는다.
 새 입력을 계산하는 C# WASM 경로다. 기존 `/winding`, `/mechanical-modes` sample reader는 그대로다.
-Public source `0.1.0-rc.public05.1`의 실행 경로다. NuGet/npm binary package 배포는 아니다.
+Public source `0.1.0-rc.public05.2`의 실행 경로다. NuGet/npm binary package 배포는 아니다.
 
 ## Build and open
 

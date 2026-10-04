@@ -1,5 +1,30 @@
 # Verification scope
 
+## public05.2 endpoint-preserving spatial segment checks
+
+The selected public suite passed **335 .NET tests**, zero failures/skips, on
+Windows with .NET SDK10.0.401. The121 added cases cover exact endpoint bits,
+finite/in-range internal samples, both directions, stopped motion, adjacent
+values and generic selected/legacy sources. True outside exact inputs and
+genuine geometric failures still reject without publishing a new state.
+
+The shared C# implementation was also verified on the reported consumer input:
+4562/11000 followed by -1 in the same session now reaches exactly -1/1 instead
+of failing on an internally overshot checkpoint. Actual Chrome controls,
+checkpoint download, fresh-page restore and fresh-native continuation passed
+on the implementation candidate. This is not a new physical proof or a mobile
+test. The source is owned by the consumer and is not bundled in this release.
+
+The [reproduction guide](../tools/boundary-01/README.md) includes a native/WASM
+check and build identity receipts for either a checkout or source ZIP. Exact
+input admission, subdivision count, final solver evaluation, work budgets,
+failure meanings and checkpoint schemas are unchanged. Release-specific clean
+ZIP consumption, public-build browser checks, hosted CI and download hashes
+are recorded with the final commit in the GitHub Release, not predicted here.
+
+PATH-GAP remains **OPEN** and real Android/iOS/Safari remains **UNVERIFIED**.
+Public05.1 stays available as the immutable unfixed baseline.
+
 ## public05.1 selected real-reel drive boundary
 
 The selected public suite passed **214 .NET tests**, zero failures/skips, on

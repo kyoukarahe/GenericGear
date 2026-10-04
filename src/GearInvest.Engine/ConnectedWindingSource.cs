@@ -103,19 +103,31 @@ internal static class ConnectedWindingKinematics
     {
         if (source is FiniteWindingDefinition planar) return FiniteWindingSolver.ValidateSegment(planar.Geometry, from, to);
         var g = ((SpatialWindingDefinition)source).Geometry;
-        if (from < g.DriverMinimumTurns || from > g.DriverMaximumTurns || to < g.DriverMinimumTurns || to > g.DriverMaximumTurns) return "WindingBoundary";
+        if (!double.IsFinite(from) || !double.IsFinite(to) ||
+            from < g.DriverMinimumTurns || from > g.DriverMaximumTurns || to < g.DriverMinimumTurns || to > g.DriverMaximumTurns) return "WindingBoundary";
         // Explicit sampled/refined numerical path policy, not a swept-geometry certificate.
         var count = Math.Max(1, (int)Math.Ceiling(Math.Abs(to - from) * 128));
         if (count > 1536) return "ResourceLimit";
         long work = 0;
         for (var i = 0; i <= count; i++)
         {
-            var q = from + (to - from) * i / count;
+            var q = SegmentCheckpoint(from, to, i, count);
             var r = analysis?.SpatialQuery(q) ?? ((SpatialWindingDefinition)source).Query(q);
             work += r.NumericWork; if (!r.IsAccepted) return r.Status;
             if (work > 40000000) return "ResourceLimit";
         }
         return null;
+    }
+    // Only for admitted finite spatial-domain endpoints and 0 <= index <= count (count >= 1).
+    // Preserve the requested endpoints bit-for-bit, including the final full solver query.
+    // Interior correction contains roundoff within this already-validated segment; it never
+    // clamps a user's input to the mechanism domain. Exact Rational admission remains separate.
+    internal static double SegmentCheckpoint(double from, double to, int index, int count)
+    {
+        if (index == 0) return from;
+        if (index == count) return to;
+        var q = from + (to - from) * index / count;
+        return Math.Max(Math.Min(from, to), Math.Min(Math.Max(from, to), q));
     }
     internal static bool UnresolvedEvent(ConnectedWindingSource source, double q, WindingDifferentialAnalysis? analysis = null)
     {

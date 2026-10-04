@@ -129,6 +129,12 @@ their agreement is not independent physical proof.
 Geometry/domain/resource limits are unchanged and apply to the **selected**
 driver and opposite passive ranges after role mapping. Both ends and sampled
 interiors are evaluated; multi-segment out-and-back is not endpoint-only.
+Spatial segment checkpoint generation preserves the supplied first/last binary64
+endpoints exactly. Interior roundoff is confined to the closed segment between
+the already domain-checked endpoints; this is not a clamp on user input. The
+exact Rational domain check, inclusive final solver query, interval count and
+work debit are unchanged. This endpoint-preserving fix also applies to legacy
+spatial segment validation, without changing pose/serialization policies.
 `NoBracketInDeclaredBranch` is search failure, not proven impossibility.
 Numerically unresolved/ambiguous/event guards, joint failure, domain boundary,
 unsupported profile and resource refusal remain distinct. There is no invented

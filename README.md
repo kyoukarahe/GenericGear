@@ -7,9 +7,13 @@ mechanism. The separate browser runtime executes the shared C# implementation
 locally for the bounded winding/mode profile. Unity and browser display objects
 never own the mechanical truth.
 
-This is a **source release**, version `0.1.0-rc.public05.1`.
+This is a **source release**, version `0.1.0-rc.public05.2`.
 Build and use it from this source tree. No public NuGet/npm package, binary
 download or Unity package is claimed here.
+
+Public05.2 fixes spatial winding segment interpolation at admitted domain
+endpoints (BOUNDARY-01). Exact endpoint admission, sampled-path budgets and
+atomic rejection remain unchanged. See the [fix and reproduction guide](tools/boundary-01/README.md).
 
 ## Quick start from this source snapshot
 

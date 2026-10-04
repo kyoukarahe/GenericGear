@@ -1,6 +1,6 @@
 {
   "name": "@gearinvest/presentation",
-  "version": "0.1.0-rc.public05.1",
+  "version": "0.1.0-rc.public05.2",
   "description": "Optional headless planar or oriented pitch-surface projection with explicit Canvas2D adapters.",
   "type": "module",
   "sideEffects": false,
@@ -44,7 +44,7 @@
     "DEPENDENCIES.json"
   ],
   "dependencies": {
-    "@gearinvest/replay": "0.1.0-rc.public05.1"
+    "@gearinvest/replay": "0.1.0-rc.public05.2"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig.canvas.json"
